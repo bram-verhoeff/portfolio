@@ -1,0 +1,23 @@
+{
+  "name": "Bram Verhoeff | Software Developer",
+  "short_name": "Bram Verhoeff",
+  "description": "Portfolio van Bram Verhoeff, 18-jarige Full-Stack Software Developer. Specialist in Go High Level, SaaS-development en e-commerce.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0e0d0b",
+  "theme_color": "#0e0d0b",
+  "lang": "nl",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
