@@ -505,6 +505,28 @@
             font-size: 7.5rem; font-weight: 600; color: var(--accent);
             position: relative; z-index: 1;
         }
+        .about-timeline {
+            margin-top: 2rem; border-left: 2px solid var(--line-strong); padding-left: 1.2rem;
+        }
+        .timeline-item {
+            position: relative; padding: 0 0 1.2rem 1.1rem;
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -1.5rem; top: 0.2rem; width: 12px; height: 12px;
+            border-radius: 50%; background: var(--accent-text); box-shadow: 0 0 0 4px rgba(0,180,255,0.12);
+        }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-date {
+            font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent-text); margin-bottom: 0.25rem;
+        }
+        .timeline-content h3 {
+            font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin: 0 0 0.35rem;
+        }
+        .timeline-content p {
+            margin: 0; font-size: 0.95rem; line-height: 1.75; color: var(--muted);
+        }
+
         .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.2rem; }
         .stat-card {
             background: var(--surface); border: 1px solid var(--line);
@@ -987,6 +1009,31 @@
                 een innovatieve tool waar gebruikers hun taken en projecten kunnen uploaden
                 om slimmer te studeren.
             </p>
+
+            <div class="about-timeline" aria-label="Tijdlijn van opleidingen en stage">
+                <div class="timeline-item">
+                    <div class="timeline-date">2019 — 2023</div>
+                    <div class="timeline-content">
+                        <h3>Segbroek College</h3>
+                        <p>Ik zat op het Segbroek College van 2019 tot en met 2023.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 — 2026</div>
+                    <div class="timeline-content">
+                        <h3>Software Developer opleiding (MBO)</h3>
+                        <p>Student geweest aan de Software Developer opleiding op MBO niveau en daarvoor geslaagd.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 — 2026</div>
+                    <div class="timeline-content">
+                        <h3>Stage bij IkWilPersoneel</h3>
+                        <p>Ik heb in 2025 en 2026 stage gelopen bij IkWilPersoneel.</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="about-stats">
                 <div class="stat-card">
                     <i class="fa-solid fa-rocket stat-icon"></i>
@@ -995,7 +1042,7 @@
                 </div>
                 <div class="stat-card">
                     <i class="fa-solid fa-cake-candles stat-icon"></i>
-                    <div class="stat-number" data-target="18">0</div>
+                    <div class="stat-number" data-target="18">18</div>
                     <div class="stat-label">Jaar oud</div>
                 </div>
                 <div class="stat-card">
