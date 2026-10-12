@@ -1,7 +1,7 @@
 <?php
-// Enable error reporting for debugging
+// Error handling for API endpoint (do not output HTML warnings)
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
@@ -92,7 +92,7 @@ $email_body = "
 </html>";
 
 // Send email
-$mail_sent = mail($to, $subject, $email_body, $headers);
+$mail_sent = @mail($to, $subject, $email_body, $headers);
 
 // For testing: if mail fails on local server, simulate success
 if (!$mail_sent && (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false || strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false)) {
