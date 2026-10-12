@@ -11,7 +11,7 @@ import { Footer } from "@/components/contact/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative overflow-x-hidden">
+    <main className="min-h-screen relative overflow-x-hidden bg-[#05080e] text-white">
       <Navbar />
       <Hero />
       <TechMarquee />

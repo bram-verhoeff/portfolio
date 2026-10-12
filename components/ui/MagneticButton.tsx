@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { soundEngine } from "@/lib/sound";
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -45,12 +46,17 @@ export function MagneticButton({
     y.set(0);
   };
 
+  const handleClick = () => {
+    soundEngine.playClick();
+    if (onClick) onClick();
+  };
+
   const baseStyles = cn(
     "relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full font-bold text-[0.95rem] transition-all duration-300 overflow-hidden cursor-pointer no-underline group/btn",
     variant === "primary" &&
-      "bg-ink text-white shadow-[0_4px_15px_-2px_rgba(10,10,10,0.18),0_0_20px_-5px_rgba(0,180,255,0.4)] hover:bg-[#0077b6] hover:shadow-[0_12px_32px_-5px_rgba(0,119,182,0.6),0_0_30px_rgba(0,180,255,0.55)] border border-white/15",
+      "bg-gradient-to-r from-[#0077b6] to-[#00b4ff] text-white shadow-[0_4px_20px_rgba(0,180,255,0.4)] hover:shadow-[0_0_35px_rgba(0,180,255,0.7)] border border-[#00b4ff]/40",
     variant === "secondary" &&
-      "bg-white/90 backdrop-blur-md border border-[rgba(10,10,10,0.18)] text-ink shadow-[0_2px_10px_rgba(10,10,10,0.04)] hover:bg-white hover:border-[#00b4ff] hover:text-[#0077b6] hover:shadow-[0_6px_20px_rgba(0,180,255,0.25)]",
+      "bg-white/[0.05] backdrop-blur-md border border-white/15 text-white shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:bg-[#00b4ff]/15 hover:border-[#00b4ff] hover:text-[#7dd3fc] hover:shadow-[0_0_25px_rgba(0,180,255,0.3)]",
     className
   );
 
@@ -93,6 +99,7 @@ export function MagneticButton({
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onMouseEnter={() => soundEngine.playHover()}
       style={{ x: springX, y: springY }}
       className="inline-block"
     >
@@ -101,12 +108,12 @@ export function MagneticButton({
           href={href}
           download={download}
           className={baseStyles}
-          onClick={onClick}
+          onClick={handleClick}
         >
           {content}
         </a>
       ) : (
-        <button type="button" onClick={onClick} className={baseStyles}>
+        <button type="button" onClick={handleClick} className={baseStyles}>
           {content}
         </button>
       )}

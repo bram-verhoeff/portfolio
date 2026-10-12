@@ -276,7 +276,7 @@ export function ContactSection() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="relative w-full py-3.5 px-6 rounded-full font-bold text-sm tracking-wide text-white bg-[#0077b6] hover:bg-[#0090c9] shadow-[0_10px_25px_rgba(0,180,255,0.35)] disabled:opacity-50 transition-all duration-200 flex items-center justify-center gap-2 overflow-hidden group"
+                className="relative w-full py-3.5 px-6 rounded-full font-bold text-sm tracking-wide text-white bg-gradient-to-r from-[#0077b6] to-[#00b4ff] hover:from-[#0088cc] hover:to-[#38bdf8] shadow-[0_10px_30px_rgba(0,180,255,0.4)] disabled:opacity-50 transition-all duration-200 flex items-center justify-center gap-2 overflow-hidden group cursor-pointer"
               >
                 {status === "loading" ? (
                   <>

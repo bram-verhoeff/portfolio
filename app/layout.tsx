@@ -102,7 +102,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans bg-white text-ink antialiased selection:bg-[#00b4ff] selection:text-white">
+      <body className="font-sans bg-[#05080e] text-[#f8fafc] antialiased selection:bg-[#00b4ff] selection:text-black overflow-x-hidden">
         <SmoothScroll>
           <SpotlightGlow />
           <ParticleBackground />

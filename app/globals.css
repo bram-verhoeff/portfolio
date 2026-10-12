@@ -3,18 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --bg: #ffffff;
-  --bg-soft: #f3f4f5;
-  --surface: #ffffff;
-  --ink: #0a0a0a;
-  --ink-soft: #45484c;
-  --muted: #767a80;
-  --line: rgba(10, 10, 10, 0.10);
-  --line-strong: rgba(10, 10, 10, 0.22);
+  --bg: #05080e;
+  --bg-soft: #090d16;
+  --surface: #0e131f;
+  --ink: #f8fafc;
+  --ink-soft: #94a3b8;
+  --muted: #64748b;
+  --line: rgba(255, 255, 255, 0.10);
+  --line-strong: rgba(255, 255, 255, 0.22);
   --accent: #00b4ff;
-  --accent-text: #0077b6;
-  --accent-dim: rgba(0, 180, 255, 0.12);
-  --dark: #0a0d10;
+  --accent-text: #38bdf8;
+  --accent-dim: rgba(0, 180, 255, 0.15);
+  --dark: #05080e;
   --font-display: 'Fraunces', serif;
 }
 
@@ -24,13 +24,14 @@
 
 html {
   scroll-behavior: smooth;
-  scrollbar-color: #00b4ff #f3f4f5;
+  scrollbar-color: #00b4ff #070a10;
   scrollbar-width: thin;
+  background-color: #05080e;
 }
 
 body {
-  background: var(--bg);
-  color: var(--ink);
+  background-color: #05080e;
+  color: #f8fafc;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -39,19 +40,19 @@ body {
 
 ::selection {
   background: #00b4ff;
-  color: #ffffff;
+  color: #05080e;
 }
 
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f3f4f5;
+  background: #070a10;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0a0a0a;
+  background: #00b4ff;
   border-radius: 9px;
-  border: 2px solid #f3f4f5;
+  border: 2px solid #070a10;
 }
 
 /* Vulk Spotlight Hover Masking */
@@ -84,7 +85,7 @@ body {
 }
 
 .animate-border-beam {
-  animation: beamTravel 9s linear infinite;
+  animation: beamTravel 8s linear infinite;
 }
 
 /* Text Gradient Shift */
@@ -94,12 +95,13 @@ body {
 }
 
 .hero-gradient-text {
-  background: linear-gradient(135deg, #0a0a0a 0%, #0077b6 50%, #00b4ff 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #38bdf8 35%, #00b4ff 70%, #818cf8 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: textGradientShift 6s ease-in-out infinite alternate;
+  animation: textGradientShift 5s ease-in-out infinite alternate;
+  text-shadow: 0 0 35px rgba(0, 180, 255, 0.45);
 }
 
 /* Badge Shimmer Streak */
@@ -140,7 +142,7 @@ body {
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 32s linear infinite;
+  animation: marquee 28s linear infinite;
 }
 
 .animate-marquee:hover {
@@ -150,21 +152,30 @@ body {
 /* Floating Icon Animation */
 @keyframes floatIcon {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-5px); }
+  100% { transform: translateY(-6px); }
 }
 
 .animate-float-icon {
-  animation: floatIcon 5s ease-in-out infinite alternate;
+  animation: floatIcon 4s ease-in-out infinite alternate;
 }
 
 /* Aura Pulse */
 @keyframes pulseAura {
   0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.65; }
-  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
 }
 
 .animate-aura {
-  animation: pulseAura 8s ease-in-out infinite alternate;
+  animation: pulseAura 7s ease-in-out infinite alternate;
+}
+
+/* Hide scrollbar for clean UI elements */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Reduced Motion Safety */

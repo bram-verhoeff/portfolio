@@ -16,22 +16,40 @@ export function SpotlightGlow() {
 
   return (
     <>
-      {/* Dot-matrix subtle background grid */}
+      {/* Dot-matrix subtle cyber background grid */}
       <div
-        className="fixed inset-0 pointer-events-none z-0"
+        className="fixed inset-0 pointer-events-none z-0 opacity-35"
         style={{
           backgroundImage:
-            "radial-gradient(rgba(10, 10, 10, 0.045) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
+            "radial-gradient(rgba(0, 180, 255, 0.18) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
         }}
         aria-hidden="true"
       />
 
-      {/* Primary Deep Radial Spotlight Flashlight */}
+      {/* Cyber perspective horizontal scan lines */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0 opacity-15"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0, 180, 255, 0.08) 1px, transparent 1px)",
+          backgroundSize: "100% 48px",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Deep Aurora Ambient Light Cones */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#00b4ff]/15 via-[#0077b6]/10 to-transparent blur-[120px] animate-pulse" />
+        <div className="absolute top-1/3 -right-40 w-[650px] h-[650px] rounded-full bg-gradient-to-bl from-[#8b5cf6]/12 via-[#38bdf8]/10 to-transparent blur-[140px]" />
+        <div className="absolute -bottom-40 left-1/4 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-[#00b4ff]/15 via-[#0077b6]/08 to-transparent blur-[130px] animate-aura" />
+      </div>
+
+      {/* Primary Deep Radial Spotlight Flashlight (Tracks Cursor) */}
       <div
         className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-300"
         style={{
-          background: `radial-gradient(750px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 180, 255, 0.12), transparent 70%)`,
+          background: `radial-gradient(850px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 180, 255, 0.15), transparent 70%)`,
         }}
         aria-hidden="true"
       />
@@ -40,7 +58,7 @@ export function SpotlightGlow() {
       <div
         className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-300"
         style={{
-          background: `radial-gradient(280px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 180, 255, 0.08), transparent 60%)`,
+          background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, rgba(56, 189, 248, 0.12), transparent 60%)`,
         }}
         aria-hidden="true"
       />

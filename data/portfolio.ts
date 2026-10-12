@@ -10,6 +10,8 @@ export interface Project {
   statChipText: string;
   url: string;
   linkText: string;
+  span?: string;
+  isFlagship?: boolean;
 }
 
 export interface TimelineItem {
@@ -119,38 +121,65 @@ export const PORTFOLIO_DATA = {
 
   projects: [
     {
-      id: "agevo",
-      number: "01 / 02",
-      badge: "Live Onderneming",
-      emoji: "⚡",
-      title: "Agevo Development",
-      description:
-        "Mijn eigen software development onderneming (KVK 42160840). Gespecialiseerd in het ontwikkelen van hoogwaardige webapplicaties, maatwerk platforms, API-koppelingen en geavanceerde Go High Level automations voor bedrijven.",
-      tags: [
-        "Software Development",
-        "KVK 42160840",
-        "Full-Stack",
-        "Go High Level",
-        "Web & SaaS"
-      ],
-      statChipIcon: "fa-solid fa-building",
-      statChipText: "KVK 42160840",
-      url: "https://agevodev.nl/",
-      linkText: "Bezoek agevodev.nl"
-    },
-    {
       id: "studyelite",
-      number: "02 / 02",
-      badge: "Live SaaS",
+      number: "01 / 04 · FLAGSHIP SHOWCASE",
+      badge: "Live AI SaaS",
       emoji: "🎓",
       title: "StudyElite",
       description:
         "AI-gestuurd studieplannerplatform voor studenten. Helpt gebruikers hun studieplanning te optimaliseren met gepersonaliseerde AI-begeleiding, taakanalyses en geavanceerde workflow tools om slimmer te studeren.",
-      tags: ["AI", "SaaS", "Study Planner", "Smart Guidance"],
+      tags: ["AI", "SaaS", "Study Planner", "Smart Guidance", "Next.js"],
       statChipIcon: "fa-solid fa-robot",
-      statChipText: "Smart AI Guidance",
+      statChipText: "Smart AI Guidance Engine",
       url: "https://studyelite.nl/",
-      linkText: "Bezoek studyelite.nl"
+      linkText: "Bezoek studyelite.nl",
+      span: "col-span-12 lg:col-span-8",
+      isFlagship: true
+    },
+    {
+      id: "starrate",
+      number: "02 / 04",
+      badge: "Live SaaS",
+      emoji: "⭐",
+      title: "StarRate",
+      description:
+        "Alles-in-één reviewmanagement platform voor Nederlandse bedrijven. Verzamelt en analyseert reviews op 50+ platformen met AI-gegenereerde antwoorden.",
+      tags: ["SaaS", "Full-Stack", "Review Management"],
+      statChipIcon: "fa-solid fa-chart-line",
+      statChipText: "50+ Platforms",
+      url: "https://starrate.nl/",
+      linkText: "Bezoek starrate.nl",
+      span: "col-span-12 lg:col-span-4"
+    },
+    {
+      id: "ultravoeding",
+      number: "03 / 04",
+      badge: "Live E-commerce",
+      emoji: "⚡",
+      title: "Ultravoeding",
+      description:
+        "Nederlandse webshop voor sport- en fitnessupplementen. Gebruiksvriendelijke webshop met een gecureerde selectie van eiwitten, creatine en pre-workout.",
+      tags: ["E-commerce", "Web", "Supplements"],
+      statChipIcon: "fa-solid fa-cart-shopping",
+      statChipText: "Webshop Live",
+      url: "https://ultravoeding.nl/",
+      linkText: "Bezoek ultravoeding.nl",
+      span: "col-span-12 lg:col-span-4"
+    },
+    {
+      id: "primeresell",
+      number: "04 / 04",
+      badge: "Live Resell",
+      emoji: "💎",
+      title: "PrimeResell",
+      description:
+        "Exclusief luxe resell platform voor designer horloges en Gucci accessoires. Klanten bestellen via WhatsApp en ontvangen binnen 24-48 uur.",
+      tags: ["E-commerce", "Luxe Resell", "WhatsApp"],
+      statChipIcon: "fa-solid fa-gem",
+      statChipText: "24-48u Levering",
+      url: "https://www.primeresell.nl/",
+      linkText: "Bezoek primeresell.nl",
+      span: "col-span-12 lg:col-span-4"
     }
   ] as Project[],
 

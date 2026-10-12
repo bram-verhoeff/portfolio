@@ -4,9 +4,9 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
     <title>Bram Verhoeff | Full-Stack Software Developer & Architect — Agevo Development</title>
-    <meta name="description" content="18-jarige Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840). Maker van StudyElite en schaalbare SaaS-applicaties."/>
+    <meta name="description" content="18-jarige Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840). Maker van StudyElite, StarRate, Ultravoeding en PrimeResell."/>
     <meta name="robots" content="index, follow"/>
-    <meta name="theme-color" content="#ffffff"/>
+    <meta name="theme-color" content="#07090e"/>
     <link rel="canonical" href="https://bramverhoeff.nl/"/>
 
     <!-- Favicons -->
@@ -22,7 +22,7 @@
     <meta property="og:site_name" content="Bram Verhoeff"/>
     <meta property="og:locale" content="nl_NL"/>
     <meta property="og:title" content="Bram Verhoeff | Software Developer — Agevo Development"/>
-    <meta property="og:description" content="18-jarige Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840). Maker van StudyElite en schaalbare SaaS-applicaties."/>
+    <meta property="og:description" content="18-jarige Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840). Maker van StudyElite, StarRate, Ultravoeding en PrimeResell."/>
     <meta property="og:image" content="https://bramverhoeff.nl/og-image.jpg"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
@@ -30,10 +30,10 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="Bram Verhoeff | Software Developer — Agevo Development"/>
-    <meta name="twitter:description" content="18-jarige Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840). Maker van StudyElite."/>
+    <meta name="twitter:description" content="18-jarige Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840)."/>
     <meta name="twitter:image" content="https://bramverhoeff.nl/og-image.jpg"/>
 
-    <!-- Structured data -->
+    <!-- Structured Data JSON-LD -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -47,45 +47,55 @@
             "name": "Agevo Development",
             "url": "https://agevodev.nl/"
         },
-        "description": "18-jarige Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840). Maker van StudyElite.",
+        "description": "18-jarige Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840). Maker van StudyElite, StarRate, Ultravoeding en PrimeResell.",
         "email": "mailto:bramverhoeff@hotmail.com",
         "nationality": "Nederlandse",
-        "knowsAbout": ["PHP", "JavaScript", "Node.js", "MySQL", "Go High Level", "SaaS development", "REST API's"],
+        "knowsAbout": ["PHP", "JavaScript", "TypeScript", "Node.js", "MySQL", "PostgreSQL", "Go High Level", "SaaS development", "REST API's"],
         "sameAs": ["https://nl.linkedin.com/in/bram-verhoeff"]
     }
     </script>
 
-    <!-- Google Fonts & Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <!-- Google Fonts & Font Awesome 6.5 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
     <style>
         :root {
-            --bg: #ffffff;
-            --bg-soft: #f3f4f5;
-            --surface: #ffffff;
-            --ink: #0a0a0a;
-            --ink-soft: #45484c;
-            --muted: #767a80;
-            --line: rgba(10, 10, 10, 0.08);
-            --line-strong: rgba(10, 10, 10, 0.18);
+            --bg: #06080e;
+            --bg-card: rgba(14, 19, 31, 0.75);
+            --bg-card-hover: rgba(18, 26, 43, 0.88);
+            --surface: #0e131f;
+            --ink: #f8fafc;
+            --ink-soft: #94a3b8;
+            --muted: #64748b;
+            --line: rgba(255, 255, 255, 0.09);
+            --line-strong: rgba(255, 255, 255, 0.18);
             --accent: #00b4ff;
-            --accent-text: #0077b6;
+            --accent-text: #38bdf8;
             --accent-dim: rgba(0, 180, 255, 0.12);
-            --dark: #0a0d10;
-            --radius: 20px;
-            --nav-h: 76px;
-            --font-display: 'Fraunces', 'Inter', serif;
-            --shadow: 0 1px 2px rgba(10,10,10,0.04), 0 20px 40px -20px rgba(10,10,10,0.14);
-            --shadow-lift: 0 1px 2px rgba(10,10,10,0.05), 0 30px 60px -20px rgba(10,10,10,0.25);
+            --accent-glow: rgba(0, 180, 255, 0.35);
+            --radius-card: 22px;
+            --font-display: 'Fraunces', serif;
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
             --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; scrollbar-color: var(--accent) var(--bg-soft); scrollbar-width: thin; }
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-color: var(--accent) #06080e;
+            scrollbar-width: thin;
+            background-color: var(--bg);
+        }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-sans);
             background: var(--bg);
             color: var(--ink);
             overflow-x: hidden;
@@ -94,62 +104,371 @@
             text-rendering: optimizeLegibility;
         }
 
-        ::selection { background: var(--accent); color: #fff; }
-        ::-webkit-scrollbar { width: 9px; }
-        ::-webkit-scrollbar-track { background: var(--bg-soft); }
-        ::-webkit-scrollbar-thumb { background: var(--ink); border-radius: 9px; border: 2px solid var(--bg-soft); }
+        ::selection {
+            background: var(--accent);
+            color: #06080e;
+        }
 
-        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
-            outline: 2px solid var(--accent-text);
-            outline-offset: 3px;
-            border-radius: 6px;
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #070a10; }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 9px;
+            border: 2px solid #070a10;
         }
 
         /* ══════════════════════════════
-           GLOBAL BACKGROUND & FLASHLIGHT
+           BACKGROUND & LIGHTING AMBIENCE
         ══════════════════════════════ */
         #bg-canvas {
             position: fixed; inset: 0; width: 100vw; height: 100vh;
-            z-index: 0; pointer-events: none; opacity: 0.8;
+            z-index: 0; pointer-events: none; opacity: 0.85;
         }
+
         #global-grid-bg {
             position: fixed; inset: 0; z-index: 0; pointer-events: none;
-            background-image: radial-gradient(rgba(10, 10, 10, 0.045) 1px, transparent 1px);
-            background-size: 28px 28px;
+            background-image: radial-gradient(rgba(0, 180, 255, 0.12) 1px, transparent 1px);
+            background-size: 32px 32px;
+            opacity: 0.55;
         }
+
         #global-cursor-glow {
             position: fixed; inset: 0; z-index: 0; pointer-events: none;
-            background: radial-gradient(750px circle at var(--global-mx, 50%) var(--global-my, 40%), rgba(0, 180, 255, 0.12), transparent 70%);
+            background: radial-gradient(850px circle at var(--global-mx, 50%) var(--global-my, 40%), rgba(0, 180, 255, 0.14), transparent 70%);
             transition: opacity 0.3s ease;
         }
+
+        .ambient-aurora-top {
+            position: fixed; top: -150px; right: -100px; width: 650px; height: 650px;
+            background: radial-gradient(circle, rgba(0, 180, 255, 0.16) 0%, rgba(0, 119, 182, 0.08) 50%, transparent 70%);
+            filter: blur(100px); pointer-events: none; z-index: 0; animation: floatAura 10s ease-in-out infinite alternate;
+        }
+
+        .ambient-aurora-bottom {
+            position: fixed; bottom: -150px; left: -100px; width: 650px; height: 650px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, rgba(139, 92, 246, 0.08) 50%, transparent 70%);
+            filter: blur(110px); pointer-events: none; z-index: 0; animation: floatAura 12s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes floatAura {
+            0% { transform: translate(0, 0) scale(0.95); opacity: 0.65; }
+            100% { transform: translate(40px, 30px) scale(1.15); opacity: 0.95; }
+        }
+
         #progress-bar {
             position: fixed; top: 0; left: 0; height: 3px; width: 0%;
-            background: linear-gradient(90deg, var(--accent-text), var(--accent));
-            box-shadow: 0 0 10px rgba(0, 180, 255, 0.6);
-            z-index: 200;
+            background: linear-gradient(90deg, #0077b6, #00b4ff, #38bdf8);
+            box-shadow: 0 0 12px rgba(0, 180, 255, 0.8);
+            z-index: 2000;
         }
 
         /* ══════════════════════════════
-           SPOTLIGHT BORDERS & BEAMS
+           STAGGERED SCROLL REVEAL ANIMATIONS
         ══════════════════════════════ */
-        .vulk-spotlight {
-            position: relative;
-            --mouse-x: 50%;
-            --mouse-y: 50%;
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+            will-change: opacity, transform;
         }
-        .vulk-spotlight::before {
-            content: ''; position: absolute; inset: 0; border-radius: inherit;
-            background: radial-gradient(420px circle at var(--mouse-x) var(--mouse-y), rgba(0, 180, 255, 0.10), transparent 65%);
-            opacity: 0; transition: opacity 0.35s ease; pointer-events: none; z-index: 1;
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .vulk-spotlight::after {
-            content: ''; position: absolute; inset: -1px; border-radius: inherit;
-            background: radial-gradient(350px circle at var(--mouse-x) var(--mouse-y), rgba(0, 180, 255, 0.55), transparent 70%);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude;
-            padding: 1.2px; opacity: 0; transition: opacity 0.35s ease; pointer-events: none; z-index: 2;
+
+        /* Staggered delay utility classes */
+        .reveal-delay-1 { transition-delay: 0.08s; }
+        .reveal-delay-2 { transition-delay: 0.16s; }
+        .reveal-delay-3 { transition-delay: 0.24s; }
+        .reveal-delay-4 { transition-delay: 0.32s; }
+
+        /* ══════════════════════════════
+           NAVBAR (Futuristic Capsule Dock)
+        ══════════════════════════════ */
+        nav {
+            position: fixed; top: 1.1rem; left: 50%; transform: translateX(-50%);
+            width: min(94%, 1160px); height: 64px; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center; padding: 0 1.8rem;
+            background: rgba(7, 10, 16, 0.82);
+            backdrop-filter: blur(24px) saturate(190%);
+            -webkit-backdrop-filter: blur(24px) saturate(190%);
+            border: 1px solid var(--line);
+            border-radius: 50px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 180, 255, 0.12);
+            transition: top 0.3s var(--ease-out), background 0.3s var(--ease-out), border-color 0.3s ease, box-shadow 0.3s var(--ease-out);
         }
-        .vulk-spotlight:hover::before, .vulk-spotlight:hover::after { opacity: 1; }
+
+        nav.scrolled {
+            top: 0.75rem;
+            background: rgba(5, 7, 12, 0.94);
+            border-color: rgba(0, 180, 255, 0.35);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 180, 255, 0.25);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display); font-size: 1.45rem; font-weight: 700; font-style: italic;
+            color: var(--ink); text-decoration: none; display: inline-flex; align-items: baseline; gap: 2px;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+            text-shadow: 0 0 12px var(--accent);
+            transition: transform 0.2s ease;
+        }
+
+        .nav-logo:hover span {
+            transform: scale(1.3);
+        }
+
+        .nav-menu {
+            display: flex; align-items: center; gap: 0.4rem; list-style: none;
+            background: rgba(255, 255, 255, 0.04); padding: 4px; border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-link {
+            text-decoration: none; font-size: 0.85rem; font-weight: 600;
+            color: var(--ink-soft); padding: 0.45rem 1.15rem; border-radius: 50px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #fff; background: rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-link.active {
+            color: #06080e; background: var(--accent); font-weight: 700;
+            box-shadow: 0 0 15px rgba(0, 180, 255, 0.6);
+        }
+
+        .nav-right-actions {
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+
+        .sound-toggle-btn {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--accent-text); width: 38px; height: 38px; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .sound-toggle-btn:hover {
+            background: rgba(0, 180, 255, 0.15); border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(0, 180, 255, 0.3);
+        }
+
+        .sound-waves {
+            display: flex; align-items: center; gap: 2px; height: 14px;
+        }
+
+        .sound-waves span {
+            width: 2px; background: var(--accent); border-radius: 2px; animation: soundPulse 1.2s infinite ease-in-out;
+        }
+
+        .sound-waves span:nth-child(1) { height: 8px; animation-delay: 0.1s; }
+        .sound-waves span:nth-child(2) { height: 14px; animation-delay: 0.25s; }
+        .sound-waves span:nth-child(3) { height: 10px; animation-delay: 0.4s; }
+
+        @keyframes soundPulse {
+            0%, 100% { transform: scaleY(0.4); }
+            50% { transform: scaleY(1); }
+        }
+
+        .sound-toggle-btn.muted .sound-waves { display: none; }
+        .sound-toggle-btn.muted i { display: inline-block; color: var(--muted); }
+        .sound-toggle-btn:not(.muted) i { display: none; }
+
+        .nav-cta {
+            position: relative; display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.52rem 1.35rem; border-radius: 50px; font-size: 0.82rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;
+            color: #fff; background: linear-gradient(135deg, #0077b6, #00b4ff);
+            border: 1px solid rgba(0, 180, 255, 0.45);
+            box-shadow: 0 0 20px rgba(0, 180, 255, 0.35);
+            overflow: hidden; cursor: pointer; transition: all 0.25s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 30px rgba(0, 180, 255, 0.65);
+        }
+
+        .nav-mobile-toggle {
+            display: none; background: transparent; border: none; color: #fff;
+            font-size: 1.35rem; cursor: pointer; padding: 0.4rem;
+        }
+
+        .mobile-drawer {
+            display: none; position: fixed; top: 5.2rem; left: 50%; transform: translateX(-50%);
+            width: min(94%, 1160px); background: rgba(7, 10, 16, 0.95);
+            backdrop-filter: blur(25px); border: 1px solid var(--line-strong);
+            border-radius: 20px; padding: 1.2rem; z-index: 999; flex-direction: column; gap: 0.6rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .mobile-drawer.open { display: flex; }
+
+        .mobile-drawer a {
+            text-decoration: none; font-size: 0.95rem; font-weight: 600; color: var(--ink-soft);
+            padding: 0.8rem 1rem; border-radius: 12px; transition: all 0.2s ease;
+        }
+
+        .mobile-drawer a:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
+
+        /* ══════════════════════════════
+           HERO SECTION
+        ══════════════════════════════ */
+        #home {
+            position: relative; min-height: 100vh; padding: 8.5rem 1.5rem 5rem;
+            max-width: 1240px; margin: 0 auto; display: flex; align-items: center; z-index: 10;
+        }
+
+        .hero-grid {
+            width: 100%; display: grid; grid-template-columns: 1.15fr 1fr;
+            gap: 3.5rem; align-items: center;
+        }
+
+        .hero-meta-badges {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;
+        }
+
+        .hero-status-pill {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 0.42rem 1.1rem; border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.12); font-size: 0.82rem; font-weight: 600;
+            color: var(--ink); position: relative; overflow: hidden;
+        }
+
+        .hero-status-pill .radar-dot {
+            width: 9px; height: 9px; border-radius: 50%; background: #10b981;
+            box-shadow: 0 0 8px #10b981; position: relative;
+        }
+
+        .hero-status-pill .radar-ring {
+            position: absolute; inset: -4px; border-radius: 50%;
+            border: 1.5px solid #10b981; animation: pingRing 1.8s infinite;
+        }
+
+        @keyframes pingRing {
+            0% { transform: scale(0.8); opacity: 0.9; }
+            100% { transform: scale(2.4); opacity: 0; }
+        }
+
+        .hero-eyebrow-pill {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.42rem 1rem; border-radius: 50px;
+            background: rgba(0, 180, 255, 0.08); border: 1px solid rgba(0, 180, 255, 0.25);
+            font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--accent-text);
+        }
+
+        .hero-clock-pill {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.42rem 0.9rem; border-radius: 50px;
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
+            font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted);
+        }
+
+        .hero-clock-pill span { color: var(--accent); }
+
+        .hero-title {
+            font-family: var(--font-display); font-size: clamp(2.6rem, 5.2vw, 4.4rem);
+            font-weight: 600; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 1.4rem;
+        }
+
+        .hero-title span.gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #38bdf8 35%, #00b4ff 70%, #818cf8 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGradientShift 6s ease-in-out infinite alternate;
+            text-shadow: 0 0 35px rgba(0, 180, 255, 0.45);
+        }
+
+        @keyframes textGradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .hero-typewriter-box {
+            font-family: var(--font-mono); font-size: 1.15rem; color: var(--accent-text);
+            min-height: 1.8rem; margin-bottom: 1.4rem; display: flex; align-items: center;
+        }
+
+        .cursor-blink {
+            display: inline-block; width: 2px; height: 1.25em; background: var(--accent);
+            margin-left: 3px; animation: blink 1s step-end infinite; vertical-align: middle;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .hero-lead-text {
+            font-size: 1.05rem; line-height: 1.7; color: var(--ink-soft);
+            max-width: 580px; margin-bottom: 2.2rem;
+        }
+
+        .hero-cta-group {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-bottom: 2.2rem;
+        }
+
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 0.65rem;
+            padding: 0.9rem 1.85rem; border-radius: 50px; font-size: 0.95rem; font-weight: 700;
+            text-decoration: none; color: #fff; background: linear-gradient(135deg, #0077b6, #00b4ff);
+            border: 1px solid rgba(0, 180, 255, 0.5);
+            box-shadow: 0 0 25px rgba(0, 180, 255, 0.45);
+            transition: all 0.25s var(--ease-out); cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 38px rgba(0, 180, 255, 0.75);
+        }
+
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 0.65rem;
+            padding: 0.9rem 1.85rem; border-radius: 50px; font-size: 0.95rem; font-weight: 600;
+            text-decoration: none; color: #fff; background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.25s var(--ease-out); cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 180, 255, 0.12); border-color: var(--accent); color: var(--accent-text);
+            box-shadow: 0 0 25px rgba(0, 180, 255, 0.3); transform: translateY(-2px);
+        }
+
+        .hero-socials {
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+
+        .social-icon {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--ink-soft); display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: all 0.25s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--accent); border-color: var(--accent); color: #06080e;
+            transform: translateY(-3px); box-shadow: 0 0 20px rgba(0, 180, 255, 0.55);
+        }
+
+        /* ══════════════════════════════
+           HERO 3D TERMINAL & SHOWPIECE
+        ══════════════════════════════ */
+        .hero-terminal-wrap {
+            position: relative; width: 100%; max-width: 600px; margin: 0 auto;
+        }
+
+        .hero-terminal {
+            background: #080b12; border: 1px solid var(--line-strong);
+            border-radius: var(--radius-card); overflow: hidden;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 180, 255, 0.18);
+            position: relative; transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+        }
 
         .border-beam-wrap {
             position: absolute; inset: 0; border-radius: inherit; overflow: hidden;
@@ -157,783 +476,919 @@
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor; mask-composite: exclude; padding: 1.5px;
         }
+
         .border-beam-glow {
-            position: absolute; width: 150px; height: 150px;
-            background: radial-gradient(circle, #00b4ff 0%, rgba(0, 180, 255, 0.65) 40%, transparent 70%);
-            border-radius: 50%; animation: beamTravel 9s linear infinite;
+            position: absolute; width: 180px; height: 180px;
+            background: radial-gradient(circle, #00b4ff 0%, rgba(0, 180, 255, 0.7) 40%, transparent 70%);
+            border-radius: 50%; animation: beamTravel 8s linear infinite;
         }
+
         @keyframes beamTravel {
-            0%   { top: -75px; left: -75px; }
-            25%  { top: -75px; left: calc(100% - 75px); }
-            50%  { top: calc(100% - 75px); left: calc(100% - 75px); }
-            75%  { top: calc(100% - 75px); left: -75px; }
-            100% { top: -75px; left: -75px; }
+            0%   { top: -90px; left: -90px; }
+            25%  { top: -90px; left: calc(100% - 90px); }
+            50%  { top: calc(100% - 90px); left: calc(100% - 90px); }
+            75%  { top: calc(100% - 90px); left: -90px; }
+            100% { top: -90px; left: -90px; }
         }
 
-        .card-glare {
-            position: absolute; inset: 0; border-radius: inherit;
-            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.12), transparent 75%);
-            opacity: 0; pointer-events: none; z-index: 3; transition: opacity 0.3s ease;
-        }
-        .tilt-card:hover .card-glare, .bento-card:hover .card-glare { opacity: 1; }
-
-        /* ══════════════════════════════
-           NAVBAR (Vulk Capsule Dock)
-        ══════════════════════════════ */
-        nav {
-            position: fixed; top: 1.1rem; left: 50%; transform: translateX(-50%);
-            width: min(92%, 1160px); height: 64px; z-index: 1000;
-            display: flex; justify-content: space-between; align-items: center; padding: 0 1.8rem;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(10, 10, 10, 0.08); border-radius: 50px;
-            box-shadow: 0 10px 30px -10px rgba(10, 10, 10, 0.06), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
-            transition: top 0.3s var(--ease-out), background 0.3s var(--ease-out), border-color 0.3s ease, box-shadow 0.3s var(--ease-out);
-        }
-        nav.scrolled {
-            top: 0.8rem; background: rgba(255, 255, 255, 0.92);
-            border-color: rgba(10, 10, 10, 0.12);
-            box-shadow: 0 16px 40px -10px rgba(10, 10, 10, 0.12), 0 1px 0 rgba(255, 255, 255, 1) inset;
-        }
-        .nav-logo {
-            font-family: var(--font-display); font-size: 1.45rem; font-weight: 700; font-style: italic;
-            color: var(--ink); text-decoration: none; letter-spacing: -0.01em;
-            display: inline-flex; align-items: baseline; gap: 0.15em; transition: transform 0.25s var(--ease-out);
-        }
-        .nav-logo:hover { transform: scale(1.03); }
-        .nav-logo span { color: var(--accent-text); transition: color 0.2s ease; }
-        .nav-logo:hover span { color: var(--accent); }
-
-        .nav-center {
-            display: flex; align-items: center; gap: 0.35rem; list-style: none;
-            background: rgba(10, 10, 10, 0.04); padding: 0.28rem 0.35rem;
-            border-radius: 50px; border: 1px solid rgba(10, 10, 10, 0.06);
-        }
-        .nav-center li { display: flex; }
-        .nav-center a {
-            color: var(--ink-soft); text-decoration: none; font-size: 0.88rem; font-weight: 600;
-            padding: 0.45rem 1.15rem; border-radius: 50px; position: relative;
-            transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-        }
-        .nav-center a:hover { color: var(--ink); background: rgba(10, 10, 10, 0.05); }
-        .nav-center a.active {
-            color: var(--accent-text); background: #ffffff;
-            box-shadow: 0 2px 10px rgba(10, 10, 10, 0.08), 0 0 14px rgba(0, 180, 255, 0.18);
-        }
-
-        .nav-right { display: flex; align-items: center; gap: 1rem; }
-        .nav-cta {
-            position: relative; background: var(--ink); color: var(--bg);
-            padding: 0.65rem 1.45rem; border-radius: 50px; font-weight: 700; font-size: 0.86rem;
-            text-decoration: none; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: background 0.25s ease, transform 0.25s var(--ease-out), box-shadow 0.25s ease;
-        }
-        .nav-cta::after {
-            content: ''; position: absolute; top: -50%; left: -60%; width: 40%; height: 200%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transform: rotate(25deg); transition: left 0.75s ease; pointer-events: none;
-        }
-        .nav-cta:hover::after { left: 140%; }
-        .nav-cta:hover { background: var(--accent-text); color: #ffffff; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 180, 255, 0.35); }
-
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-        .hamburger span { width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: 0.3s ease; }
-        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        .mobile-menu {
-            display: none; position: fixed; top: calc(1.1rem + 68px); left: 50%;
-            transform: translateX(-50%) translateY(-8px); width: min(92%, 1160px);
-            background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(25px) saturate(180%);
-            border: 1px solid rgba(10, 10, 10, 0.08); border-radius: 20px;
-            box-shadow: 0 20px 45px -10px rgba(10, 10, 10, 0.15); padding: 1rem;
-            z-index: 999; flex-direction: column; gap: 0.25rem; opacity: 0;
-            transition: transform 0.25s var(--ease-out), opacity 0.25s ease;
-        }
-        .mobile-menu.open { display: flex; transform: translateX(-50%) translateY(0); opacity: 1; }
-        .mobile-menu a {
-            color: var(--ink); text-decoration: none; padding: 0.85rem 1.1rem; border-radius: 12px;
-            font-weight: 600; font-size: 1rem; transition: background 0.2s, color 0.2s;
-        }
-        .mobile-menu a:hover { background: var(--bg-soft); color: var(--accent-text); }
-
-        /* ══════════════════════════════
-           SHARED SECTION STYLES
-        ══════════════════════════════ */
-        section { padding: 7.5rem 6%; position: relative; z-index: 1; }
-        section[id] { scroll-margin-top: var(--nav-h); }
-        .section-label {
-            display: inline-flex; align-items: center; gap: 0.6rem;
-            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
-            color: var(--accent-text); margin-bottom: 1rem;
-        }
-        .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--accent-text); }
-        .section-title {
-            font-family: var(--font-display); font-size: clamp(2.2rem, 4.4vw, 3.5rem);
-            font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.015em; line-height: 1.1;
-        }
-        .section-desc { color: var(--muted); font-size: 1.05rem; line-height: 1.8; max-width: 580px; }
-
-        /* ══════════════════════════════
-           BUTTONS WITH MOVING BEAM
-        ══════════════════════════════ */
-        .btn-primary, .btn-secondary {
-            display: inline-flex; align-items: center; gap: 0.65rem;
-            padding: 0.95rem 2.1rem; border-radius: 50px; text-decoration: none;
-            font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer;
-            position: relative; overflow: hidden; font-family: inherit;
-            transition: transform 0.25s var(--ease-out), box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
-        }
-        .btn-primary {
-            background: var(--ink); color: #ffffff;
-            box-shadow: 0 4px 15px -2px rgba(10, 10, 10, 0.18), 0 0 20px -5px rgba(0, 180, 255, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-        .btn-primary .btn-beam {
-            position: absolute; inset: 0; border-radius: inherit; overflow: hidden;
-            pointer-events: none; padding: 1.5px;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude;
-        }
-        .btn-primary .btn-beam-travel {
-            position: absolute; width: 80px; height: 80px;
-            background: radial-gradient(circle, #00b4ff 0%, rgba(0, 180, 255, 0.8) 40%, transparent 70%);
-            border-radius: 50%; animation: beamTravel 6s linear infinite;
-        }
-        .btn-primary::after {
-            content: ''; position: absolute; top: -50%; left: -60%; width: 45%; height: 200%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-            transform: rotate(25deg); transition: left 0.8s ease; pointer-events: none;
-        }
-        .btn-primary:hover::after { left: 140%; }
-        .btn-primary:hover {
-            background: var(--accent-text); color: #ffffff; transform: translateY(-2px);
-            box-shadow: 0 12px 32px -5px rgba(0, 119, 182, 0.6), 0 0 30px rgba(0, 180, 255, 0.55);
-        }
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px);
-            border: 1.5px solid var(--line-strong); color: var(--ink);
-            box-shadow: 0 2px 10px rgba(10, 10, 10, 0.04);
-        }
-        .btn-secondary:hover {
-            background: var(--surface); border-color: var(--accent); color: var(--accent-text);
-            transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 180, 255, 0.25);
-        }
-
-        /* ══════════════════════════════
-           MONUMENTAL HERO SECTION
-        ══════════════════════════════ */
-        #home {
-            min-height: 100vh; display: grid; grid-template-columns: 1.18fr 1fr;
-            align-items: center; gap: 3.5rem; padding-top: calc(var(--nav-h) + 2rem);
-            padding-bottom: 4rem; position: relative; overflow: hidden;
-        }
-
-        .hero-blobs { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-        .hero-blobs .blob {
-            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.38;
-            animation: blobDrift 16s ease-in-out infinite alternate;
-        }
-        .blob-a { width: 500px; height: 500px; background: radial-gradient(circle, rgba(0, 180, 255, 0.45), transparent 70%); top: -140px; right: -60px; }
-        .blob-b { width: 440px; height: 440px; background: radial-gradient(circle, rgba(0, 119, 182, 0.35), transparent 70%); bottom: -80px; left: 5%; animation-delay: -7s; }
-        @keyframes blobDrift {
-            0% { transform: translate(0,0) scale(1); }
-            100% { transform: translate(35px,-25px) scale(1.08); }
-        }
-
-        .hero-content { position: relative; z-index: 2; }
-
-        /* Status & Eyebrow Badges */
-        .hero-badges-wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem; margin-bottom: 1.6rem; }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 0.65rem; position: relative;
-            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(14px);
-            border: 1px solid var(--line-strong); border-radius: 50px;
-            padding: 0.45rem 1.25rem 0.45rem 0.9rem; font-size: 0.82rem; color: var(--ink-soft);
-            font-weight: 600; box-shadow: 0 4px 16px -2px rgba(10, 10, 10, 0.05);
-            overflow: hidden; transition: transform 0.25s var(--ease-out), border-color 0.25s ease, box-shadow 0.25s ease;
-        }
-        .hero-badge::after {
-            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 180, 255, 0.35), transparent);
-            transform: skewX(-20deg); animation: shimmerBadge 4s ease-in-out infinite;
-        }
-        @keyframes shimmerBadge { 0%, 75% { left: -100%; } 100% { left: 220%; } }
-        .hero-badge:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 6px 22px rgba(0, 180, 255, 0.25); }
-
-        .eyebrow-matrix {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            padding: 0.4rem 0.95rem; border-radius: 50px;
-            background: rgba(10, 10, 10, 0.04); border: 1px solid rgba(10, 10, 10, 0.08);
-            font-family: monospace; font-size: 0.74rem; font-weight: 700; color: var(--accent-text);
-        }
-        .dot { position: relative; width: 8px; height: 8px; background: #16a34a; border-radius: 50%; animation: pulse 2s infinite; }
-        .dot::after {
-            content: ''; position: absolute; inset: 0; border-radius: 50%;
-            background: #16a34a; animation: ping 1.8s cubic-bezier(0,0,0.2,1) infinite;
-        }
-        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
-        @keyframes ping { 0%{transform:scale(1);opacity:0.6} 75%,100%{transform:scale(2.8);opacity:0} }
-
-        /* Monumental Typography */
-        .hero-title {
-            font-family: var(--font-display); font-size: clamp(2.8rem, 5.2vw, 4.9rem);
-            font-weight: 600; line-height: 1.05; margin-bottom: 1.3rem; letter-spacing: -0.025em;
-        }
-        .hero-title-line { display: block; overflow: hidden; }
-        .hero-title-line span {
-            display: inline-block; animation: titleReveal 0.8s var(--ease-out) both;
-            animation-delay: var(--delay, 0s);
-        }
-        @keyframes titleReveal {
-            from { transform: translateY(105%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .hero-gradient-text {
-            background: linear-gradient(135deg, var(--ink) 0%, var(--accent-text) 50%, var(--accent) 100%);
-            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text; animation: textGradientShift 6s ease-in-out infinite alternate;
-        }
-        @keyframes textGradientShift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-
-        .typewriter-wrap {
-            font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--ink-soft); font-weight: 600;
-            margin-bottom: 1.4rem; min-height: 1.7em;
-        }
-        .cursor-blink {
-            display: inline-block; width: 2px; height: 1em; background: var(--accent-text);
-            vertical-align: middle; margin-left: 2px; animation: blink 1s step-end infinite;
-        }
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-        .hero-story-lead {
-            font-size: 1.05rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.2rem; max-width: 540px;
-        }
-
-        .hero-buttons { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
-        .hero-socials { display: flex; gap: 0.75rem; }
-        .social-icon {
-            width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-strong);
-            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--ink-soft); text-decoration: none; font-size: 1rem;
-            transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s var(--ease-out), background 0.25s ease, box-shadow 0.25s ease;
-        }
-        .social-icon:hover {
-            color: #fff; background: var(--ink); border-color: var(--ink);
-            transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 20px -4px rgba(10, 10, 10, 0.25);
-        }
-
-        /* ══════════════════════════════
-           3D TERMINAL SHOWPIECE
-        ══════════════════════════════ */
-        .hero-terminal-wrap { position: relative; z-index: 2; perspective: 1000px; }
-        .hero-terminal {
-            background: var(--dark); border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: var(--radius);
-            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4), 0 0 35px -8px rgba(0, 180, 255, 0.2);
-            overflow: hidden; position: relative; color: #f2ece2;
-            transform-style: preserve-3d; will-change: transform;
-            transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        .hero-terminal:hover {
-            border-color: rgba(0, 180, 255, 0.4);
-            box-shadow: 0 30px 70px -10px rgba(0, 0, 0, 0.45), 0 0 50px -5px rgba(0, 180, 255, 0.28);
-        }
         .terminal-header {
             display: flex; align-items: center; justify-content: space-between;
-            padding: 0.85rem 1.25rem; background: rgba(255, 255, 255, 0.04);
+            padding: 0.85rem 1.25rem; background: rgba(255, 255, 255, 0.03);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .terminal-dots { display: flex; gap: 7px; align-items: center; }
-        .dot-btn { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+
+        .terminal-dots {
+            display: flex; align-items: center; gap: 7px;
+        }
+
+        .dot-btn { width: 11px; height: 11px; border-radius: 50%; }
         .dot-close { background: #ff5f56; }
         .dot-min { background: #ffbd2e; }
         .dot-max { background: #27c93f; }
 
-        .terminal-tabs { display: flex; gap: 0.4rem; }
-        .terminal-tab {
-            background: transparent; border: 1px solid transparent; color: rgba(255, 255, 255, 0.55);
-            font-family: inherit; font-size: 0.78rem; font-weight: 600; padding: 0.35rem 0.75rem;
-            border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 0.45rem;
-            transition: color 0.2s, background 0.2s, border-color 0.2s;
+        .terminal-tabs {
+            display: flex; align-items: center; gap: 6px;
         }
-        .terminal-tab.active { background: rgba(255, 255, 255, 0.08); color: #ffffff; border-color: rgba(255, 255, 255, 0.12); }
-        .terminal-tab:hover:not(.active) { color: rgba(255, 255, 255, 0.85); background: rgba(255, 255, 255, 0.04); }
 
-        .terminal-badge { font-size: 0.72rem; color: rgba(255, 255, 255, 0.45); font-family: monospace; display: flex; align-items: center; gap: 0.4rem; }
-        .terminal-live-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px #4ade80; }
+        .terminal-tab {
+            background: transparent; border: 1px solid transparent; color: var(--muted);
+            padding: 0.3rem 0.75rem; border-radius: 8px; font-size: 0.75rem; font-weight: 600;
+            cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.2s;
+        }
+
+        .terminal-tab:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
+
+        .terminal-tab.active {
+            color: #fff; background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .terminal-badge {
+            font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted);
+            display: flex; align-items: center; gap: 5px;
+        }
+
+        .terminal-live-dot {
+            width: 7px; height: 7px; border-radius: 50%; background: #10b981;
+            box-shadow: 0 0 6px #10b981;
+        }
 
         .terminal-body {
-            padding: 1.4rem 1.6rem; min-height: 295px; font-family: 'Consolas', 'Menlo', monospace;
-            font-size: 0.88rem; line-height: 1.65; position: relative; overflow-x: auto;
+            padding: 1.4rem; min-height: 290px; font-family: var(--font-mono);
+            font-size: 0.84rem; line-height: 1.65; color: #f2ece2; overflow-x: auto;
         }
-        .terminal-pre { margin: 0; white-space: pre-wrap; word-break: break-word; }
-        .terminal-caret {
-            display: inline-block; width: 8px; height: 1.1em; background: var(--accent);
-            vertical-align: -2px; margin-left: 2px; animation: blinkCaret 1s step-end infinite;
-        }
-        @keyframes blinkCaret { 50% { opacity: 0; } }
 
+        .terminal-pre { margin: 0; white-space: pre; }
         .tk-kw { color: #00b4ff; font-weight: bold; }
-        .tk-var { color: #ffffff; }
+        .tk-var { color: #fff; }
         .tk-prop { color: #7dd3fc; }
         .tk-str { color: #4ade80; }
         .tk-num { color: #fbbf24; }
 
-        .terminal-proj-item {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0.75rem 1rem; background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px;
-            text-decoration: none; transition: background 0.2s, border-color 0.2s, transform 0.2s;
-            margin-bottom: 0.65rem;
+        .terminal-caret {
+            display: inline-block; width: 7px; height: 1em; background: #00b4ff;
+            margin-left: 2px; animation: blink 1s infinite; vertical-align: middle;
         }
-        .terminal-proj-item:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--accent); transform: translateX(4px); }
-        .terminal-proj-item .proj-badge {
-            font-size: 0.74rem; font-weight: 700; color: var(--accent);
-            background: rgba(0, 180, 255, 0.15); padding: 0.2rem 0.5rem; border-radius: 6px; margin-right: 0.8rem;
+
+        .terminal-matrix-canvas {
+            width: 100%; height: 260px; border-radius: 10px; background: #05070a; display: block;
         }
-        .terminal-proj-item strong { font-size: 0.88rem; color: #fff; display: block; }
-        .terminal-proj-item p { font-size: 0.74rem; color: rgba(255, 255, 255, 0.5); margin: 0; }
-        .terminal-proj-item i { color: var(--accent); }
+
+        .terminal-cli-form {
+            display: flex; align-items: center; gap: 8px; padding: 0.65rem 1.25rem;
+            background: rgba(0, 0, 0, 0.6); border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-family: var(--font-mono); font-size: 0.78rem;
+        }
+
+        .terminal-cli-prefix { color: #00b4ff; font-weight: bold; white-space: nowrap; }
+
+        .terminal-cli-input {
+            flex: 1; background: transparent; border: none; outline: none;
+            color: #fff; font-family: inherit; font-size: inherit;
+        }
+
+        .terminal-cli-input::placeholder { color: rgba(255, 255, 255, 0.3); }
 
         .terminal-footer {
             display: flex; align-items: center; justify-content: space-between;
-            padding: 0.75rem 1.4rem; background: rgba(0, 0, 0, 0.3); border-top: 1px solid rgba(255, 255, 255, 0.08);
-            font-size: 0.76rem; color: rgba(255, 255, 255, 0.5);
+            padding: 0.75rem 1.25rem; background: rgba(0, 0, 0, 0.45);
+            border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.78rem; color: var(--muted);
         }
-        .terminal-footer i { color: #4ade80; }
-        .terminal-footer span { color: #fff; font-weight: 600; }
+
+        .terminal-footer i { color: #10b981; margin-right: 5px; }
 
         /* ══════════════════════════════
-           TECH MARQUEE
+           TECH MARQUEE SECTION
         ══════════════════════════════ */
         .marquee-section {
-            padding: 1.6rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-            overflow: hidden; position: relative; z-index: 1;
-            -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            position: relative; z-index: 10; padding: 1.8rem 0;
+            background: rgba(6, 9, 14, 0.65); backdrop-filter: blur(12px);
+            border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+            overflow: hidden; [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)];
         }
-        .marquee-track { display: flex; gap: 2.2rem; width: max-content; animation: marquee 30s linear infinite; }
-        .marquee-section:hover .marquee-track { animation-play-state: paused; }
-        @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+        .marquee-track {
+            display: flex; width: max-content; gap: 2rem;
+            animation: marqueeScroll 32s linear infinite;
+        }
+
+        .marquee-track:hover { animation-play-state: paused; }
+
+        @keyframes marqueeScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
         .marquee-item {
-            display: flex; align-items: center; gap: 0.65rem; font-size: 0.85rem; font-weight: 600;
-            color: var(--ink-soft); white-space: nowrap; padding: 0.45rem 1.1rem; border-radius: 50px;
-            background: var(--surface); border: 1px solid var(--line);
-            transition: transform 0.25s var(--ease-out), border-color 0.25s ease, box-shadow 0.25s ease;
+            display: flex; align-items: center; gap: 0.6rem;
+            padding: 0.5rem 1.2rem; border-radius: 50px;
+            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.88rem; font-weight: 600; color: var(--ink-soft); white-space: nowrap;
+            transition: all 0.25s ease; cursor: default;
         }
-        .marquee-item:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 4px 14px rgba(0, 180, 255, 0.15); }
+
+        .marquee-item:hover {
+            border-color: var(--accent); color: #fff; transform: translateY(-2px);
+            box-shadow: 0 0 16px rgba(0, 180, 255, 0.3);
+        }
 
         /* ══════════════════════════════
-           PROJECTS BENTO GRID
+           BENTO GRID PROJECT SECTION
         ══════════════════════════════ */
-        #projects { padding-top: 7.5rem; position: relative; z-index: 1; }
-        .projects-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
-        .projects-count { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--muted); }
-        .projects-count strong { color: var(--ink); font-size: 1.6rem; font-weight: 700; }
+        #projects {
+            position: relative; z-index: 10; padding: 7rem 1.5rem;
+            max-width: 1240px; margin: 0 auto;
+        }
 
-        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.6rem; }
+        .section-header-wrap {
+            display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 3.5rem;
+        }
+
+        .section-header-top {
+            display: flex; justify-content: space-between; align-items: flex-end;
+            flex-wrap: wrap; gap: 1.5rem;
+        }
+
+        .section-label {
+            display: inline-flex; align-items: center; gap: 0.65rem;
+            font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .section-label::before {
+            content: ''; width: 22px; height: 2px; background: var(--accent);
+        }
+
+        .section-title {
+            font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 600; line-height: 1.1; letter-spacing: -0.02em;
+        }
+
+        .section-desc {
+            font-size: 1.05rem; color: var(--ink-soft); max-width: 600px; line-height: 1.6;
+        }
+
+        .projects-live-count {
+            font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-text);
+            padding: 0.55rem 1.25rem; border-radius: 50px;
+            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .projects-live-count strong { color: #fff; font-size: 1.25rem; }
+
+        /* The Bento Grid CSS Layout */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+
         .bento-card {
-            background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-            box-shadow: var(--shadow); padding: 2.2rem; position: relative; overflow: hidden;
-            display: flex; flex-direction: column; justify-content: space-between; transform-style: preserve-3d;
-            will-change: transform; transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease, border-color 0.35s ease;
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-card);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 180, 255, 0.05);
+            transition: transform 0.3s var(--ease-out), border-color 0.3s ease, box-shadow 0.3s ease;
         }
+
+        /* 3D Tilt & Hover Scale on Bento Cards */
         .bento-card:hover {
-            transform: translateY(-5px); border-color: rgba(0, 180, 255, 0.4);
-            box-shadow: 0 20px 45px -10px rgba(10, 10, 10, 0.12), 0 0 35px rgba(0, 180, 255, 0.14);
+            transform: translateY(-4px) scale(1.02);
+            border-color: rgba(0, 180, 255, 0.55);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 180, 255, 0.28);
         }
-        .bento-span-6 { grid-column: span 6; }
-        .bento-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.6rem; }
-        .bento-card-num { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; color: var(--muted); }
+
+        /* Responsive Grid Column Spans */
+        .bento-col-8 { grid-column: span 8; }
+        .bento-col-4 { grid-column: span 4; }
+        .bento-col-6 { grid-column: span 6; }
+        .bento-col-12 { grid-column: span 12; }
+
+        /* Flagship Card Accent Lighting & Mockup */
+        .flagship-card {
+            background: linear-gradient(135deg, rgba(14, 21, 35, 0.88), rgba(8, 12, 20, 0.95));
+            border-color: rgba(0, 180, 255, 0.3);
+        }
+
+        .flagship-glow-blob {
+            position: absolute; top: -80px; right: -80px; width: 320px; height: 320px;
+            background: radial-gradient(circle, rgba(0, 180, 255, 0.25) 0%, transparent 70%);
+            border-radius: 50%; filter: blur(50px); pointer-events: none; z-index: 1;
+        }
+
+        .bento-card-top {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1.5rem; position: relative; z-index: 2;
+        }
+
+        .bento-card-num {
+            font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--accent-text);
+        }
+
         .bento-live-badge {
-            display: inline-flex; align-items: center; gap: 0.45rem; background: rgba(10, 10, 10, 0.05);
-            border: 1px solid var(--line); color: var(--ink-soft); font-size: 0.72rem; font-weight: 700;
-            letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 50px;
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            padding: 0.3rem 0.8rem; border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #fff;
         }
-        .bento-preview-visual {
-            background: linear-gradient(135deg, #1c1f22, #0a0b0d); border-radius: 14px;
-            padding: 2.5rem 1.8rem; margin-bottom: 1.6rem; display: flex; align-items: center;
-            justify-content: center; position: relative; overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+        .bento-live-badge .dot {
+            width: 7px; height: 7px; border-radius: 50%; background: #10b981;
+            box-shadow: 0 0 8px #10b981;
         }
-        .bento-preview-visual::before {
-            content: ''; position: absolute; inset: 0;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-            background-size: 18px 18px;
+
+        /* Mockup Visual Box for Flagship */
+        .flagship-mockup-panel {
+            position: relative; z-index: 2; border-radius: 16px;
+            background: linear-gradient(145deg, #0d121c, #07090f);
+            border: 1px solid rgba(255, 255, 255, 0.08); padding: 1.8rem;
+            margin-bottom: 1.6rem; overflow: hidden;
+            display: flex; align-items: center; justify-content: space-between;
         }
-        .bento-preview-emoji {
-            font-size: 3.5rem; position: relative; z-index: 1; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.4));
-            transition: transform 0.35s var(--ease-out);
+
+        .mockup-left {
+            display: flex; align-items: center; gap: 1.2rem;
         }
-        .bento-card:hover .bento-preview-emoji { transform: scale(1.15) translateY(-4px); }
-        .bento-card-meta h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin-bottom: 0.6rem; letter-spacing: -0.01em; }
-        .bento-card-meta p { font-size: 0.94rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.4rem; }
-        .bento-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.6rem; }
+
+        .mockup-emoji {
+            font-size: 3.5rem; filter: drop-shadow(0 10px 20px rgba(0, 180, 255, 0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .bento-card:hover .mockup-emoji { transform: scale(1.15) rotate(4deg); }
+
+        .mockup-badge-pill {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.25rem 0.75rem; border-radius: 6px;
+            background: rgba(0, 180, 255, 0.15); border: 1px solid rgba(0, 180, 255, 0.35);
+            font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: #38bdf8;
+            margin-bottom: 0.4rem;
+        }
+
+        .mockup-title { font-size: 1.15rem; font-weight: 700; color: #fff; }
+        .mockup-sub { font-size: 0.8rem; color: var(--muted); }
+
+        .mockup-preview-screen {
+            background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px; padding: 0.6rem 1rem; font-family: var(--font-mono);
+            font-size: 0.72rem; color: #38bdf8; display: flex; align-items: center; gap: 6px;
+        }
+
+        .bento-visual-mini {
+            width: 100%; height: 90px; border-radius: 14px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.3));
+            border: 1px solid rgba(255, 255, 255, 0.06); display: flex; align-items: center;
+            justify-content: center; font-size: 2.5rem; margin-bottom: 1.4rem;
+        }
+
+        .bento-card-meta { position: relative; z-index: 2; }
+
+        .bento-card-meta h3 {
+            font-family: var(--font-display); font-size: 1.65rem; font-weight: 600;
+            color: #fff; margin-bottom: 0.6rem; letter-spacing: -0.01em;
+        }
+
+        .bento-card-meta p {
+            font-size: 0.92rem; line-height: 1.6; color: var(--ink-soft); margin-bottom: 1.4rem;
+        }
+
+        .bento-tags {
+            display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.6rem;
+        }
+
         .tag {
-            font-size: 0.74rem; font-weight: 600; color: var(--ink-soft); background: rgba(10, 10, 10, 0.04);
-            border: 1px solid var(--line); padding: 0.32rem 0.8rem; border-radius: 50px;
-            transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s var(--ease-out), box-shadow 0.2s ease;
+            font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 50px;
+            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--accent-text); transition: all 0.2s ease;
         }
-        .tag:hover {
-            color: var(--accent-text); background: rgba(0, 180, 255, 0.08); border-color: rgba(0, 180, 255, 0.4);
-            transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 180, 255, 0.18);
+
+        .bento-card:hover .tag {
+            background: rgba(0, 180, 255, 0.12); border-color: rgba(0, 180, 255, 0.35); color: #fff;
         }
-        .bento-card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1.2rem; border-top: 1px solid var(--line); }
-        .bento-stat-chip { font-size: 0.78rem; font-weight: 700; color: var(--accent-text); display: inline-flex; align-items: center; gap: 0.4rem; }
-        .bento-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 700; color: var(--ink); text-decoration: none; transition: color 0.2s, gap 0.2s var(--ease-out); }
-        .bento-link:hover { color: var(--accent-text); gap: 0.75rem; }
+
+        .bento-card-footer {
+            display: flex; align-items: center; justify-content: space-between;
+            padding-top: 1.2rem; border-top: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative; z-index: 2;
+        }
+
+        .bento-stat-chip {
+            font-size: 0.8rem; font-weight: 700; color: var(--accent-text);
+            display: flex; align-items: center; gap: 0.45rem;
+        }
+
+        .bento-link {
+            text-decoration: none; font-size: 0.86rem; font-weight: 700; color: #fff;
+            display: inline-flex; align-items: center; gap: 0.45rem; transition: color 0.2s ease;
+        }
+
+        .bento-link:hover { color: var(--accent); }
+        .bento-link i { font-size: 0.75rem; transition: transform 0.2s ease; }
+        .bento-link:hover i { transform: translate(2px, -2px); }
+
+        /* Stat Widget Card */
+        .bento-stat-widget {
+            background: linear-gradient(135deg, rgba(10, 15, 25, 0.9), rgba(5, 8, 14, 0.95));
+            border-color: rgba(0, 180, 255, 0.25);
+        }
+
+        .stat-widget-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1rem 0;
+        }
+
+        .stat-widget-box {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 14px; padding: 1.1rem; transition: all 0.2s;
+        }
+
+        .stat-widget-box:hover {
+            background: rgba(0, 180, 255, 0.08); border-color: var(--accent);
+        }
+
+        .stat-widget-num {
+            font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: #fff;
+            line-height: 1; margin-bottom: 0.35rem;
+        }
+
+        .stat-widget-label { font-size: 0.75rem; color: var(--muted); font-weight: 600; }
 
         /* ══════════════════════════════
-           ABOUT & SCROLL-DRIVEN TIMELINE
+           ABOUT & TIMELINE SECTION
         ══════════════════════════════ */
-        #about { background: var(--bg-soft); position: relative; z-index: 1; }
-        .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 4.5rem; align-items: center; }
-        .about-avatar-card {
-            background: var(--dark); border-radius: var(--radius); aspect-ratio: 4/5;
-            display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
-            box-shadow: var(--shadow-lift);
+        #about {
+            position: relative; z-index: 10; padding: 7rem 1.5rem;
+            background: #05070c; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
         }
-        .about-avatar-card::before {
-            content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-        .avatar-initials { font-family: var(--font-display); font-style: italic; font-size: 7.5rem; font-weight: 600; color: var(--accent); position: relative; z-index: 1; }
 
-        .about-timeline { margin-top: 2.2rem; position: relative; padding-left: 2.2rem; }
-        .timeline-track-line { position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line-strong); border-radius: 2px; }
+        .about-wrap { max-width: 1240px; margin: 0 auto; }
+
+        .about-grid {
+            display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 4rem; align-items: flex-start;
+        }
+
+        .about-avatar-card {
+            position: sticky; top: 6.5rem; width: 100%; max-width: 360px; aspect-ratio: 4/5;
+            background: linear-gradient(145deg, #0e1524, #070910); border: 1px solid var(--line-strong);
+            border-radius: var(--radius-card); padding: 2rem; display: flex; flex-direction: column;
+            justify-content: space-between; align-items: center; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 180, 255, 0.18);
+            overflow: hidden;
+        }
+
+        .avatar-top-meta {
+            width: 100%; display: flex; justify-content: space-between; font-family: var(--font-mono);
+            font-size: 0.75rem; color: var(--muted);
+        }
+
+        .avatar-initials-wrap {
+            position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+
+        .avatar-glow {
+            position: absolute; width: 160px; height: 160px; background: rgba(0, 180, 255, 0.35);
+            border-radius: 50%; filter: blur(40px);
+        }
+
+        .avatar-initials {
+            font-family: var(--font-display); font-size: 6rem; font-weight: 800; font-style: italic;
+            color: transparent; background: linear-gradient(180deg, #ffffff, #7dd3fc, #00b4ff);
+            -webkit-background-clip: text; drop-shadow: 0 0 30px rgba(0, 180, 255, 0.6);
+            position: relative; z-index: 2;
+        }
+
+        .avatar-bottom-meta {
+            width: 100%; padding-top: 1rem; border-top: 1px solid var(--line);
+            display: flex; justify-content: space-between; font-family: var(--font-mono);
+            font-size: 0.78rem; color: var(--ink-soft);
+        }
+
+        .about-timeline {
+            position: relative; padding-left: 2.2rem; margin: 2.5rem 0;
+        }
+
+        .timeline-track-line {
+            position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px;
+            background: rgba(255, 255, 255, 0.1); border-radius: 2px;
+        }
+
         .timeline-progress-fill {
             position: absolute; top: 0; left: 0; width: 100%; height: 0%;
-            background: linear-gradient(to bottom, var(--accent-text), var(--accent));
-            border-radius: 2px; box-shadow: 0 0 10px rgba(0, 180, 255, 0.6); transition: height 0.15s ease-out;
+            background: linear-gradient(180deg, #0077b6, #00b4ff, #38bdf8);
+            box-shadow: 0 0 12px rgba(0, 180, 255, 0.85); border-radius: 2px;
+            transition: height 0.15s ease-out;
         }
-        .timeline-item { position: relative; padding: 0 0 1.6rem 0.8rem; transition: opacity 0.3s ease; }
+
+        .timeline-item {
+            position: relative; margin-bottom: 2rem;
+        }
+
         .timeline-item::before {
-            content: ''; position: absolute; left: -2.25rem; top: 0.25rem; width: 12px; height: 12px;
-            border-radius: 50%; background: var(--surface); border: 2px solid var(--muted);
-            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.04); transition: all 0.3s var(--ease-out); z-index: 2;
+            content: ''; position: absolute; left: -2.2rem; top: 4px;
+            width: 14px; height: 14px; border-radius: 50%;
+            background: #06080e; border: 2px solid var(--muted);
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.4); transition: all 0.3s;
         }
+
         .timeline-item.active::before {
-            background: var(--accent-text); border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(0, 180, 255, 0.25), 0 0 12px rgba(0, 180, 255, 0.6);
+            background: var(--accent); border-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 180, 255, 0.9), 0 0 0 4px rgba(0, 180, 255, 0.3);
         }
-        .timeline-item:last-child { padding-bottom: 0; }
-        .timeline-date { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 0.25rem; }
-        .timeline-content h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin: 0 0 0.35rem; }
-        .timeline-content p { margin: 0; font-size: 0.95rem; line-height: 1.75; color: var(--muted); }
 
-        .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.2rem; }
+        .timeline-date {
+            font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700;
+            color: var(--accent-text); margin-bottom: 0.3rem; text-transform: uppercase;
+        }
+
+        .timeline-content h3 { font-size: 1.15rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; }
+        .timeline-content p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.55; }
+
+        .about-stats {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem;
+        }
+
         .stat-card {
-            background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1.4rem;
-            box-shadow: var(--shadow); position: relative; overflow: hidden;
-            transition: transform 0.25s var(--ease-out), border-color 0.25s ease, box-shadow 0.25s ease;
+            background: var(--bg-card); border: 1px solid var(--line); border-radius: 16px;
+            padding: 1.25rem; transition: all 0.25s ease;
         }
-        .stat-card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 12px 28px -8px rgba(0, 180, 255, 0.2), var(--shadow); }
-        .stat-icon { color: var(--accent-text); font-size: 1.15rem; margin-bottom: 0.6rem; display: inline-block; transition: transform 0.25s var(--ease-out); }
-        .stat-card:hover .stat-icon { transform: translateY(-2px) scale(1.1); color: var(--accent); }
-        .stat-number { font-family: var(--font-display); font-size: 2.1rem; font-weight: 600; line-height: 1; }
-        .stat-label { font-size: 0.82rem; color: var(--muted); margin-top: 0.4rem; }
+
+        .stat-card:hover {
+            border-color: var(--accent); transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 180, 255, 0.2);
+        }
+
+        .stat-icon { color: var(--accent); font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .stat-number { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: #fff; line-height: 1; }
+        .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; }
 
         /* ══════════════════════════════
-           SKILLS GRID
+           SKILLS SECTION (Interactive Tab & Floating Badges)
         ══════════════════════════════ */
-        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-        .skill-row {
-            display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.6rem 1.8rem;
-            background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
-            box-shadow: var(--shadow); position: relative; overflow: hidden;
-            transition: transform 0.25s var(--ease-out), border-color 0.25s ease, box-shadow 0.25s ease;
+        #skills {
+            position: relative; z-index: 10; padding: 7rem 1.5rem;
+            max-width: 1240px; margin: 0 auto;
         }
-        .skill-row:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 12px 28px -8px rgba(0, 180, 255, 0.2), var(--shadow); }
-        .skill-icon { font-size: 1.85rem; flex-shrink: 0; animation: floatIcon 6s ease-in-out infinite alternate; }
-        @keyframes floatIcon { 0% { transform: translateY(0); } 100% { transform: translateY(-5px); } }
-        .skill-row:hover .skill-icon { transform: scale(1.18) rotate(5deg); }
-        .skill-row h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; }
-        .skill-row p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+        .skills-tab-bar {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem;
+            margin-bottom: 2.5rem; background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--line); padding: 6px; border-radius: 50px; width: fit-content;
+        }
+
+        .skill-tab-btn {
+            background: transparent; border: none; color: var(--ink-soft);
+            padding: 0.55rem 1.35rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s ease;
+        }
+
+        .skill-tab-btn:hover { color: #fff; }
+
+        .skill-tab-btn.active {
+            background: var(--accent); color: #06080e; font-weight: 700;
+            box-shadow: 0 0 15px rgba(0, 180, 255, 0.5);
+        }
+
+        .skills-badge-cloud {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .skill-badge-item {
+            background: var(--bg-card); border: 1px solid var(--line); border-radius: 18px;
+            padding: 1.6rem; display: flex; align-items: flex-start; gap: 1.2rem;
+            transition: all 0.3s var(--ease-out); cursor: default; position: relative; overflow: hidden;
+        }
+
+        .skill-badge-item:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: rgba(0, 180, 255, 0.6);
+            box-shadow: 0 18px 40px rgba(0, 180, 255, 0.2);
+            background: var(--bg-card-hover);
+        }
+
+        .skill-badge-icon {
+            font-size: 2.4rem; flex-shrink: 0; transition: transform 0.3s ease;
+        }
+
+        .skill-badge-item:hover .skill-badge-icon { transform: scale(1.2) rotate(6deg); }
+
+        .skill-badge-content h3 {
+            font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem;
+        }
+
+        .skill-badge-content p {
+            font-size: 0.88rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 0.85rem;
+        }
+
+        .skill-progress-track {
+            width: 100%; height: 5px; background: rgba(255, 255, 255, 0.08);
+            border-radius: 5px; overflow: hidden;
+        }
+
+        .skill-progress-bar {
+            height: 100%; background: linear-gradient(90deg, #0077b6, #00b4ff);
+            border-radius: 5px; box-shadow: 0 0 8px #00b4ff; width: 0%;
+            transition: width 1s var(--ease-out);
+        }
 
         /* ══════════════════════════════
-           CONTACT & FOOTER
+           CONTACT SECTION
         ══════════════════════════════ */
-        #contact { background: var(--dark); color: #f2ece2; position: relative; overflow: hidden; }
-        #contact .section-desc { color: rgba(242,236,226,0.6); }
-        #contact .section-label { color: var(--accent); }
-        .contact-aura {
-            position: absolute; width: 650px; height: 650px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 180, 255, 0.16), transparent 70%);
-            top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 0;
-            filter: blur(50px); animation: pulseAura 8s ease-in-out infinite alternate;
+        #contact {
+            position: relative; z-index: 10; padding: 7rem 1.5rem;
+            background: #05070c; border-top: 1px solid var(--line);
         }
-        @keyframes pulseAura { 0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.65; } 100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; } }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; position: relative; z-index: 1; }
+
+        .contact-wrap { max-width: 1240px; margin: 0 auto; }
+
+        .contact-grid {
+            display: grid; grid-template-columns: 1fr 1.35fr; gap: 4rem; align-items: flex-start;
+        }
+
+        .contact-items-list {
+            display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem;
+        }
+
         .contact-item {
-            display: flex; align-items: center; gap: 1rem; margin-bottom: 1.1rem; padding: 1.1rem 1.2rem;
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px;
-            transition: border-color 0.25s ease, transform 0.25s var(--ease-out), box-shadow 0.25s ease;
+            background: var(--bg-card); border: 1px solid var(--line); border-radius: 16px;
+            padding: 1.1rem 1.3rem; display: flex; align-items: center; gap: 1.1rem;
+            transition: all 0.2s;
         }
-        .contact-item:hover { border-color: var(--accent); transform: translateX(4px); box-shadow: 0 8px 24px -6px rgba(0, 180, 255, 0.25); }
+
+        .contact-item:hover {
+            border-color: var(--accent); transform: translateX(4px);
+            box-shadow: 0 8px 25px rgba(0, 180, 255, 0.2);
+        }
+
         .contact-item .icon {
-            width: 44px; height: 44px; border-radius: 12px; background: rgba(0,180,255,0.15); color: var(--accent);
-            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+            width: 44px; height: 44px; border-radius: 12px; background: rgba(0, 180, 255, 0.15);
+            color: var(--accent); display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; flex-shrink: 0;
         }
-        .contact-item .label { font-size: 0.74rem; color: rgba(242,236,226,0.5); }
-        .contact-item .value { font-size: 0.94rem; font-weight: 600; overflow-wrap: anywhere; }
+
+        .contact-item .label { font-size: 0.72rem; color: var(--muted); margin-bottom: 2px; }
+        .contact-item .value { font-size: 0.95rem; font-weight: 600; color: #fff; }
 
         .contact-form {
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--radius); padding: 2.2rem; position: relative; overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            background: var(--bg-card); border: 1px solid var(--line-strong);
+            border-radius: var(--radius-card); padding: 2.4rem;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
         }
-        .form-group { margin-bottom: 1.3rem; }
-        .form-group label { display: flex; gap: 0.4rem; align-items: center; font-size: 0.82rem; font-weight: 600; color: rgba(242,236,226,0.65); margin-bottom: 0.5rem; }
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14);
-            border-radius: 12px; padding: 0.9rem 1.1rem; color: #f2ece2; font-family: inherit; font-size: 0.94rem;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease; resize: none; appearance: none;
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+
+        .form-group { margin-bottom: 1.2rem; }
+
+        .form-group label {
+            display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink-soft);
+            margin-bottom: 0.5rem;
         }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            outline: none; border-color: var(--accent); background: rgba(255,255,255,0.08);
-            box-shadow: 0 0 0 3px rgba(0, 180, 255, 0.2), 0 8px 24px rgba(0, 0, 0, 0.25);
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 0.85rem 1.1rem; border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #fff; font-family: var(--font-sans); font-size: 0.92rem; outline: none;
+            transition: all 0.2s ease;
         }
-        .form-group textarea { min-height: 130px; }
-        .form-group select option { background: var(--dark); }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        #submitBtn {
-            width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.6rem;
-            background: var(--accent-text); color: #fff; padding: 1.05rem; border-radius: 50px;
-            border: none; cursor: pointer; font-family: inherit; font-size: 1rem; font-weight: 700;
-            position: relative; overflow: hidden; transition: transform 0.2s var(--ease-out), background 0.2s ease, box-shadow 0.2s ease;
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--accent); background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 0 15px rgba(0, 180, 255, 0.25);
         }
-        #submitBtn:hover { transform: translateY(-2px); background: #0090c9; box-shadow: 0 10px 25px rgba(0, 180, 255, 0.4); }
-        #submitBtn .btn-loader { display: none; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.35); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; }
-        @keyframes spin { to{transform:rotate(360deg)} }
+
+        .form-group select option { background: #080b12; color: #fff; }
+
+        .form-group textarea { height: 120px; resize: none; }
+
+        .btn-submit {
+            width: 100%; padding: 1rem; border-radius: 50px; font-size: 0.95rem; font-weight: 700;
+            color: #fff; background: linear-gradient(135deg, #0077b6, #00b4ff);
+            border: 1px solid rgba(0, 180, 255, 0.5); cursor: pointer; display: flex;
+            align-items: center; justify-content: center; gap: 0.6rem;
+            box-shadow: 0 0 25px rgba(0, 180, 255, 0.4); transition: all 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            box-shadow: 0 0 35px rgba(0, 180, 255, 0.7); transform: translateY(-1px);
+        }
+
+        .btn-loader {
+            display: none; width: 18px; height: 18px; border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         #toast {
-            position: fixed; bottom: 2rem; right: 2rem; background: var(--dark); border: 1px solid rgba(74,222,128,0.4);
-            color: #4ade80; font-size: 0.9rem; font-weight: 600; padding: 1rem 1.5rem; border-radius: 14px;
-            display: flex; align-items: center; gap: 0.6rem; transform: translateY(20px); opacity: 0;
-            transition: transform 0.4s ease, opacity 0.4s ease; z-index: 500; pointer-events: none;
+            position: fixed; bottom: 2rem; right: 2rem; padding: 1rem 1.6rem;
+            background: #0e1422; border: 1px solid var(--accent); border-radius: 14px;
+            color: #fff; font-size: 0.9rem; font-weight: 600; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+            z-index: 3000; opacity: 0; transform: translateY(20px); transition: all 0.3s var(--ease-out);
+            pointer-events: none;
         }
-        #toast.show { transform: translateY(0); opacity: 1; }
 
-        footer { border-top: 1px solid var(--line); padding: 3rem 6%; position: relative; z-index: 1; }
-        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
-        .footer-brand p { font-size: 0.82rem; color: var(--muted); margin-top: 0.35rem; }
-        .footer-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-        .footer-pill-link {
-            font-size: 0.85rem; font-weight: 500; color: var(--muted); text-decoration: none;
-            padding: 0.45rem 1.1rem; border-radius: 50px; border: 1px solid var(--line); background: var(--surface);
-            transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s var(--ease-out), box-shadow 0.25s ease;
+        #toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+        /* ══════════════════════════════
+           FOOTER
+        ══════════════════════════════ */
+        footer {
+            position: relative; z-index: 10; padding: 3.5rem 1.5rem;
+            background: #030407; border-top: 1px solid var(--line);
         }
-        .footer-pill-link:hover { color: var(--ink); border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0, 180, 255, 0.15); }
-        .footer-copy { font-size: 0.82rem; color: var(--muted); text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--line); }
 
-        .reveal {
-            opacity: 1; transform: translateY(0);
-            transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); will-change: opacity, transform;
+        .footer-inner {
+            max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 2rem;
         }
-        .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
 
-        @media (max-width: 980px) {
-            #home { grid-template-columns: 1fr; gap: 2.8rem; }
-            .hero-terminal-wrap { max-width: 620px; width: 100%; margin: 0 auto; }
-            .bento-span-6 { grid-column: span 12; }
-            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        .footer-brand p { font-size: 0.82rem; color: var(--muted); margin-top: 0.3rem; }
+
+        .footer-links { display: flex; align-items: center; gap: 1.5rem; }
+
+        .footer-links a {
+            text-decoration: none; font-size: 0.88rem; color: var(--ink-soft); transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        .footer-copy {
+            max-width: 1240px; margin: 2rem auto 0; padding-top: 2rem; border-top: 1px solid var(--line);
+            text-align: center; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted);
+        }
+
+        /* ══════════════════════════════
+           RESPONSIVE BREAKPOINTS
+        ══════════════════════════════ */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .bento-col-8, .bento-col-4, .bento-col-6 { grid-column: span 12; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-avatar-card { position: static; max-width: 100%; aspect-ratio: 16/9; margin-bottom: 2rem; }
             .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
         }
+
         @media (max-width: 768px) {
-            section { padding: 4.5rem 6%; }
-            .nav-center { display: none; }
-            .hamburger { display: flex; }
+            nav { padding: 0 1.2rem; }
+            .nav-menu { display: none; }
+            .nav-mobile-toggle { display: block; }
             .form-row { grid-template-columns: 1fr; }
-            .skills-grid { grid-template-columns: 1fr; }
-            .hero-buttons { flex-direction: column; align-items: stretch; }
-            .hero-buttons a { justify-content: center; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-            .reveal { opacity: 1 !important; transform: none !important; }
+            .stat-widget-grid { grid-template-columns: 1fr; }
+            .skills-badge-cloud { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+<!-- Progress indicator -->
+<div id="progress-bar" aria-hidden="true"></div>
+
+<!-- Background Canvas & Volumetric Grid -->
 <canvas id="bg-canvas" aria-hidden="true"></canvas>
 <div id="global-grid-bg" aria-hidden="true"></div>
 <div id="global-cursor-glow" aria-hidden="true"></div>
-<div id="progress-bar"></div>
+<div class="ambient-aurora-top" aria-hidden="true"></div>
+<div class="ambient-aurora-bottom" aria-hidden="true"></div>
 
-<div id="toast"><i class="fa-solid fa-circle-check"></i> Bericht verzonden! Ik neem snel contact op.</div>
+<!-- Toast notification -->
+<div id="toast" role="alert"></div>
 
-<!-- NAV -->
+<!-- ══════════════════════════════
+     NAVBAR
+══════════════════════════════ -->
 <nav id="navbar">
     <a href="#home" class="nav-logo">Bram<span>.</span></a>
-    <ul class="nav-center" id="navCenter">
+
+    <ul class="nav-menu">
         <li><a href="#projects" class="nav-link">Projecten</a></li>
         <li><a href="#about" class="nav-link">Over mij</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
     </ul>
-    <div class="nav-right">
-        <a href="#contact" class="nav-cta">Contact</a>
-        <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
-            <span></span><span></span><span></span>
+
+    <div class="nav-right-actions">
+        <!-- Audio Synth Mute Toggle with Equalizer Waveform -->
+        <button type="button" class="sound-toggle-btn" id="soundToggle" title="Audio aan/uit" aria-label="Toggle geluid">
+            <div class="sound-waves">
+                <span></span><span></span><span></span>
+            </div>
+            <i class="fa-solid fa-volume-xmark"></i>
+        </button>
+
+        <a href="#contact" class="nav-cta">
+            <span>Contact</span>
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu openen">
+            <i class="fa-solid fa-bars"></i>
         </button>
     </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-    <a href="#projects" onclick="closeMobile()">Projecten</a>
-    <a href="#about" onclick="closeMobile()">Over mij</a>
-    <a href="#skills" onclick="closeMobile()">Skills</a>
-    <a href="#contact" onclick="closeMobile()">Contact</a>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer" id="mobileDrawer">
+    <a href="#projects" class="mobile-nav-item">Projecten</a>
+    <a href="#about" class="mobile-nav-item">Over mij</a>
+    <a href="#skills" class="mobile-nav-item">Skills</a>
+    <a href="#contact" class="mobile-nav-item" style="color:var(--accent);">Contact opnemen</a>
 </div>
 
-<!-- MONUMENTAL HERO -->
+<!-- ══════════════════════════════
+     HERO SECTION
+══════════════════════════════ -->
 <section id="home">
-    <div class="hero-blobs" aria-hidden="true">
-        <span class="blob blob-a"></span>
-        <span class="blob blob-b"></span>
-    </div>
-
-    <div class="hero-content">
-        <div class="hero-badges-wrap">
-            <div class="hero-badge">
-                <span class="dot"></span>
-                <span>Beschikbaar voor projecten / opdrachten</span>
-            </div>
-            <div class="eyebrow-matrix" id="heroMatrixBadge">
-                <i class="fa-solid fa-code" style="color:#00b4ff"></i>
-                <span id="matrixText">BRAM VERHOEFF // ARCHITECT</span>
-            </div>
-        </div>
-
-        <!-- Herschreven Kinetische Typografie met Text Scramble -->
-        <h1 class="hero-title">
-            <span class="hero-title-line">
-                <span id="scrambleTitle" style="--delay: 0.1s">Engineering High-Impact</span>
-            </span>
-            <span class="hero-title-line">
-                <span class="hero-gradient-text" style="--delay: 0.28s">Software &amp; SaaS Platforms.</span>
-            </span>
-        </h1>
-
-        <p class="typewriter-wrap" id="typewriter">18-jarige Software Architect &amp; Founder ⚡<span class="cursor-blink"></span></p>
-
-        <!-- Herschreven Storytelling Copy -->
-        <p class="hero-story-lead">
-            Ik transformeer complexe ideeën naar robuuste, razendsnelle en winstgevende live platforms. Als 18-jarige full-stack developer en oprichter van <strong>Agevo Development</strong> (KVK 42160840) en het AI-platform <strong>StudyElite</strong> combineer ik state-of-the-art software-engineering met een ondernemersmentaliteit — van de allereerste byte tot productie op schaal.
-        </p>
-
-        <!-- Magnetic CTA Buttons met moving border beam -->
-        <div class="hero-buttons">
-            <a href="#projects" class="btn-primary">
-                <span class="btn-beam" aria-hidden="true"><span class="btn-beam-travel"></span></span>
-                <i class="fa-solid fa-arrow-down"></i> Bekijk live platforms
-            </a>
-            <a href="#contact" class="btn-secondary">
-                <i class="fa-solid fa-envelope" style="color:#0077b6"></i> Start een project
-            </a>
-            <a href="CV Bram Verhoeff.pdf" download class="btn-secondary">
-                <i class="fa-solid fa-download" style="color:#0077b6"></i> Download CV
-            </a>
-        </div>
-
-        <div class="hero-socials">
-            <a href="https://nl.linkedin.com/in/bram-verhoeff" target="_blank" class="social-icon" title="LinkedIn">
-                <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/" target="_blank" class="social-icon" title="GitHub">
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="mailto:info@bramverhoeff.nl" class="social-icon" title="Email">
-                <i class="fa-solid fa-envelope"></i>
-            </a>
-            <a href="https://bramverhoeff.nl" target="_blank" class="social-icon" title="Website">
-                <i class="fa-solid fa-globe"></i>
-            </a>
-        </div>
-    </div>
-
-    <!-- 3D Terminal Showpiece -->
-    <div class="hero-terminal-wrap">
-        <div class="hero-terminal tilt-card vulk-spotlight" id="heroTerminal">
-            <div class="border-beam-wrap" aria-hidden="true"><div class="border-beam-glow"></div></div>
-            <div class="card-glare" aria-hidden="true"></div>
-            <div class="terminal-header">
-                <div class="terminal-dots">
-                    <span class="dot-btn dot-close"></span>
-                    <span class="dot-btn dot-min"></span>
-                    <span class="dot-btn dot-max"></span>
+    <div class="hero-grid">
+        <!-- Left Content Column -->
+        <div class="hero-content-col">
+            <div class="hero-meta-badges">
+                <div class="hero-status-pill">
+                    <span class="radar-dot"><span class="radar-ring"></span></span>
+                    <span>Beschikbaar voor projecten / opdrachten</span>
                 </div>
-                <div class="terminal-tabs">
-                    <button class="terminal-tab active" id="tabConfig" onclick="switchTerminalTab('code')">
-                        <i class="fa-brands fa-square-js" style="color:#00b4ff"></i> developer.ts
-                    </button>
-                    <button class="terminal-tab" id="tabProjects" onclick="switchTerminalTab('products')">
-                        <i class="fa-solid fa-layer-group" style="color:#4ade80"></i> live-products.json
-                    </button>
+
+                <div class="hero-eyebrow-pill">
+                    <i class="fa-solid fa-sparkles" style="color:var(--accent);"></i>
+                    <span>BRAM VERHOEFF // ARCHITECT // KVK 42160840</span>
                 </div>
-                <div class="terminal-badge">
-                    <span class="terminal-live-dot"></span> v2.6.0
+
+                <div class="hero-clock-pill" id="heroClock">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>AMS <strong id="clockText">19:45</strong></span>
                 </div>
             </div>
 
-            <div class="terminal-body" id="terminalBody">
-                <div class="terminal-code-view" id="terminalCodeView">
-                    <pre class="terminal-pre"><code id="codeOutput"><span class="tk-kw">const</span> <span class="tk-var">architect</span> = {
+            <h1 class="hero-title">
+                Engineering High-Impact<br/>
+                <span class="gradient-text">Software &amp; SaaS Platforms.</span>
+            </h1>
+
+            <div class="hero-typewriter-box">
+                <span id="typewriter"></span><span class="cursor-blink"></span>
+            </div>
+
+            <p class="hero-lead-text">
+                Ik transformeer complexe ideeën naar robuuste, razendsnelle en winstgevende live platforms. Als 18-jarige full-stack developer en oprichter van Agevo Development (KVK 42160840) en het AI-platform StudyElite combineer ik state-of-the-art engineering met een ondernemersmentaliteit — van de allereerste byte tot productie op schaal.
+            </p>
+
+            <div class="hero-cta-group">
+                <a href="#projects" class="btn-primary">
+                    <i class="fa-solid fa-arrow-down"></i>
+                    <span>Bekijk live platforms</span>
+                </a>
+
+                <a href="#contact" class="btn-secondary">
+                    <i class="fa-solid fa-envelope" style="color:var(--accent);"></i>
+                    <span>Start een project</span>
+                </a>
+
+                <a href="/CV Bram Verhoeff.pdf" download class="btn-secondary">
+                    <i class="fa-solid fa-download" style="color:var(--accent-text);"></i>
+                    <span>Download CV</span>
+                </a>
+            </div>
+
+            <div class="hero-socials">
+                <a href="https://nl.linkedin.com/in/bram-verhoeff" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:info@bramverhoeff.nl" class="social-icon" title="Email info@bramverhoeff.nl">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://bramverhoeff.nl" target="_blank" rel="noopener noreferrer" class="social-icon" title="Officiële website">
+                    <i class="fa-solid fa-globe"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right 3D Terminal Column -->
+        <div class="hero-terminal-wrap">
+            <div class="hero-terminal" id="heroTerminal">
+                <div class="border-beam-wrap" aria-hidden="true"><div class="border-beam-glow"></div></div>
+
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot-btn dot-close"></span>
+                        <span class="dot-btn dot-min"></span>
+                        <span class="dot-btn dot-max"></span>
+                    </div>
+
+                    <div class="terminal-tabs">
+                        <button class="terminal-tab active" id="tabCode" onclick="switchTerminalTab('code')">
+                            <i class="fa-brands fa-square-js" style="color:#00b4ff"></i> developer.ts
+                        </button>
+                        <button class="terminal-tab" id="tabProjects" onclick="switchTerminalTab('projects')">
+                            <i class="fa-solid fa-layer-group" style="color:#4ade80"></i> products.json
+                        </button>
+                        <button class="terminal-tab" id="tabMatrix" onclick="switchTerminalTab('matrix')">
+                            <i class="fa-solid fa-terminal" style="color:#00b4ff"></i> matrix.exe
+                        </button>
+                    </div>
+
+                    <div class="terminal-badge">
+                        <span class="terminal-live-dot"></span> v3.4.0
+                    </div>
+                </div>
+
+                <div class="terminal-body" id="terminalBody">
+                    <!-- Code View -->
+                    <div id="terminalCodeView">
+                        <pre class="terminal-pre"><code><span class="tk-kw">const</span> <span class="tk-var">architect</span> = {
   <span class="tk-prop">name</span>: <span class="tk-str">"Bram Verhoeff"</span>,
   <span class="tk-prop">role</span>: <span class="tk-str">"Full-Stack Software Architect"</span>,
   <span class="tk-prop">age</span>: <span class="tk-num">18</span>,
   <span class="tk-prop">founderOf</span>: <span class="tk-str">"Agevo Development (KVK 42160840)"</span>,
   <span class="tk-prop">livePlatforms</span>: [
-    <span class="tk-str">"Agevo Development // agevodev.nl"</span>,
-    <span class="tk-str">"StudyElite // studyelite.nl"</span>
+    <span class="tk-str">"StudyElite // studyelite.nl"</span>,
+    <span class="tk-str">"StarRate // starrate.nl"</span>,
+    <span class="tk-str">"Ultravoeding // ultravoeding.nl"</span>,
+    <span class="tk-str">"PrimeResell // primeresell.nl"</span>
   ],
-  <span class="tk-prop">specialties</span>: [
-    <span class="tk-str">"Software Development"</span>,
-    <span class="tk-str">"SaaS Scale"</span>,
+  <span class="tk-prop">stack</span>: [
+    <span class="tk-str">"Next.js / TypeScript / React"</span>,
+    <span class="tk-str">"PHP / Symfony / Node.js"</span>,
     <span class="tk-str">"Go High Level Automations"</span>
   ],
   <span class="tk-prop">status</span>: <span class="tk-str">"Beschikbaar voor nieuwe projecten 🚀"</span>
-};</code><span class="terminal-caret" id="codeCaret"></span></pre>
-                </div>
-                <div class="terminal-projects-view" id="terminalProjectsView" style="display:none;">
-                    <a href="#project-agevo" class="terminal-proj-item">
-                        <div style="display:flex;align-items:center;">
-                            <span class="proj-badge">01</span>
-                            <div>
-                                <strong>Agevo Development</strong>
-                                <p>Software Development · Onderneming (KVK 42160840) · agevodev.nl</p>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="#project-studyelite" class="terminal-proj-item">
-                        <div style="display:flex;align-items:center;">
-                            <span class="proj-badge">02</span>
-                            <div>
-                                <strong>StudyElite</strong>
-                                <p>AI · SaaS · Slimme studieplanner voor ambitieuze studenten · studyelite.nl</p>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                </div>
-            </div>
+};</code><span class="terminal-caret"></span></pre>
+                    </div>
 
-            <div class="terminal-footer">
-                <div><i class="fa-solid fa-circle-check"></i> System online &amp; ready</div>
-                <div><span>2 Live Producten</span> · <span>18 Jaar</span></div>
+                    <!-- Products View -->
+                    <div id="terminalProjectsView" style="display:none;">
+                        <p style="color:var(--muted);margin-bottom:0.8rem">// 4 Live Producten van Bram Verhoeff:</p>
+                        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+                            <a href="https://studyelite.nl/" target="_blank" style="text-decoration:none;color:#fff;background:rgba(255,255,255,0.04);padding:0.6rem;border-radius:8px;display:flex;justify-content:space-between;border:1px solid rgba(255,255,255,0.08);">
+                                <span>🎓 <strong>StudyElite</strong> (AI SaaS)</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square" style="color:var(--accent);"></i>
+                            </a>
+                            <a href="https://starrate.nl/" target="_blank" style="text-decoration:none;color:#fff;background:rgba(255,255,255,0.04);padding:0.6rem;border-radius:8px;display:flex;justify-content:space-between;border:1px solid rgba(255,255,255,0.08);">
+                                <span>⭐ <strong>StarRate</strong> (Review SaaS)</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square" style="color:var(--accent);"></i>
+                            </a>
+                            <a href="https://ultravoeding.nl/" target="_blank" style="text-decoration:none;color:#fff;background:rgba(255,255,255,0.04);padding:0.6rem;border-radius:8px;display:flex;justify-content:space-between;border:1px solid rgba(255,255,255,0.08);">
+                                <span>⚡ <strong>Ultravoeding</strong> (E-commerce)</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square" style="color:var(--accent);"></i>
+                            </a>
+                            <a href="https://www.primeresell.nl/" target="_blank" style="text-decoration:none;color:#fff;background:rgba(255,255,255,0.04);padding:0.6rem;border-radius:8px;display:flex;justify-content:space-between;border:1px solid rgba(255,255,255,0.08);">
+                                <span>💎 <strong>PrimeResell</strong> (Luxe Resell)</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square" style="color:var(--accent);"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Matrix View -->
+                    <div id="terminalMatrixView" style="display:none;">
+                        <canvas id="matrixCanvas" class="terminal-matrix-canvas"></canvas>
+                    </div>
+                </div>
+
+                <!-- Interactive CLI input -->
+                <form class="terminal-cli-form" id="terminalCliForm" onsubmit="handleTerminalCli(event)">
+                    <span class="terminal-cli-prefix">bram@terminal:~$</span>
+                    <input type="text" class="terminal-cli-input" id="cliInput" placeholder="Typ 'help', 'skills', 'matrix', 'contact'..." autocomplete="off"/>
+                </form>
+
+                <div class="terminal-footer">
+                    <div><i class="fa-solid fa-circle-check"></i> System online &amp; ready</div>
+                    <div><span>4 Live Producten</span> · <span>18 Jaar</span></div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- TECH MARQUEE -->
+<!-- ══════════════════════════════
+     TECH MARQUEE SECTION
+══════════════════════════════ -->
 <div class="marquee-section">
     <div class="marquee-track" id="marqueeTrack">
         <div class="marquee-item"><i class="fa-brands fa-html5" style="color:#e34f26"></i> HTML5</div>
@@ -949,9 +1404,14 @@
         <div class="marquee-item"><i class="fa-brands fa-docker" style="color:#2496ed"></i> Docker</div>
         <div class="marquee-item"><i class="fa-brands fa-git-alt" style="color:#f05032"></i> Git</div>
         <div class="marquee-item"><i class="fa-solid fa-database" style="color:#4479a1"></i> MySQL</div>
+        <div class="marquee-item"><i class="fa-solid fa-database" style="color:#336791"></i> PostgreSQL</div>
         <div class="marquee-item"><i class="fa-solid fa-bolt" style="color:#ff6b35"></i> Go High Level</div>
         <div class="marquee-item"><i class="fa-solid fa-robot" style="color:#10b981"></i> OpenAI API</div>
-        <!-- Duplicated for seamless loop -->
+        <div class="marquee-item"><i class="fa-brands fa-aws" style="color:#ff9900"></i> AWS</div>
+        <div class="marquee-item"><i class="fa-solid fa-mobile-alt" style="color:#007aff"></i> Responsive Design</div>
+        <div class="marquee-item"><i class="fa-solid fa-code-branch" style="color:#0077b6"></i> REST APIs</div>
+        <div class="marquee-item"><i class="fa-solid fa-shield-alt" style="color:#00a86b"></i> Web Security</div>
+        <!-- Duplicated loop items for seamless infinite scroll -->
         <div class="marquee-item"><i class="fa-brands fa-html5" style="color:#e34f26"></i> HTML5</div>
         <div class="marquee-item"><i class="fa-brands fa-css3-alt" style="color:#1572b6"></i> CSS3</div>
         <div class="marquee-item"><i class="fa-brands fa-js" style="color:#c9a300"></i> JavaScript</div>
@@ -970,599 +1430,1033 @@
     </div>
 </div>
 
-<!-- PROJECTS (Bestaande content) -->
+<!-- ══════════════════════════════
+     BENTO GRID: PROJECT SECTION (Refactored Layout)
+══════════════════════════════ -->
 <section id="projects">
-    <div class="projects-intro reveal">
-        <div>
-            <p class="section-label">Projecten</p>
-            <h2 class="section-title">Wat ik heb gebouwd</h2>
-            <p class="section-desc">Een selectie van projecten waar ik trots op ben.</p>
+    <div class="section-header-wrap reveal">
+        <div class="section-header-top">
+            <div>
+                <p class="section-label">Portfolio Showcase</p>
+                <h2 class="section-title">Wat ik heb gebouwd</h2>
+                <p class="section-desc">Een interactief Bento Grid van live platforms en ondernemingen — van concept tot schaalbare productie.</p>
+            </div>
+            <div class="projects-live-count">
+                <strong>04</strong> / Live Producten Online 🚀
+            </div>
         </div>
-        <div class="projects-count"><strong>02</strong> / live producten</div>
     </div>
 
+    <!-- RESPONSIVE BENTO GRID CONTAINER -->
     <div class="bento-grid">
-        <!-- Card 1: Agevo Development -->
-        <div class="bento-card bento-span-6 vulk-spotlight reveal" id="project-agevo">
+        <!-- 1. HOOFDKAART (Flagship Showcase: StudyElite, col-span-8) -->
+        <div class="bento-card bento-col-8 flagship-card reveal reveal-delay-1" id="project-studyelite">
+            <div class="flagship-glow-blob" aria-hidden="true"></div>
             <div class="border-beam-wrap" aria-hidden="true"><div class="border-beam-glow"></div></div>
-            <div class="card-glare" aria-hidden="true"></div>
+
             <div>
-                <div class="bento-card-header">
-                    <span class="bento-card-num">01 / 02</span>
-                    <span class="bento-live-badge"><span class="dot"></span> Live Onderneming</span>
+                <div class="bento-card-top">
+                    <span class="bento-card-num">01 / 04 · FLAGSHIP SHOWCASE</span>
+                    <span class="bento-live-badge"><span class="dot"></span> Live AI SaaS</span>
                 </div>
-                <div class="bento-preview-visual">
-                    <span class="bento-preview-emoji">⚡</span>
-                </div>
-                <div class="bento-card-meta">
-                    <h3>Agevo Development</h3>
-                    <p>Mijn eigen software development onderneming (KVK 42160840). Gespecialiseerd in het ontwikkelen van hoogwaardige webapplicaties, maatwerk platforms, API-koppelingen en geavanceerde Go High Level automations voor bedrijven.</p>
-                    <div class="bento-tags">
-                        <span class="tag">Software Development</span>
-                        <span class="tag">KVK 42160840</span>
-                        <span class="tag">Full-Stack</span>
-                        <span class="tag">Go High Level</span>
-                        <span class="tag">Web &amp; SaaS</span>
+
+                <!-- Live Preview Mockup Box with Accentverlichting -->
+                <div class="flagship-mockup-panel">
+                    <div class="mockup-left">
+                        <span class="mockup-emoji">🎓</span>
+                        <div>
+                            <div class="mockup-badge-pill"><i class="fa-solid fa-robot"></i> Smart AI Guidance</div>
+                            <div class="mockup-title">StudyElite Neural Planner</div>
+                            <div class="mockup-sub">AI-gestuurd studieplatform · studyelite.nl</div>
+                        </div>
+                    </div>
+                    <div class="mockup-preview-screen">
+                        <i class="fa-solid fa-bolt" style="color:#10b981;"></i>
+                        <span>Latency: 142ms · 99.8% Uptime</span>
                     </div>
                 </div>
-            </div>
-            <div class="bento-card-footer">
-                <span class="bento-stat-chip"><i class="fa-solid fa-building"></i> KVK 42160840</span>
-                <a href="https://agevodev.nl/" target="_blank" rel="noopener noreferrer" class="bento-link">
-                    Bezoek agevodev.nl <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-            </div>
-        </div>
 
-        <!-- Card 2: StudyElite -->
-        <div class="bento-card bento-span-6 vulk-spotlight reveal" id="project-studyelite">
-            <div class="border-beam-wrap" aria-hidden="true"><div class="border-beam-glow"></div></div>
-            <div class="card-glare" aria-hidden="true"></div>
-            <div>
-                <div class="bento-card-header">
-                    <span class="bento-card-num">02 / 02</span>
-                    <span class="bento-live-badge"><span class="dot"></span> Live SaaS</span>
-                </div>
-                <div class="bento-preview-visual">
-                    <span class="bento-preview-emoji">🎓</span>
-                </div>
                 <div class="bento-card-meta">
                     <h3>StudyElite</h3>
                     <p>AI-gestuurd studieplannerplatform voor studenten. Helpt gebruikers hun studieplanning te optimaliseren met gepersonaliseerde AI-begeleiding, taakanalyses en geavanceerde workflow tools om slimmer te studeren.</p>
+
                     <div class="bento-tags">
                         <span class="tag">AI</span>
                         <span class="tag">SaaS</span>
                         <span class="tag">Study Planner</span>
                         <span class="tag">Smart Guidance</span>
+                        <span class="tag">Next.js</span>
                     </div>
                 </div>
             </div>
+
             <div class="bento-card-footer">
-                <span class="bento-stat-chip"><i class="fa-solid fa-robot"></i> Smart AI Guidance</span>
+                <span class="bento-stat-chip"><i class="fa-solid fa-robot"></i> Smart AI Guidance Engine</span>
                 <a href="https://studyelite.nl/" target="_blank" rel="noopener noreferrer" class="bento-link">
                     Bezoek studyelite.nl <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- 2. COMPACT BENTO CARD: StarRate (col-span-4) -->
+        <div class="bento-card bento-col-4 reveal reveal-delay-2" id="project-starrate">
+            <div class="border-beam-wrap" aria-hidden="true"><div class="border-beam-glow"></div></div>
+
+            <div>
+                <div class="bento-card-top">
+                    <span class="bento-card-num">02 / 04</span>
+                    <span class="bento-live-badge"><span class="dot"></span> Live SaaS</span>
+                </div>
+
+                <div class="bento-visual-mini">⭐</div>
+
+                <div class="bento-card-meta">
+                    <h3>StarRate</h3>
+                    <p>Alles-in-één reviewmanagement platform voor Nederlandse bedrijven. Verzamelt en analyseert reviews op 50+ platformen met AI-gegenereerde antwoorden.</p>
+
+                    <div class="bento-tags">
+                        <span class="tag">SaaS</span>
+                        <span class="tag">Full-Stack</span>
+                        <span class="tag">Review Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-card-footer">
+                <span class="bento-stat-chip"><i class="fa-solid fa-chart-line"></i> 50+ Platforms</span>
+                <a href="https://starrate.nl/" target="_blank" rel="noopener noreferrer" class="bento-link">
+                    Bezoek starrate.nl <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- 3. COMPACT BENTO CARD: Ultravoeding (col-span-4) -->
+        <div class="bento-card bento-col-4 reveal reveal-delay-2" id="project-ultravoeding">
+            <div class="border-beam-wrap" aria-hidden="true"><div class="border-beam-glow"></div></div>
+
+            <div>
+                <div class="bento-card-top">
+                    <span class="bento-card-num">03 / 04</span>
+                    <span class="bento-live-badge"><span class="dot"></span> Live E-commerce</span>
+                </div>
+
+                <div class="bento-visual-mini">⚡</div>
+
+                <div class="bento-card-meta">
+                    <h3>Ultravoeding</h3>
+                    <p>Nederlandse webshop voor sport- en fitnessupplementen. Gebruiksvriendelijke webshop met een gecureerde selectie van eiwitten, creatine en pre-workout.</p>
+
+                    <div class="bento-tags">
+                        <span class="tag">E-commerce</span>
+                        <span class="tag">Web</span>
+                        <span class="tag">Supplements</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-card-footer">
+                <span class="bento-stat-chip"><i class="fa-solid fa-cart-shopping"></i> Webshop Live</span>
+                <a href="https://ultravoeding.nl/" target="_blank" rel="noopener noreferrer" class="bento-link">
+                    Bezoek ultravoeding.nl <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- 4. HOOGWAARDIGE SHOWCASE: PrimeResell (col-span-4) -->
+        <div class="bento-card bento-col-4 reveal reveal-delay-3" id="project-primeresell">
+            <div class="border-beam-wrap" aria-hidden="true"><div class="border-beam-glow"></div></div>
+
+            <div>
+                <div class="bento-card-top">
+                    <span class="bento-card-num">04 / 04</span>
+                    <span class="bento-live-badge"><span class="dot"></span> Live Resell</span>
+                </div>
+
+                <div class="bento-visual-mini">💎</div>
+
+                <div class="bento-card-meta">
+                    <h3>PrimeResell</h3>
+                    <p>Exclusief luxe resell platform voor designer horloges en Gucci accessoires. Klanten bestellen via WhatsApp en ontvangen binnen 24-48 uur.</p>
+
+                    <div class="bento-tags">
+                        <span class="tag">E-commerce</span>
+                        <span class="tag">Luxe Resell</span>
+                        <span class="tag">WhatsApp</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-card-footer">
+                <span class="bento-stat-chip"><i class="fa-solid fa-gem"></i> 24-48u Levering</span>
+                <a href="https://www.primeresell.nl/" target="_blank" rel="noopener noreferrer" class="bento-link">
+                    Bezoek primeresell.nl <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- 5. INTERACTIEVE STAT-WIDGET CARD (col-span-4) -->
+        <div class="bento-card bento-col-4 bento-stat-widget reveal reveal-delay-4" id="project-stats">
+            <div class="border-beam-wrap" aria-hidden="true"><div class="border-beam-glow"></div></div>
+
+            <div>
+                <div class="bento-card-top">
+                    <span class="bento-card-num">STATISTIEKEN // TRACK RECORD</span>
+                    <span class="bento-live-badge"><span class="dot"></span> Real-time</span>
+                </div>
+
+                <div class="bento-card-meta">
+                    <h3>Bram in Cijfers</h3>
+                    <p>Live metrics van mijn onderneming Agevo Development en live SaaS-producten.</p>
+                </div>
+
+                <div class="stat-widget-grid">
+                    <div class="stat-widget-box">
+                        <div class="stat-widget-num" data-counter="4">4</div>
+                        <div class="stat-widget-label">Live Producten</div>
+                    </div>
+                    <div class="stat-widget-box">
+                        <div class="stat-widget-num" data-counter="18">18</div>
+                        <div class="stat-widget-label">Jaar oud</div>
+                    </div>
+                    <div class="stat-widget-box">
+                        <div class="stat-widget-num">24u</div>
+                        <div class="stat-widget-label">Reactietijd</div>
+                    </div>
+                    <div class="stat-widget-box">
+                        <div class="stat-widget-num" style="font-size:1.45rem;">KVK</div>
+                        <div class="stat-widget-label">42160840 (Agevo)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-card-footer">
+                <span class="bento-stat-chip"><i class="fa-solid fa-building"></i> Agevo Development</span>
+                <a href="https://agevodev.nl/" target="_blank" rel="noopener noreferrer" class="bento-link">
+                    agevodev.nl <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ABOUT & TIMELINE (Bestaande content) -->
+<!-- ══════════════════════════════
+     ABOUT & TIMELINE SECTION
+══════════════════════════════ -->
 <section id="about">
-    <div class="about-grid">
-        <div class="reveal">
-            <div class="about-avatar-card">
-                <div class="avatar-initials">BV</div>
-            </div>
-        </div>
+    <div class="about-wrap">
+        <div class="about-grid">
+            <!-- Left Avatar Showcase Card -->
+            <div class="reveal">
+                <div class="about-avatar-card">
+                    <div class="avatar-top-meta">
+                        <span style="color:#10b981;">● AVAILABLE</span>
+                        <span>NL // 18 YRS</span>
+                    </div>
 
-        <div class="reveal">
-            <p class="section-label">Over mij</p>
-            <h2 class="section-title">Passie voor<br>code &amp; innovatie</h2>
-            <p class="section-desc">
-                Ik ben Bram Verhoeff, een 18-jarige developer met een passie voor programmeren en technologie.
-                Mijn reis in de wereld van software development begon met een nieuwsgierigheid naar hoe dingen
-                werken en is uitgegroeid tot een echte passie. Ik ben altijd bezig met het leren van nieuwe
-                technologieën en het ontwikkelen van mijn vaardigheden.
-            </p>
-            <p class="section-desc" style="margin-top:1rem">
-                Oprichter van softwarebedrijf <strong>Agevo Development</strong> (KVK 42160840) en het AI-studieplannerplatform <strong>StudyElite</strong>.
-                Gedreven door innovatie, geavanceerde automations en het bouwen van tastbare, schaalbare applicaties voor ambitieuze bedrijven.
-            </p>
+                    <div class="avatar-initials-wrap">
+                        <div class="avatar-glow"></div>
+                        <div class="avatar-initials">BV</div>
+                        <span style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.15em;color:var(--accent-text);margin-top:0.4rem;font-weight:700;">BRAM VERHOEFF</span>
+                    </div>
 
-            <div class="about-timeline" id="aboutTimeline" aria-label="Tijdlijn van opleidingen en stage">
-                <div class="timeline-track-line">
-                    <div class="timeline-progress-fill" id="timelineLineFill"></div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2019 — 2023</div>
-                    <div class="timeline-content">
-                        <h3>Segbroek College</h3>
-                        <p>Ik zat op het Segbroek College van 2019 tot en met 2023.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2023 — 2026</div>
-                    <div class="timeline-content">
-                        <h3>Software Developer opleiding (MBO)</h3>
-                        <p>Student geweest aan de Software Developer opleiding op MBO niveau en daarvoor geslaagd.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2025 — 2026</div>
-                    <div class="timeline-content">
-                        <h3>Stage bij IkWilPersoneel</h3>
-                        <p>Ik heb in 2025 en 2026 stage gelopen bij IkWilPersoneel.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2026 — Heden</div>
-                    <div class="timeline-content">
-                        <h3>HBO-ICT</h3>
-                        <p>Ik ben momenteel student aan de HBO-ICT opleiding.</p>
+                    <div class="avatar-bottom-meta">
+                        <span>FOUNDER</span>
+                        <strong style="color:#fff;">Agevo Development ⚡</strong>
                     </div>
                 </div>
             </div>
 
-            <div class="about-stats">
-                <div class="stat-card vulk-spotlight">
-                    <i class="fa-solid fa-rocket stat-icon"></i>
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">Live platforms</div>
+            <!-- Right Storytelling & Timeline Column -->
+            <div class="reveal reveal-delay-2">
+                <p class="section-label">Over mij</p>
+                <h2 class="section-title">Passie voor<br/>code &amp; innovatie</h2>
+
+                <p class="section-desc" style="margin-top:1.2rem;">
+                    Ik ben Bram Verhoeff, een 18-jarige developer met een passie voor programmeren en technologie.
+                    Mijn reis in de wereld van software development begon met een nieuwsgierigheid naar hoe dingen
+                    werken en is uitgegroeid tot een echte passie. Ik ben altijd bezig met het leren van nieuwe
+                    technologieën en het ontwikkelen van mijn vaardigheden.
+                </p>
+
+                <p class="section-desc" style="margin-top:1rem;">
+                    Oprichter van softwarebedrijf <strong>Agevo Development</strong> (KVK 42160840) en het AI-studieplannerplatform <strong>StudyElite</strong>.
+                    Gedreven door innovatie, geavanceerde automations en het bouwen van tastbare, schaalbare applicaties voor ambitieuze bedrijven.
+                </p>
+
+                <!-- Scroll-Driven Timeline -->
+                <div class="about-timeline" id="aboutTimeline" aria-label="Tijdlijn van opleidingen en stage">
+                    <div class="timeline-track-line">
+                        <div class="timeline-progress-fill" id="timelineLineFill"></div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019 — 2023</div>
+                        <div class="timeline-content">
+                            <h3>Segbroek College</h3>
+                            <p>Ik zat op het Segbroek College van 2019 tot en met 2023.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023 — 2026</div>
+                        <div class="timeline-content">
+                            <h3>Software Developer opleiding (MBO)</h3>
+                            <p>Student geweest aan de Software Developer opleiding op MBO niveau en daarvoor geslaagd.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025 — 2026</div>
+                        <div class="timeline-content">
+                            <h3>Stage bij IkWilPersoneel</h3>
+                            <p>Ik heb in 2025 en 2026 stage gelopen bij IkWilPersoneel.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item active">
+                        <div class="timeline-date">2026 — Heden</div>
+                        <div class="timeline-content">
+                            <h3>HBO-ICT</h3>
+                            <p>Ik ben momenteel student aan de HBO-ICT opleiding.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card vulk-spotlight">
-                    <i class="fa-solid fa-cake-candles stat-icon"></i>
-                    <div class="stat-number">18</div>
-                    <div class="stat-label">Jaar oud</div>
-                </div>
-                <div class="stat-card vulk-spotlight">
-                    <i class="fa-solid fa-building stat-icon"></i>
-                    <div class="stat-number" style="font-size:1.6rem">42160840</div>
-                    <div class="stat-label">KVK — Agevo Development</div>
-                </div>
-                <div class="stat-card vulk-spotlight">
-                    <i class="fa-solid fa-bolt stat-icon"></i>
-                    <div class="stat-number">24u</div>
-                    <div class="stat-label">Reactietijd</div>
+
+                <!-- Stats Grid -->
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <i class="fa-solid fa-rocket stat-icon"></i>
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Live platforms</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-cake-candles stat-icon"></i>
+                        <div class="stat-number">18</div>
+                        <div class="stat-label">Jaar oud</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-building stat-icon"></i>
+                        <div class="stat-number" style="font-size:1.7rem;">42160840</div>
+                        <div class="stat-label">KVK — Agevo Development</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-bolt stat-icon"></i>
+                        <div class="stat-number">24u</div>
+                        <div class="stat-label">Reactietijd</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SKILLS (Bestaande content) -->
+<!-- ══════════════════════════════
+     SKILLS SECTION (Interactive Tab & Floating Badge Cloud)
+══════════════════════════════ -->
 <section id="skills">
-    <div class="reveal" style="margin-bottom:2.5rem">
-        <p class="section-label">Skills</p>
-        <h2 class="section-title">Wat ik kan</h2>
-        <p class="section-desc">Van frontend tot backend, van design tot deployment — ik heb de tools in huis.</p>
+    <div class="section-header-wrap reveal">
+        <div class="section-header-top">
+            <div>
+                <p class="section-label">Expertise &amp; Tech Stack</p>
+                <h2 class="section-title">Wat ik kan</h2>
+                <p class="section-desc">Van frontend tot backend, van design tot deployment — ik heb de tools in huis om hoogwaardige software te bouwen.</p>
+            </div>
+        </div>
     </div>
-    <div class="skills-grid reveal">
-        <div class="skill-row vulk-spotlight">
-            <div class="skill-icon">🌐</div>
-            <div><h3>Frontend Development</h3><p>HTML, CSS, JavaScript &amp; Bootstrap voor moderne, responsieve webinterfaces.</p></div>
+
+    <!-- Filterable Tab Bar -->
+    <div class="skills-tab-bar reveal reveal-delay-1" id="skillsTabBar">
+        <button type="button" class="skill-tab-btn active" onclick="filterSkills('all', this)">Alle Skills</button>
+        <button type="button" class="skill-tab-btn" onclick="filterSkills('frontend', this)">Frontend</button>
+        <button type="button" class="skill-tab-btn" onclick="filterSkills('backend', this)">Backend &amp; DB</button>
+        <button type="button" class="skill-tab-btn" onclick="filterSkills('automations', this)">Automations &amp; Startup</button>
+    </div>
+
+    <!-- Floating Badge Cloud -->
+    <div class="skills-badge-cloud" id="skillsCloud">
+        <!-- 1. Frontend -->
+        <div class="skill-badge-item reveal" data-category="frontend">
+            <span class="skill-badge-icon">🌐</span>
+            <div class="skill-badge-content" style="flex:1;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                    <h3>Frontend Development</h3>
+                    <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent-text);font-weight:700;">96%</span>
+                </div>
+                <p>HTML, CSS, JavaScript &amp; Bootstrap voor moderne, responsieve webinterfaces.</p>
+                <div class="skill-progress-track">
+                    <div class="skill-progress-bar" style="width:96%;"></div>
+                </div>
+            </div>
         </div>
-        <div class="skill-row vulk-spotlight">
-            <div class="skill-icon">⚙️</div>
-            <div><h3>Backend Development</h3><p>PHP, Symfony, Node.js &amp; REST API's voor krachtige server-side applicaties.</p></div>
+
+        <!-- 2. Backend -->
+        <div class="skill-badge-item reveal reveal-delay-1" data-category="backend">
+            <span class="skill-badge-icon">⚙️</span>
+            <div class="skill-badge-content" style="flex:1;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                    <h3>Backend Development</h3>
+                    <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent-text);font-weight:700;">94%</span>
+                </div>
+                <p>PHP, Symfony, Node.js &amp; REST API's voor krachtige server-side applicaties.</p>
+                <div class="skill-progress-track">
+                    <div class="skill-progress-bar" style="width:94%;"></div>
+                </div>
+            </div>
         </div>
-        <div class="skill-row vulk-spotlight">
-            <div class="skill-icon">🗂️</div>
-            <div><h3>Database Development</h3><p>MySQL voor database design, queries en datamanagement in webapplicaties.</p></div>
+
+        <!-- 3. Database -->
+        <div class="skill-badge-item reveal reveal-delay-2" data-category="backend">
+            <span class="skill-badge-icon">🗂️</span>
+            <div class="skill-badge-content" style="flex:1;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                    <h3>Database Development</h3>
+                    <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent-text);font-weight:700;">90%</span>
+                </div>
+                <p>MySQL voor database design, queries en datamanagement in webapplicaties.</p>
+                <div class="skill-progress-track">
+                    <div class="skill-progress-bar" style="width:90%;"></div>
+                </div>
+            </div>
         </div>
-        <div class="skill-row vulk-spotlight">
-            <div class="skill-icon">🖌️</div>
-            <div><h3>UI/UX Design</h3><p>Figma voor wireframing, prototyping en gebruiksvriendelijke interface designs.</p></div>
+
+        <!-- 4. UI/UX Design -->
+        <div class="skill-badge-item reveal reveal-delay-1" data-category="frontend">
+            <span class="skill-badge-icon">🖌️</span>
+            <div class="skill-badge-content" style="flex:1;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                    <h3>UI/UX Design</h3>
+                    <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent-text);font-weight:700;">88%</span>
+                </div>
+                <p>Figma voor wireframing, prototyping en gebruiksvriendelijke interface designs.</p>
+                <div class="skill-progress-track">
+                    <div class="skill-progress-bar" style="width:88%;"></div>
+                </div>
+            </div>
         </div>
-        <div class="skill-row vulk-spotlight">
-            <div class="skill-icon">⚡</div>
-            <div><h3>Go High Level Automations</h3><p>Custom GHL automations, workflow bouwen, API integraties en geavanceerde funnel systemen.</p></div>
+
+        <!-- 5. Go High Level Automations -->
+        <div class="skill-badge-item reveal reveal-delay-2" data-category="automations">
+            <span class="skill-badge-icon">⚡</span>
+            <div class="skill-badge-content" style="flex:1;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                    <h3>Go High Level Automations</h3>
+                    <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent-text);font-weight:700;">98%</span>
+                </div>
+                <p>Custom GHL automations, workflow bouwen, API integraties en geavanceerde funnel systemen.</p>
+                <div class="skill-progress-track">
+                    <div class="skill-progress-bar" style="width:98%;"></div>
+                </div>
+            </div>
         </div>
-        <div class="skill-row vulk-spotlight">
-            <div class="skill-icon">💼</div>
-            <div><h3>Ondernemerschap</h3><p>Product development, growth hacking, custom Go High Level automations en het leiden van een tech-startup.</p></div>
+
+        <!-- 6. Ondernemerschap -->
+        <div class="skill-badge-item reveal reveal-delay-3" data-category="automations">
+            <span class="skill-badge-icon">💼</span>
+            <div class="skill-badge-content" style="flex:1;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                    <h3>Ondernemerschap</h3>
+                    <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent-text);font-weight:700;">95%</span>
+                </div>
+                <p>Product development, growth hacking, custom Go High Level automations en het leiden van een tech-startup.</p>
+                <div class="skill-progress-track">
+                    <div class="skill-progress-bar" style="width:95%;"></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- CONTACT (Bestaande content) -->
+<!-- ══════════════════════════════
+     CONTACT SECTION
+══════════════════════════════ -->
 <section id="contact">
-    <div class="contact-aura" aria-hidden="true"></div>
-    <div class="contact-grid">
-        <div class="reveal">
-            <p class="section-label">Contact</p>
-            <h2 class="section-title">Laten we samenwerken</h2>
-            <p class="section-desc" style="margin-bottom:2rem">Heb je een project? Ik hoor graag van je!</p>
-            <div class="contact-item vulk-spotlight">
-                <div class="icon"><i class="fa-solid fa-envelope"></i></div>
-                <div><div class="label">Email</div><div class="value">bramverhoeff@hotmail.com</div></div>
-            </div>
-            <div class="contact-item vulk-spotlight">
-                <div class="icon"><i class="fa-brands fa-linkedin-in"></i></div>
-                <div><div class="label">LinkedIn</div><div class="value">linkedin.com/in/bram-verhoeff</div></div>
-            </div>
-            <div class="contact-item vulk-spotlight">
-                <div class="icon"><i class="fa-solid fa-map-pin"></i></div>
-                <div><div class="label">Locatie</div><div class="value">Nederland 🇳🇱</div></div>
-            </div>
-            <div class="contact-item vulk-spotlight">
-                <div class="icon"><i class="fa-solid fa-clock"></i></div>
-                <div><div class="label">Reactietijd</div><div class="value">Binnen 24 uur</div></div>
-            </div>
-        </div>
+    <div class="contact-wrap">
+        <div class="contact-grid">
+            <!-- Left Info Column -->
+            <div class="reveal">
+                <p class="section-label">Contact</p>
+                <h2 class="section-title">Laten we samenwerken</h2>
+                <p class="section-desc" style="margin-bottom:1.5rem;">Heb je een project? Ik hoor graag van je!</p>
 
-        <div class="contact-form vulk-spotlight reveal">
-            <div class="form-row">
-                <div class="form-group">
-                    <label><i class="fa-solid fa-user"></i> Voornaam</label>
-                    <input type="text" id="fname" placeholder="Jan"/>
+                <div class="contact-items-list">
+                    <div class="contact-item">
+                        <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <div class="label">Email</div>
+                            <div class="value"><a href="mailto:bramverhoeff@hotmail.com" style="color:#fff;text-decoration:none;">bramverhoeff@hotmail.com</a></div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                        <div>
+                            <div class="label">LinkedIn</div>
+                            <div class="value"><a href="https://nl.linkedin.com/in/bram-verhoeff" target="_blank" rel="noopener noreferrer" style="color:#fff;text-decoration:none;">linkedin.com/in/bram-verhoeff</a></div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon"><i class="fa-solid fa-map-pin"></i></div>
+                        <div>
+                            <div class="label">Locatie</div>
+                            <div class="value">Nederland 🇳🇱</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon"><i class="fa-solid fa-clock"></i></div>
+                        <div>
+                            <div class="label">Reactietijd</div>
+                            <div class="value">Binnen 24 uur</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label><i class="fa-solid fa-user"></i> Achternaam</label>
-                    <input type="text" id="lname" placeholder="de Vries"/>
+            </div>
+
+            <!-- Right Contact Form -->
+            <div class="contact-form reveal reveal-delay-2">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-user"></i> Voornaam</label>
+                        <input type="text" id="fname" placeholder="Jan" required/>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-user"></i> Achternaam</label>
+                        <input type="text" id="lname" placeholder="de Vries" required/>
+                    </div>
                 </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-envelope"></i> Email</label>
+                    <input type="email" id="femail" placeholder="jan@voorbeeld.nl" required/>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-tag"></i> Type project</label>
+                    <select id="ftype">
+                        <option value="" disabled selected>Selecteer een type...</option>
+                        <option>Website / Webapplicatie</option>
+                        <option>AI-integratie</option>
+                        <option>Full-stack project</option>
+                        <option>Consultancy / Advies</option>
+                        <option>Anders</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-pen-to-square"></i> Bericht</label>
+                    <textarea id="fmsg" placeholder="Vertel me over je project, wensen en timeline..." required></textarea>
+                </div>
+
+                <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">
+                    <span class="btn-loader" id="btnLoader"></span>
+                    <i class="fa-solid fa-paper-plane" id="btnIcon"></i>
+                    <span id="btnText">Verstuur bericht</span>
+                </button>
             </div>
-            <div class="form-group">
-                <label><i class="fa-solid fa-envelope"></i> Email</label>
-                <input type="email" id="femail" placeholder="jan@voorbeeld.nl"/>
-            </div>
-            <div class="form-group">
-                <label><i class="fa-solid fa-tag"></i> Type project</label>
-                <select id="ftype">
-                    <option value="" disabled selected>Selecteer een type...</option>
-                    <option>Website / Webapplicatie</option>
-                    <option>AI-integratie</option>
-                    <option>Full-stack project</option>
-                    <option>Consultancy / Advies</option>
-                    <option>Anders</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label><i class="fa-solid fa-pen-to-square"></i> Bericht</label>
-                <textarea id="fmsg" placeholder="Vertel me over je project, wensen en timeline..."></textarea>
-            </div>
-            <button class="btn-primary" id="submitBtn" onclick="handleSubmit()" style="width:100%;justify-content:center">
-                <span class="btn-loader" id="btnLoader"></span>
-                <i class="fa-solid fa-paper-plane" id="btnIcon"></i>
-                <span id="btnText">Verstuur bericht</span>
-            </button>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ══════════════════════════════
+     FOOTER
+══════════════════════════════ -->
 <footer>
     <div class="footer-inner">
         <div class="footer-brand">
             <a href="#home" class="nav-logo">Bram<span>.</span></a>
             <p>Software Developer · Agevo Development (KVK 42160840)</p>
         </div>
+
         <div class="footer-links">
-            <a href="#projects" class="footer-pill-link">Projecten</a>
-            <a href="#about" class="footer-pill-link">Over mij</a>
-            <a href="#skills" class="footer-pill-link">Skills</a>
-            <a href="#contact" class="footer-pill-link">Contact</a>
+            <a href="#projects">Projecten</a>
+            <a href="#about">Over mij</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </div>
+
         <div class="hero-socials">
-            <a href="https://nl.linkedin.com/in/bram-verhoeff" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://github.com/" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
-            <a href="mailto:info@bramverhoeff.nl" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://nl.linkedin.com/in/bram-verhoeff" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:info@bramverhoeff.nl" class="social-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </div>
+
     <p class="footer-copy">© 2026 Bram Verhoeff — Agevo Development (KVK: 42160840) — Gebouwd, niet gekopieerd.</p>
 </footer>
 
+<!-- ══════════════════════════════
+     INTERACTIVE JAVASCRIPT ENGINE
+══════════════════════════════ -->
 <script>
-    // ══ KINETIC 3D CANVAS PARTICLE MESH ══
-    const canvas = document.getElementById('bg-canvas');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (canvas && !reduceMotion) {
-        const ctx = canvas.getContext('2d');
-        let width = 0, height = 0;
-        let mouseX = -1000, mouseY = -1000;
-        let targetRotX = 0, targetRotY = 0, rotX = 0, rotY = 0;
-        const isMobile = window.innerWidth < 768;
-        const particleCount = isMobile ? 32 : 65;
+    // ══ SOUND SYNTHESIZER (Native Web Audio API) ══
+    let audioCtx = null;
+    let isSoundMuted = false;
 
-        function resizeCanvas() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
+    function initAudio() {
+        if (!audioCtx) {
+            const AudioClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioClass) audioCtx = new AudioClass();
         }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas, { passive: true });
+        if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    }
 
-        document.addEventListener('mousemove', e => {
-            mouseX = e.clientX; mouseY = e.clientY;
-            targetRotY = ((e.clientX / window.innerWidth) - 0.5) * 0.45;
-            targetRotX = ((e.clientY / window.innerHeight) - 0.5) * -0.45;
-            document.body.style.setProperty('--global-mx', `${mouseX}px`);
-            document.body.style.setProperty('--global-my', `${mouseY}px`);
+    function playSynthSound(freqStart, freqEnd, duration, type = 'sine', gainVal = 0.03) {
+        if (isSoundMuted) return;
+        try {
+            initAudio();
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(freqStart, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(freqEnd, audioCtx.currentTime + duration);
+
+            gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        } catch(e) {}
+    }
+
+    const soundToggle = document.getElementById('soundToggle');
+    if (soundToggle) {
+        soundToggle.addEventListener('click', () => {
+            isSoundMuted = !isSoundMuted;
+            soundToggle.classList.toggle('muted', isSoundMuted);
+            if (!isSoundMuted) playSynthSound(600, 1200, 0.08, 'triangle', 0.04);
+        });
+    }
+
+    document.querySelectorAll('button, a, .bento-card, .skill-badge-item').forEach(el => {
+        el.addEventListener('mouseenter', () => playSynthSound(1200, 1600, 0.03, 'sine', 0.015));
+        el.addEventListener('click', () => playSynthSound(800, 350, 0.04, 'triangle', 0.04));
+    });
+
+    // ══ SCROLL PROGRESS & NAVBAR SCROLLED STATE ══
+    const progressBar = document.getElementById('progress-bar');
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+        if (progressBar) progressBar.style.width = pct + '%';
+        if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 25);
+    }, { passive: true });
+
+    // ══ MOBILE MENU TOGGLE ══
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    if (mobileToggle && mobileDrawer) {
+        mobileToggle.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('open');
+            const icon = mobileToggle.querySelector('i');
+            if (icon) icon.className = mobileDrawer.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        });
+
+        document.querySelectorAll('.mobile-nav-item').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.remove('open');
+                const icon = mobileToggle.querySelector('i');
+                if (icon) icon.className = 'fa-solid fa-bars';
+            });
+        });
+    }
+
+    // ══ REAL-TIME AMSTERDAM CLOCK ══
+    function updateAmsClock() {
+        const el = document.getElementById('clockText');
+        if (el) {
+            const now = new Date();
+            el.textContent = now.toLocaleTimeString('nl-NL', { timeZone: 'Europe/Amsterdam', hour: '2-digit', minute: '2-digit' });
+        }
+    }
+    updateAmsClock();
+    setInterval(updateAmsClock, 10000);
+
+    // ══ 3D TILT & LIGHT SPOTLIGHT ON BENTO CARDS ══
+    document.querySelectorAll('.bento-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const rotX = ((y / rect.height) - 0.5) * -10;
+            const rotY = ((x / rect.width) - 0.5) * 10;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px) scale(1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+
+    // ══ GLOBAL CURSOR SPOTLIGHT TRACKING ══
+    window.addEventListener('mousemove', e => {
+        document.documentElement.style.setProperty('--global-mx', e.clientX + 'px');
+        document.documentElement.style.setProperty('--global-my', e.clientY + 'px');
+    }, { passive: true });
+
+    // ══ 3D COSMIC PARTICLE BACKGROUND CANVAS WITH CLICK SHOCKWAVE ══
+    (function initCosmicCanvas() {
+        const canvas = document.getElementById('bg-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        let w = canvas.width = window.innerWidth;
+        let h = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
         }, { passive: true });
 
-        class Particle3D {
-            constructor() {
-                this.x = (Math.random() - 0.5) * 1200;
-                this.y = (Math.random() - 0.5) * 900;
-                this.z = (Math.random() - 0.5) * 800;
-                this.vx = (Math.random() - 0.5) * 0.45;
-                this.vy = (Math.random() - 0.5) * 0.45;
-                this.vz = (Math.random() - 0.5) * 0.35;
-                this.baseRadius = Math.random() * 1.4 + 0.8;
-            }
-            update() {
-                this.x += this.vx; this.y += this.vy; this.z += this.vz;
-                if (this.x < -650) this.x = 650; if (this.x > 650) this.x = -650;
-                if (this.y < -500) this.y = 500; if (this.y > 500) this.y = -500;
-                if (this.z < -450) this.z = 450; if (this.z > 450) this.z = -450;
-            }
-            project(rX, rY) {
-                const cosY = Math.cos(rY), sinY = Math.sin(rY);
-                const x1 = this.x * cosY + this.z * sinY;
-                const z1 = -this.x * sinY + this.z * cosY;
-                const cosX = Math.cos(rX), sinX = Math.sin(rX);
-                const y2 = this.y * cosX - z1 * sinX;
-                const z2 = this.y * sinX + z1 * cosX;
-                const fov = 700;
-                const scale = fov / (fov + z2 + 500);
-                return {
-                    x: width / 2 + x1 * scale,
-                    y: height / 2 + y2 * scale,
-                    scale: scale,
-                    alpha: Math.min(Math.max((z2 + 450) / 900, 0.15), 0.85),
-                    radius: Math.max(0.6, this.baseRadius * scale)
-                };
-            }
+        const count = window.innerWidth < 768 ? 40 : 85;
+        const particles = [];
+        const shockwaves = [];
+        let mouseX = -1000, mouseY = -1000;
+
+        window.addEventListener('mousemove', e => {
+            mouseX = e.clientX; mouseY = e.clientY;
+        }, { passive: true });
+
+        window.addEventListener('click', e => {
+            shockwaves.push({ x: e.clientX, y: e.clientY, radius: 10, max: Math.min(w, h) * 0.45, alpha: 0.8 });
+        }, { passive: true });
+
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: (Math.random() - 0.5) * 1200,
+                y: (Math.random() - 0.5) * 1000,
+                z: (Math.random() - 0.5) * 800,
+                vx: (Math.random() - 0.5) * 0.45,
+                vy: (Math.random() - 0.5) * 0.45,
+                vz: (Math.random() - 0.5) * 0.35,
+                r: Math.random() * 1.6 + 0.8
+            });
         }
 
-        const particles = Array.from({ length: particleCount }, () => new Particle3D());
+        let rotX = 0, rotY = 0;
+        function anim() {
+            ctx.clearRect(0, 0, w, h);
+            rotY += 0.0008;
+            rotX += 0.0004;
 
-        function renderCanvas() {
-            ctx.clearRect(0, 0, width, height);
-            rotX += (targetRotX - rotX) * 0.05;
-            rotY += (targetRotY - rotY) * 0.05;
-
-            const proj = particles.map(p => { p.update(); return p.project(rotX, rotY); });
-
-            for (let i = 0; i < proj.length; i++) {
-                const p1 = proj[i];
+            // Render shockwaves
+            for (let s = shockwaves.length - 1; s >= 0; s--) {
+                const sw = shockwaves[s];
+                sw.radius += 7;
+                sw.alpha *= 0.94;
                 ctx.beginPath();
-                ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(0, 180, 255, ${p1.alpha * 0.6})`;
+                ctx.arc(sw.x, sw.y, sw.radius, 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(0, 180, 255, ${sw.alpha * 0.35})`;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                if (sw.alpha < 0.02 || sw.radius > sw.max) shockwaves.splice(s, 1);
+            }
+
+            const projected = particles.map(p => {
+                p.x += p.vx; p.y += p.vy; p.z += p.vz;
+                if (p.x < -650) p.x = 650; if (p.x > 650) p.x = -650;
+                if (p.y < -550) p.y = 550; if (p.y > 550) p.y = -550;
+                if (p.z < -450) p.z = 450; if (p.z > 450) p.z = -450;
+
+                const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+                const x1 = p.x * cosY + p.z * sinY;
+                const z1 = -p.x * sinY + p.z * cosY;
+
+                const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+                const y2 = p.y * cosX - z1 * sinX;
+                const z2 = p.y * sinX + z1 * cosX;
+
+                const fov = 750;
+                const scale = fov / (fov + z2 + 500);
+                return {
+                    x: w / 2 + x1 * scale,
+                    y: h / 2 + y2 * scale,
+                    r: Math.max(0.6, p.r * scale),
+                    alpha: Math.min(Math.max((z2 + 450) / 900, 0.15), 0.9)
+                };
+            });
+
+            for (let i = 0; i < projected.length; i++) {
+                const p1 = projected[i];
+                ctx.beginPath();
+                ctx.arc(p1.x, p1.y, p1.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 180, 255, ${p1.alpha * 0.75})`;
                 ctx.fill();
 
-                const dMouse = Math.hypot(p1.x - mouseX, p1.y - mouseY);
-                if (dMouse < 160) {
+                // Mouse laser filament
+                const dm = Math.hypot(p1.x - mouseX, p1.y - mouseY);
+                if (dm < 170) {
                     ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y); ctx.lineTo(mouseX, mouseY);
-                    ctx.strokeStyle = `rgba(0, 180, 255, ${0.35 * (1 - dMouse / 160)})`;
-                    ctx.lineWidth = 1; ctx.stroke();
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(mouseX, mouseY);
+                    ctx.strokeStyle = `rgba(0, 220, 255, ${0.4 * (1 - dm / 170)})`;
+                    ctx.lineWidth = 1.1;
+                    ctx.stroke();
                 }
 
-                for (let j = i + 1; j < proj.length; j++) {
-                    const p2 = proj[j];
+                for (let j = i + 1; j < projected.length; j++) {
+                    const p2 = projected[j];
                     const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
-                    if (dist < 120) {
+                    if (dist < 130) {
                         ctx.beginPath();
-                        ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(0, 180, 255, ${(1 - dist / 120) * 0.18 * ((p1.alpha + p2.alpha) / 2)})`;
-                        ctx.lineWidth = 0.8; ctx.stroke();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(0, 180, 255, ${(1 - dist / 130) * 0.22 * ((p1.alpha + p2.alpha) / 2)})`;
+                        ctx.lineWidth = 0.85;
+                        ctx.stroke();
                     }
                 }
             }
-            requestAnimationFrame(renderCanvas);
+
+            requestAnimationFrame(anim);
         }
-        requestAnimationFrame(renderCanvas);
+        anim();
+    })();
+
+    // ══ TERMINAL TAB SWITCHING & MATRIX RAIN ══
+    let matrixAnimId = null;
+    window.switchTerminalTab = function(tab) {
+        document.querySelectorAll('.terminal-tab').forEach(b => b.classList.remove('active'));
+        document.getElementById('terminalCodeView').style.display = 'none';
+        document.getElementById('terminalProjectsView').style.display = 'none';
+        document.getElementById('terminalMatrixView').style.display = 'none';
+        if (matrixAnimId) { cancelAnimationFrame(matrixAnimId); matrixAnimId = null; }
+
+        if (tab === 'code') {
+            document.getElementById('tabCode').classList.add('active');
+            document.getElementById('terminalCodeView').style.display = 'block';
+        } else if (tab === 'projects') {
+            document.getElementById('tabProjects').classList.add('active');
+            document.getElementById('terminalProjectsView').style.display = 'block';
+        } else if (tab === 'matrix') {
+            document.getElementById('tabMatrix').classList.add('active');
+            document.getElementById('terminalMatrixView').style.display = 'block';
+            startMatrixRain();
+        }
+    };
+
+    function startMatrixRain() {
+        const cvs = document.getElementById('matrixCanvas');
+        if (!cvs) return;
+        const ctx = cvs.getContext('2d');
+        if (!ctx) return;
+        cvs.width = cvs.parentElement.clientWidth || 500;
+        cvs.height = 260;
+
+        const chars = "01BRAMVERHOEFFAGEVOSTUDYELITE";
+        const fs = 13;
+        const cols = Math.floor(cvs.width / fs);
+        const drops = Array(cols).fill(1);
+
+        function draw() {
+            ctx.fillStyle = "rgba(5, 7, 10, 0.12)";
+            ctx.fillRect(0, 0, cvs.width, cvs.height);
+            ctx.font = fs + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const txt = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillStyle = Math.random() > 0.88 ? "#ffffff" : "#00b4ff";
+                ctx.fillText(txt, i * fs, drops[i] * fs);
+                if (drops[i] * fs > cvs.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+            matrixAnimId = requestAnimationFrame(draw);
+        }
+        draw();
     }
 
-    // ══ TEXT SCRAMBLE / MATRIX DECODER ANIMATION ══
-    function runTextScramble(el, targetText, delay = 200) {
-        if (!el) return;
-        const glyphs = "01#@$%&!*+~<>-_/[]{}=X";
-        setTimeout(() => {
-            let iteration = 0;
-            const maxIterations = targetText.length * 3;
-            const interval = setInterval(() => {
-                el.innerText = targetText.split("").map((char, index) => {
-                    if (char === " ") return " ";
-                    if (index < iteration / 3) return targetText[index];
-                    return glyphs[Math.floor(Math.random() * glyphs.length)];
-                }).join("");
-                if (iteration >= maxIterations) {
-                    clearInterval(interval);
-                    el.innerText = targetText;
-                }
-                iteration++;
-            }, 30);
-        }, delay);
-    }
+    window.handleTerminalCli = function(e) {
+        e.preventDefault();
+        const input = document.getElementById('cliInput');
+        if (!input) return;
+        const cmd = input.value.trim().toLowerCase();
+        input.value = '';
 
-    const scrambleEl = document.getElementById('scrambleTitle');
-    if (scrambleEl) runTextScramble(scrambleEl, "Engineering High-Impact", 300);
+        if (cmd === 'matrix') switchTerminalTab('matrix');
+        else if (cmd === 'skills') {
+            document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
+        } else if (cmd === 'contact') {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        } else if (cmd === 'projects' || cmd === 'products') {
+            switchTerminalTab('projects');
+        } else if (cmd === 'help') {
+            showToast("Beschikbare commando's: skills, projects, matrix, contact", "success");
+        } else {
+            showToast("Commando niet herkend: " + cmd + ". Probeer 'help'.", "error");
+        }
+    };
 
-    const matrixBadgeEl = document.getElementById('matrixText');
-    if (matrixBadgeEl) runTextScramble(matrixBadgeEl, "BRAM VERHOEFF // ARCHITECT // KVK 42160840", 500);
+    // ══ SKILLS INTERACTIVE CATEGORY FILTER ══
+    window.filterSkills = function(category, btnEl) {
+        document.querySelectorAll('.skill-tab-btn').forEach(btn => btn.classList.remove('active'));
+        if (btnEl) {
+            btnEl.classList.add('active');
+        } else if (typeof event !== 'undefined' && event && event.currentTarget) {
+            event.currentTarget.classList.add('active');
+        }
 
-    // ══ TYPEWRITER ══
+        const items = document.querySelectorAll('.skill-badge-item');
+        items.forEach(item => {
+            const cat = item.dataset.category;
+            if (category === 'all' || cat === category) {
+                item.style.display = 'flex';
+                setTimeout(() => item.classList.add('visible'), 50);
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    };
+
+    // ══ TYPEWRITER HEADLINE ══
     const phrases = [
         "18-jarige Software Architect & Founder ⚡",
         "Full-Stack Web & SaaS Engineering ⚙️",
         "Go High Level & Custom API Automations 🌐",
         "Van Visionair Concept naar Schaalbaar Live Product 🚀"
     ];
-    let pi = 0, ci = 0, deleting = false;
-    const tw = document.getElementById('typewriter');
-    function typeStep() {
-        const phrase = phrases[pi];
-        if (!deleting) {
-            ci++;
-            if (ci === phrase.length + 1) { deleting = true; setTimeout(typeStep, 1800); return; }
+    let pIdx = 0, cIdx = 0, isDeleting = false;
+    const twEl = document.getElementById('typewriter');
+
+    function typeLoop() {
+        if (!twEl) return;
+        const phrase = phrases[pIdx];
+        if (!isDeleting) {
+            cIdx++;
+            if (cIdx === phrase.length + 1) {
+                isDeleting = true;
+                setTimeout(typeLoop, 1800);
+                return;
+            }
         } else {
-            ci--;
-            if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
-        }
-        tw.innerHTML = phrase.slice(0, ci) + '<span class="cursor-blink"></span>';
-        setTimeout(typeStep, deleting ? 40 : 75);
-    }
-    setTimeout(typeStep, 800);
-
-    // ══ 3D PERSPECTIVE TILT & SPOTLIGHT MOUSE TRACKING ══
-    document.querySelectorAll('.tilt-card').forEach(card => {
-        card.addEventListener('mousemove', e => {
-            const rect = card.getBoundingClientRect();
-            const px = e.clientX - rect.left, py = e.clientY - rect.top;
-            const rx = ((py / rect.height) - 0.5) * -8;
-            const ry = ((px / rect.width) - 0.5) * 8;
-            card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-5px)`;
-            card.style.setProperty('--mouse-x', px + 'px');
-            card.style.setProperty('--mouse-y', py + 'px');
-        });
-        card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-    });
-
-    // ══ TERMINAL CODE PREVIEW ══
-    function switchTerminalTab(tab) {
-        const tabConfig = document.getElementById('tabConfig');
-        const tabProjects = document.getElementById('tabProjects');
-        const codeView = document.getElementById('terminalCodeView');
-        const projectsView = document.getElementById('terminalProjectsView');
-        if (!tabConfig || !tabProjects || !codeView || !projectsView) return;
-
-        if (tab === 'code') {
-            tabConfig.classList.add('active'); tabProjects.classList.remove('active');
-            codeView.style.display = 'block'; projectsView.style.display = 'none';
-        } else {
-            tabProjects.classList.add('active'); tabConfig.classList.remove('active');
-            codeView.style.display = 'none'; projectsView.style.display = 'block';
-        }
-    }
-
-    const codeSnippet = [
-        '<span class="tk-kw">const</span> <span class="tk-var">architect</span> = {',
-        '  <span class="tk-prop">name</span>: <span class="tk-str">"Bram Verhoeff"</span>,',
-        '  <span class="tk-prop">role</span>: <span class="tk-str">"Full-Stack Software Architect"</span>,',
-        '  <span class="tk-prop">age</span>: <span class="tk-num">18</span>,',
-        '  <span class="tk-prop">founderOf</span>: <span class="tk-str">"Agevo Development (KVK 42160840)"</span>,',
-        '  <span class="tk-prop">livePlatforms</span>: [',
-        '    <span class="tk-str">"Agevo Development // agevodev.nl"</span>,',
-        '    <span class="tk-str">"StudyElite // studyelite.nl"</span>',
-        '  ],',
-        '  <span class="tk-prop">specialties</span>: [',
-        '    <span class="tk-str">"Software Development"</span>,',
-        '    <span class="tk-str">"SaaS Scale"</span>,',
-        '    <span class="tk-str">"Go High Level Automations"</span>',
-        '  ],',
-        '  <span class="tk-prop">status</span>: <span class="tk-str">"Beschikbaar voor nieuwe projecten 🚀"</span>',
-        '};'
-    ];
-    const codeOutput = document.getElementById('codeOutput');
-    if (codeOutput) {
-        let curLine = 0, lines = [];
-        function typeCode() {
-            if (curLine < codeSnippet.length) {
-                lines.push(codeSnippet[curLine]);
-                codeOutput.innerHTML = lines.join('\n');
-                curLine++;
-                setTimeout(typeCode, 110);
+            cIdx--;
+            if (cIdx === 0) {
+                isDeleting = false;
+                pIdx = (pIdx + 1) % phrases.length;
             }
         }
-        setTimeout(typeCode, 450);
+        twEl.textContent = phrase.slice(0, cIdx);
+        setTimeout(typeLoop, isDeleting ? 45 : 75);
     }
+    setTimeout(typeLoop, 800);
 
-    // ══ SCROLL-DRIVEN TIMELINE ══
-    const timelineEl = document.getElementById('aboutTimeline');
-    const timelineLine = document.getElementById('timelineLineFill');
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    if (timelineEl && timelineLine) {
-        function updateTimeline() {
-            const rect = timelineEl.getBoundingClientRect();
-            const winH = window.innerHeight;
-            const fraction = Math.min(Math.max((winH * 0.72 - rect.top) / rect.height, 0), 1);
-            timelineLine.style.height = (fraction * 100) + '%';
-            timelineItems.forEach(item => {
-                if (item.getBoundingClientRect().top < winH * 0.68) item.classList.add('active');
-                else item.classList.remove('active');
-            });
-        }
-        window.addEventListener('scroll', updateTimeline, { passive: true });
-        updateTimeline();
-    }
-
-    // ══ PROGRESS & NAV ══
-    const navbar = document.getElementById('navbar');
-    const progressBar = document.getElementById('progress-bar');
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        const h = document.documentElement.scrollHeight - window.innerHeight;
-        progressBar.style.width = (h > 0 ? (scrolled / h) * 100 : 0) + '%';
-        navbar.classList.toggle('scrolled', scrolled > 20);
-    });
-
-    // ══ MOBILE MENU ══
-    function toggleMobile() {
-        document.getElementById('hamburger').classList.toggle('open');
-        document.getElementById('mobileMenu').classList.toggle('open');
-    }
-    function closeMobile() {
-        document.getElementById('hamburger').classList.remove('open');
-        document.getElementById('mobileMenu').classList.remove('open');
-    }
-
-    // ══ SCROLL REVEALS ══
+    // ══ SCROLL-REVEAL OBSERVER & TIMELINE PROGRESS FILL ══
     const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
+    const timelineEl = document.getElementById('aboutTimeline');
+    const fillEl = document.getElementById('timelineLineFill');
+
+    const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                io.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.15 });
-    reveals.forEach(el => io.observe(el));
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
 
-    // ══ CONTACT FORM SUBMIT ══
+    reveals.forEach(el => observer.observe(el));
+
+    window.addEventListener('scroll', () => {
+        if (!timelineEl || !fillEl) return;
+        const rect = timelineEl.getBoundingClientRect();
+        const winH = window.innerHeight;
+        const start = winH * 0.75;
+        const progress = Math.min(Math.max((start - rect.top) / rect.height, 0), 1);
+        fillEl.style.height = (progress * 100) + '%';
+    }, { passive: true });
+
+    // ══ CONTACT FORM SUBMIT HANDLER ══
     async function handleSubmit() {
         const btn = document.getElementById('submitBtn');
         const loader = document.getElementById('btnLoader');
         const icon = document.getElementById('btnIcon');
         const text = document.getElementById('btnText');
+
         const fname = document.getElementById('fname').value.trim();
         const lname = document.getElementById('lname').value.trim();
         const email = document.getElementById('femail').value.trim();
         const ftype = document.getElementById('ftype').value;
         const fmsg = document.getElementById('fmsg').value.trim();
 
-        if (!fname || !lname || !email || !fmsg) { showToast('Vul alle verplichte velden in', 'error'); return; }
-        if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) { showToast('Voer een geldig email adres in', 'error'); return; }
-        if (fmsg.length < 10) { showToast('Bericht moet minimaal 10 karakters bevatten', 'error'); return; }
+        if (!fname || !lname || !email || !fmsg) {
+            showToast('Vul alle verplichte velden in', 'error');
+            return;
+        }
+        if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+            showToast('Voer een geldig email adres in', 'error');
+            return;
+        }
+        if (fmsg.length < 10) {
+            showToast('Bericht moet minimaal 10 karakters bevatten', 'error');
+            return;
+        }
 
-        loader.style.display = 'block'; icon.style.display = 'none'; text.textContent = 'Verzenden...'; btn.disabled = true;
+        loader.style.display = 'block';
+        icon.style.display = 'none';
+        text.textContent = 'Verzenden...';
+        btn.disabled = true;
 
         try {
             const formData = new FormData();
-            formData.append('fname', fname); formData.append('lname', lname);
-            formData.append('femail', email); formData.append('ftype', ftype); formData.append('fmsg', fmsg);
+            formData.append('fname', fname);
+            formData.append('lname', lname);
+            formData.append('femail', email);
+            formData.append('ftype', ftype);
+            formData.append('fmsg', fmsg);
 
             const res = await fetch('contact.php', { method: 'POST', body: formData });
             const data = await res.json();
+
             if (data.success) {
-                showToast('Bericht succesvol verzonden!', 'success');
-                document.getElementById('fname').value = ''; document.getElementById('lname').value = '';
-                document.getElementById('femail').value = ''; document.getElementById('fmsg').value = '';
-            } else { throw new Error(data.message || 'Verzenden mislukt'); }
-        } catch (err) {
-            showToast(err.message || 'Er is een fout opgetreden', 'error');
-        } finally {
-            loader.style.display = 'none'; icon.style.display = 'inline'; text.textContent = 'Verstuur bericht'; btn.disabled = false;
+                loader.style.display = 'none';
+                icon.style.display = 'inline';
+                icon.className = 'fa-solid fa-check';
+                text.textContent = 'Verzonden!';
+                showToast('Bericht succesvol verzonden! Ik neem binnen 24 uur contact op.', 'success');
+
+                document.getElementById('fname').value = '';
+                document.getElementById('lname').value = '';
+                document.getElementById('femail').value = '';
+                document.getElementById('ftype').value = '';
+                document.getElementById('fmsg').value = '';
+
+                setTimeout(() => {
+                    icon.className = 'fa-solid fa-paper-plane';
+                    text.textContent = 'Verstuur bericht';
+                    btn.disabled = false;
+                }, 3500);
+            } else {
+                throw new Error(data.message || 'Verzenden mislukt');
+            }
+        } catch(err) {
+            loader.style.display = 'none';
+            icon.style.display = 'inline';
+            icon.className = 'fa-solid fa-triangle-exclamation';
+            text.textContent = 'Probeer opnieuw';
+            btn.disabled = false;
+            showToast(err.message || 'Er is een fout opgetreden. Probeer het opnieuw.', 'error');
+
+            setTimeout(() => {
+                icon.className = 'fa-solid fa-paper-plane';
+                text.textContent = 'Verstuur bericht';
+            }, 3000);
         }
     }
 
-    function showToast(msg, type = 'success') {
-        const t = document.getElementById('toast');
-        t.innerHTML = `<i class="fa-solid fa-${type === 'success' ? 'circle-check' : 'triangle-exclamation'}"></i> ${msg}`;
-        t.style.borderColor = type === 'success' ? 'rgba(74,222,128,0.4)' : 'rgba(239,68,68,0.4)';
-        t.style.color = type === 'success' ? '#4ade80' : '#ef4444';
-        t.classList.add('show');
-        setTimeout(() => t.classList.remove('show'), 4000);
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        if (!toast) return;
+        toast.innerHTML = type === 'success'
+            ? '<i class="fa-solid fa-circle-check" style="color:#10b981;margin-right:8px;"></i>' + message
+            : '<i class="fa-solid fa-triangle-exclamation" style="color:#ef4444;margin-right:8px;"></i>' + message;
+        toast.style.borderColor = type === 'success' ? '#10b981' : '#ef4444';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 4000);
     }
 </script>
 </body>

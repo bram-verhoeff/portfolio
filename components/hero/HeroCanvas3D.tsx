@@ -5,103 +5,140 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Float } from "@react-three/drei";
 import * as THREE from "three";
 
-function KineticGeometry() {
+function QuantumCyberCore() {
   const meshRef = useRef<THREE.Mesh | null>(null);
-  const wireframeRef = useRef<THREE.LineSegments | null>(null);
+  const cageRef = useRef<THREE.LineSegments | null>(null);
+  const ring1Ref = useRef<THREE.Mesh | null>(null);
+  const ring2Ref = useRef<THREE.Mesh | null>(null);
+  const ring3Ref = useRef<THREE.Mesh | null>(null);
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     const px = state.pointer.x;
     const py = state.pointer.y;
 
+    // Smooth inertia physics
     if (meshRef.current) {
-      meshRef.current.rotation.x = t * 0.25 + py * 0.4;
-      meshRef.current.rotation.y = t * 0.35 + px * 0.4;
+      meshRef.current.rotation.x = t * 0.35 + py * 0.6;
+      meshRef.current.rotation.y = t * 0.45 + px * 0.6;
+      const s = 1 + Math.sin(t * 2) * 0.04;
+      meshRef.current.scale.set(s, s, s);
     }
 
-    if (wireframeRef.current) {
-      wireframeRef.current.rotation.x = -t * 0.2 + py * 0.3;
-      wireframeRef.current.rotation.y = -t * 0.3 + px * 0.3;
+    if (cageRef.current) {
+      cageRef.current.rotation.x = -t * 0.25 - py * 0.4;
+      cageRef.current.rotation.y = t * 0.3 - px * 0.4;
+      cageRef.current.rotation.z = t * 0.15;
+    }
+
+    if (ring1Ref.current) {
+      ring1Ref.current.rotation.x = t * 0.5 + py * 0.3;
+      ring1Ref.current.rotation.y = t * 0.2;
+    }
+
+    if (ring2Ref.current) {
+      ring2Ref.current.rotation.y = -t * 0.4 + px * 0.3;
+      ring2Ref.current.rotation.z = t * 0.3;
+    }
+
+    if (ring3Ref.current) {
+      ring3Ref.current.rotation.z = t * 0.6;
+      ring3Ref.current.rotation.x = -t * 0.3;
     }
   });
 
   return (
-    <Float speed={2.5} rotationIntensity={0.6} floatIntensity={1.2}>
+    <Float speed={2.5} rotationIntensity={0.8} floatIntensity={1.4}>
       <group>
-        {/* Inner Solid Crystal */}
+        {/* Core Quantum Crystal */}
         <mesh ref={meshRef}>
-          <icosahedronGeometry args={[1.5, 0]} />
+          <icosahedronGeometry args={[1.4, 0]} />
           <meshPhysicalMaterial
-            color="#0a192f"
-            emissive="#0077b6"
-            emissiveIntensity={0.35}
-            roughness={0.15}
-            metalness={0.8}
+            color="#051937"
+            emissive="#00b4ff"
+            emissiveIntensity={0.65}
+            roughness={0.08}
+            metalness={0.9}
             clearcoat={1}
-            clearcoatRoughness={0.1}
-            wireframe={false}
+            clearcoatRoughness={0.05}
+            reflectivity={1}
           />
         </mesh>
 
         {/* Outer Kinetic Cyan Wireframe Cage */}
-        <lineSegments ref={wireframeRef}>
+        <lineSegments ref={cageRef}>
           <edgesGeometry args={[new THREE.IcosahedronGeometry(1.85, 1)]} />
-          <lineBasicMaterial color="#00b4ff" transparent opacity={0.65} linewidth={1.5} />
+          <lineBasicMaterial color="#00e5ff" transparent opacity={0.8} linewidth={2} />
         </lineSegments>
 
-        {/* Outer Halo Ring */}
-        <mesh rotation={[Math.PI / 3, 0, 0]}>
-          <torusGeometry args={[2.4, 0.02, 16, 100]} />
-          <meshBasicMaterial color="#00b4ff" transparent opacity={0.4} />
+        {/* Gyroscopic Orbital Rings */}
+        <mesh ref={ring1Ref}>
+          <torusGeometry args={[2.2, 0.025, 16, 120]} />
+          <meshBasicMaterial color="#00b4ff" transparent opacity={0.7} />
+        </mesh>
+
+        <mesh ref={ring2Ref} rotation={[Math.PI / 3, Math.PI / 4, 0]}>
+          <torusGeometry args={[2.55, 0.02, 16, 120]} />
+          <meshBasicMaterial color="#38bdf8" transparent opacity={0.5} />
+        </mesh>
+
+        <mesh ref={ring3Ref} rotation={[-Math.PI / 4, 0, Math.PI / 6]}>
+          <torusGeometry args={[2.85, 0.015, 16, 120]} />
+          <meshBasicMaterial color="#a855f7" transparent opacity={0.4} />
         </mesh>
       </group>
     </Float>
   );
 }
 
-function FloatingParticles({ count = 80 }: { count?: number }) {
+function CosmicVortexParticles({ count = 220 }: { count?: number }) {
   const pointsRef = useRef<THREE.Points | null>(null);
 
-  const [positions, scales] = useMemo(() => {
+  const [positions, colors] = useMemo(() => {
     const pos = new Float32Array(count * 3);
-    const sc = new Float32Array(count);
+    const col = new Float32Array(count * 3);
+    const colorChoices = [
+      new THREE.Color("#00b4ff"),
+      new THREE.Color("#38bdf8"),
+      new THREE.Color("#818cf8"),
+      new THREE.Color("#ffffff"),
+    ];
+
     for (let i = 0; i < count; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
-      const r = 2.2 + Math.random() * 2.5;
+      const r = 2.0 + Math.random() * 3.0;
 
       pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
       pos[i * 3 + 2] = r * Math.cos(phi);
-      sc[i] = Math.random() * 1.5 + 0.5;
+
+      const chosenColor = colorChoices[Math.floor(Math.random() * colorChoices.length)];
+      col[i * 3] = chosenColor.r;
+      col[i * 3 + 1] = chosenColor.g;
+      col[i * 3 + 2] = chosenColor.b;
     }
-    return [pos, sc];
+    return [pos, col];
   }, [count]);
 
   useFrame((state) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.y = state.clock.getElapsedTime() * 0.08;
-      pointsRef.current.rotation.x = state.clock.getElapsedTime() * 0.04;
+      pointsRef.current.rotation.y = state.clock.getElapsedTime() * 0.07;
+      pointsRef.current.rotation.x = state.clock.getElapsedTime() * 0.035;
     }
   });
 
   return (
     <points ref={pointsRef}>
       <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[positions, 3]}
-        />
-        <bufferAttribute
-          attach="attributes-scale"
-          args={[scales, 1]}
-        />
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+        <bufferAttribute attach="attributes-color" args={[colors, 3]} />
       </bufferGeometry>
       <pointsMaterial
-        color="#00b4ff"
         size={0.065}
+        vertexColors
         transparent
-        opacity={0.7}
+        opacity={0.85}
         blending={THREE.AdditiveBlending}
       />
     </points>
@@ -110,19 +147,20 @@ function FloatingParticles({ count = 80 }: { count?: number }) {
 
 export function HeroCanvas3D() {
   return (
-    <div className="w-full h-[360px] sm:h-[420px] lg:h-[460px] relative">
+    <div className="w-full h-[360px] sm:h-[420px] lg:h-[460px] relative select-none">
       <Canvas
-        camera={{ position: [0, 0, 5.8], fov: 45 }}
+        camera={{ position: [0, 0, 6.2], fov: 45 }}
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true }}
       >
-        <ambientLight intensity={0.8} />
-        <directionalLight position={[10, 10, 5]} intensity={1.5} color="#ffffff" />
-        <pointLight position={[-8, -8, -4]} intensity={2.2} color="#00b4ff" />
-        <pointLight position={[5, -5, 5]} intensity={1.8} color="#0077b6" />
+        <ambientLight intensity={1.2} />
+        <directionalLight position={[8, 12, 6]} intensity={2.2} color="#ffffff" />
+        <pointLight position={[-10, -6, -4]} intensity={3.5} color="#00b4ff" />
+        <pointLight position={[6, -6, 6]} intensity={2.8} color="#38bdf8" />
+        <pointLight position={[0, 8, 4]} intensity={2.0} color="#8b5cf6" />
 
-        <KineticGeometry />
-        <FloatingParticles count={100} />
+        <QuantumCyberCore />
+        <CosmicVortexParticles count={240} />
       </Canvas>
     </div>
   );
