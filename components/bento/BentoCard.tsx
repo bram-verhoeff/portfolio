@@ -35,7 +35,27 @@ export function BentoCard({ project, span = "col-span-12 lg:col-span-6" }: Bento
           </div>
 
           {/* Visual Showcase Box */}
-          {project.isFlagship ? (
+          {project.id === "agevo" ? (
+            <div className="relative rounded-2xl bg-gradient-to-br from-[#121c2e] via-[#0c1422] to-[#070a10] p-6 mb-6 flex flex-col sm:flex-row items-center justify-between border border-[#00b4ff]/30 shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_25px_rgba(0,180,255,0.18)] overflow-hidden group/visual gap-4">
+              <div className="flex items-center gap-4 relative z-10">
+                <span className="text-5xl drop-shadow-[0_10px_25px_rgba(0,180,255,0.5)] group-hover/visual:scale-110 transition-transform">
+                  {project.emoji}
+                </span>
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-[#00b4ff]/15 border border-[#00b4ff]/40 text-[#38bdf8] font-mono text-xs font-bold mb-1">
+                    <Building className="w-3.5 h-3.5" /> Officiële Bedrijfssite
+                  </div>
+                  <div className="text-white font-bold text-base">Agevo Development</div>
+                  <div className="text-white/50 text-xs">KVK Onderneming · agevodev.nl</div>
+                </div>
+              </div>
+              <div className="px-3 py-1.5 rounded-lg bg-black/50 border border-white/10 font-mono text-xs text-[#38bdf8] flex items-center gap-2 relative z-10">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]" />
+                KVK: 42160840
+              </div>
+              <div className="absolute -right-12 -top-12 w-48 h-48 bg-[#00b4ff]/20 rounded-full blur-3xl pointer-events-none" />
+            </div>
+          ) : project.isFlagship ? (
             <div className="relative rounded-2xl bg-gradient-to-br from-[#121c2e] via-[#0c1422] to-[#070a10] p-6 mb-6 flex flex-col sm:flex-row items-center justify-between border border-[#00b4ff]/30 shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_25px_rgba(0,180,255,0.18)] overflow-hidden group/visual gap-4">
               <div className="flex items-center gap-4 relative z-10">
                 <span className="text-5xl drop-shadow-[0_10px_25px_rgba(0,180,255,0.5)] group-hover/visual:scale-110 transition-transform">

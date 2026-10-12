@@ -122,7 +122,7 @@ export const PORTFOLIO_DATA = {
   projects: [
     {
       id: "studyelite",
-      number: "01 / 04 · FLAGSHIP SHOWCASE",
+      number: "01 / 02 · FLAGSHIP SHOWCASE",
       badge: "Live AI SaaS",
       emoji: "🎓",
       title: "StudyElite",
@@ -133,53 +133,24 @@ export const PORTFOLIO_DATA = {
       statChipText: "Smart AI Guidance Engine",
       url: "https://studyelite.nl/",
       linkText: "Bezoek studyelite.nl",
-      span: "col-span-12 lg:col-span-8",
+      span: "col-span-12 lg:col-span-6",
       isFlagship: true
     },
     {
-      id: "starrate",
-      number: "02 / 04",
-      badge: "Live SaaS",
-      emoji: "⭐",
-      title: "StarRate",
-      description:
-        "Alles-in-één reviewmanagement platform voor Nederlandse bedrijven. Verzamelt en analyseert reviews op 50+ platformen met AI-gegenereerde antwoorden.",
-      tags: ["SaaS", "Full-Stack", "Review Management"],
-      statChipIcon: "fa-solid fa-chart-line",
-      statChipText: "50+ Platforms",
-      url: "https://starrate.nl/",
-      linkText: "Bezoek starrate.nl",
-      span: "col-span-12 lg:col-span-4"
-    },
-    {
-      id: "ultravoeding",
-      number: "03 / 04",
-      badge: "Live E-commerce",
+      id: "agevo",
+      number: "02 / 02 · ONDERNEMING / KVK",
+      badge: "KVK 42160840",
       emoji: "⚡",
-      title: "Ultravoeding",
+      title: "Agevo Development",
       description:
-        "Nederlandse webshop voor sport- en fitnessupplementen. Gebruiksvriendelijke webshop met een gecureerde selectie van eiwitten, creatine en pre-workout.",
-      tags: ["E-commerce", "Web", "Supplements"],
-      statChipIcon: "fa-solid fa-cart-shopping",
-      statChipText: "Webshop Live",
-      url: "https://ultravoeding.nl/",
-      linkText: "Bezoek ultravoeding.nl",
-      span: "col-span-12 lg:col-span-4"
-    },
-    {
-      id: "primeresell",
-      number: "04 / 04",
-      badge: "Live Resell",
-      emoji: "💎",
-      title: "PrimeResell",
-      description:
-        "Exclusief luxe resell platform voor designer horloges en Gucci accessoires. Klanten bestellen via WhatsApp en ontvangen binnen 24-48 uur.",
-      tags: ["E-commerce", "Luxe Resell", "WhatsApp"],
-      statChipIcon: "fa-solid fa-gem",
-      statChipText: "24-48u Levering",
-      url: "https://www.primeresell.nl/",
-      linkText: "Bezoek primeresell.nl",
-      span: "col-span-12 lg:col-span-4"
+        "Officiële bedrijfssite van mijn onderneming Agevo Development, geregistreerd bij de Kamer van Koophandel (KVK 42160840). Gespecialiseerd in high-impact software-architectuur, schaalbare SaaS platforms en geavanceerde custom automations.",
+      tags: ["KVK Bedrijfssite", "Software Architectuur", "SaaS", "API Automations", "Full-Stack"],
+      statChipIcon: "fa-solid fa-building",
+      statChipText: "KVK: 42160840",
+      url: "https://agevodev.nl/",
+      linkText: "Bezoek agevodev.nl",
+      span: "col-span-12 lg:col-span-6",
+      isFlagship: false
     }
   ] as Project[],
 
