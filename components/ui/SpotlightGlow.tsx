@@ -1,13 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export function SpotlightGlow() {
-  const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
+  const primaryRef = useRef<HTMLDivElement | null>(null);
+  const secondaryRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+      if (primaryRef.current) {
+        primaryRef.current.style.background = `radial-gradient(850px circle at ${e.clientX}px ${e.clientY}px, rgba(0, 180, 255, 0.14), transparent 70%)`;
+      }
+      if (secondaryRef.current) {
+        secondaryRef.current.style.background = `radial-gradient(350px circle at ${e.clientX}px ${e.clientY}px, rgba(56, 189, 248, 0.11), transparent 60%)`;
+      }
     };
 
     window.addEventListener("mousemove", handleMove, { passive: true });
@@ -45,21 +51,15 @@ export function SpotlightGlow() {
         <div className="absolute -bottom-40 left-1/4 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-[#00b4ff]/15 via-[#0077b6]/08 to-transparent blur-[130px] animate-aura" />
       </div>
 
-      {/* Primary Deep Radial Spotlight Flashlight (Tracks Cursor) */}
+      {/* Zero-rerender Cursor Spotlight Layers */}
       <div
-        className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-300"
-        style={{
-          background: `radial-gradient(850px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 180, 255, 0.15), transparent 70%)`,
-        }}
+        ref={primaryRef}
+        className="fixed inset-0 pointer-events-none z-0"
         aria-hidden="true"
       />
-
-      {/* Secondary Inner Ambient Highlight */}
       <div
-        className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-300"
-        style={{
-          background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, rgba(56, 189, 248, 0.12), transparent 60%)`,
-        }}
+        ref={secondaryRef}
+        className="fixed inset-0 pointer-events-none z-0"
         aria-hidden="true"
       />
     </>

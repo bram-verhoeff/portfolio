@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StatCards } from "./StatCards";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
-import { Sparkles, Terminal, Award, BookOpen, Briefcase, GraduationCap } from "lucide-react";
-import { soundEngine } from "@/lib/sound";
+import { ArrowUpRight } from "lucide-react";
 
 export function TimelineSection() {
   const { about, timeline } = PORTFOLIO_DATA;
@@ -43,16 +42,15 @@ export function TimelineSection() {
     <section id="about" className="py-24 bg-[#080b11] relative z-10 border-y border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start">
-          {/* Left Column: Avatar Card */}
+          {/* Left Column: Sticky Identity Card */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-[360px] mx-auto lg:mx-0 sticky top-28"
+            className="w-full max-w-[370px] mx-auto lg:mx-0 lg:sticky lg:top-28"
           >
             <div className="relative aspect-[4/5] rounded-3xl bg-gradient-to-b from-[#101726] to-[#07090e] border border-white/12 shadow-[0_30px_70px_rgba(0,0,0,0.6),0_0_35px_rgba(0,180,255,0.2)] flex flex-col items-center justify-between p-8 overflow-hidden group">
-              {/* Radial background dots */}
               <div
                 className="absolute inset-0 opacity-30 pointer-events-none"
                 style={{
@@ -64,11 +62,11 @@ export function TimelineSection() {
               />
 
               <div className="w-full flex items-center justify-between text-xs font-mono text-white/50 relative z-10">
-                <span className="flex items-center gap-1.5 text-emerald-400">
+                <span className="flex items-center gap-1.5 text-emerald-400 font-bold">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                  AVAILABLE
+                  ONLINE // DEN HAAG
                 </span>
-                <span>NL // 18 YRS</span>
+                <span>KVK 42160840</span>
               </div>
 
               {/* Glowing Monogram */}
@@ -77,15 +75,26 @@ export function TimelineSection() {
                 <span className="font-display italic text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-[#7dd3fc] to-[#00b4ff] drop-shadow-[0_0_35px_rgba(0,180,255,0.6)] transition-transform duration-500 group-hover:scale-105 relative z-10">
                   BV
                 </span>
-                <span className="text-xs font-mono uppercase tracking-widest text-[#7dd3fc] mt-3 font-bold">
+                <span className="text-sm font-mono uppercase tracking-widest text-white mt-3 font-bold">
                   Bram Verhoeff
+                </span>
+                <span className="text-xs font-mono text-[#7dd3fc] mt-1">
+                  Full-Stack Architect & Founder
                 </span>
               </div>
 
-              {/* Bottom Telemetry Chip */}
+              {/* Direct Studio Link */}
               <div className="w-full pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/60 font-mono relative z-10">
-                <span>FOUNDER</span>
-                <span className="text-white font-bold">Agevo Dev ⚡</span>
+                <span>STUDIO</span>
+                <a
+                  href="https://agevodev.nl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white font-bold hover:text-[#00b4ff] inline-flex items-center gap-1 transition-colors"
+                >
+                  <span>agevodev.nl</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#00b4ff]" />
+                </a>
               </div>
             </div>
           </motion.div>
@@ -104,23 +113,16 @@ export function TimelineSection() {
               dark
             />
 
-            <div className="space-y-4 text-white/70 text-base md:text-lg leading-relaxed mb-10 font-sans">
+            <div className="space-y-4 text-white/75 text-base md:text-lg leading-relaxed mb-10 font-sans">
               <p>{about.bioParagraph1}</p>
-              <p>
-                Oprichter van softwarebedrijf{" "}
-                <strong className="text-white font-semibold">Agevo Development</strong> (KVK
-                42160840) en het AI-studieplannerplatform{" "}
-                <strong className="text-white font-semibold">StudyElite</strong>. Gedreven door
-                innovatie, geavanceerde automations en het bouwen van tastbare,
-                schaalbare applicaties voor ambitieuze bedrijven.
-              </p>
+              <p>{about.bioParagraph2}</p>
             </div>
 
             {/* Scroll-Driven Timeline */}
             <div
               ref={timelineRef}
               className="relative pl-9 my-10"
-              aria-label="Tijdlijn van opleidingen en stage"
+              aria-label="Tijdlijn van opleidingen, stage en onderneming"
             >
               {/* Timeline Track Line */}
               <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-white/10 rounded-full">
@@ -131,7 +133,7 @@ export function TimelineSection() {
               </div>
 
               {/* Timeline Items */}
-              <div className="space-y-8">
+              <div className="space-y-9">
                 {timeline.map((item, index) => {
                   const isNodeActive = index <= activeIndex;
                   return (
@@ -141,22 +143,39 @@ export function TimelineSection() {
                     >
                       {/* Node Bullet */}
                       <span
-                        className={`absolute -left-[2.15rem] top-1.5 w-3.5 h-3.5 rounded-full border-2 transition-all duration-300 ${
-                          isNodeActive
+                        className={`absolute -left-[2.15rem] top-1.5 w-3.5 h-3.5 rounded-full border-2 transition-all duration-300 ${isNodeActive
                             ? "bg-[#00b4ff] border-white shadow-[0_0_0_4px_rgba(0,180,255,0.35),0_0_15px_rgba(0,180,255,0.8)]"
                             : "bg-[#0a0d10] border-white/20"
-                        }`}
+                          }`}
                       />
 
-                      <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#7dd3fc] mb-1">
-                        {item.period}
+                      <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#00b4ff]">
+                          {item.period}
+                        </span>
+                        <span className="text-white/30">•</span>
+                        <span className="text-xs font-mono text-white/70 bg-white/[0.05] px-2.5 py-0.5 rounded-full border border-white/10">
+                          {item.role}
+                        </span>
                       </div>
-                      <h3 className="font-display text-xl font-semibold text-white mb-1.5">
+
+                      <h3 className="font-display text-xl font-semibold text-white mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-sm md:text-base text-white/60 leading-relaxed font-sans">
+                      <p className="text-sm md:text-base text-white/65 leading-relaxed font-sans mb-3">
                         {item.description}
                       </p>
+
+                      <div className="flex flex-wrap gap-1.5">
+                        {item.highlights.map((hl) => (
+                          <span
+                            key={hl}
+                            className="text-[11px] font-mono font-semibold text-[#7dd3fc] bg-[#00b4ff]/10 border border-[#00b4ff]/25 px-2.5 py-0.5 rounded-md"
+                          >
+                            {hl}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   );
                 })}

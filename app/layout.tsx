@@ -19,9 +19,9 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bramverhoeff.nl"),
-  title: "Bram Verhoeff | Full-Stack Software Developer & Architect — Agevo Development",
+  title: "Bram Verhoeff | Full-Stack Software Architect & Founder — Agevo Development",
   description:
-    "18-jarige Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840). Maker van StudyElite en schaalbare SaaS-applicaties.",
+    "Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840) in Den Haag. Bedenker van het AI-studieplatform StudyElite.nl en specialist in Next.js, Supabase & AI-automatisering.",
   robots: {
     index: true,
     follow: true,
@@ -40,23 +40,23 @@ export const metadata: Metadata = {
     url: "https://bramverhoeff.nl/",
     siteName: "Bram Verhoeff",
     locale: "nl_NL",
-    title: "Bram Verhoeff | Software Developer — Agevo Development",
+    title: "Bram Verhoeff | Full-Stack Architect & Founder — Agevo Development",
     description:
-      "18-jarige Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840). Maker van StudyElite en schaalbare SaaS-applicaties.",
+      "Oprichter van Agevo Development (KVK 42160840) & maker van StudyElite.nl. Specialist in schaalbare Next.js webapplicaties, SaaS en AI-automatisering.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Bram Verhoeff — Full-Stack Software Developer",
+        alt: "Bram Verhoeff — Full-Stack Software Developer & Founder",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bram Verhoeff | Software Developer — Agevo Development",
+    title: "Bram Verhoeff | Software Architect — Agevo Development",
     description:
-      "18-jarige Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840). Maker van StudyElite en schaalbare SaaS-applicaties.",
+      "Oprichter van Agevo Development (KVK 42160840) & maker van StudyElite.nl.",
     images: ["/og-image.jpg"],
   },
 };
@@ -78,26 +78,44 @@ export default function RootLayout({
               name: "Bram Verhoeff",
               url: "https://bramverhoeff.nl/",
               image: "https://bramverhoeff.nl/og-image.jpg",
-              jobTitle: "Full-Stack Software Developer & Ondernemer",
+              jobTitle: "Full-Stack Software Architect & Founder",
               worksFor: {
                 "@type": "Organization",
                 name: "Agevo Development",
                 url: "https://agevodev.nl/",
               },
+              alumniOf: [
+                {
+                  "@type": "CollegeOrUniversity",
+                  name: "De Haagse Hogeschool",
+                },
+                {
+                  "@type": "EducationalOrganization",
+                  name: "ROC Mondriaan",
+                },
+              ],
               description:
-                "18-jarige Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840). Maker van StudyElite.",
+                "Full-Stack Software Developer & Oprichter van Agevo Development (KVK 42160840). Maker van StudyElite.nl.",
               email: "mailto:bramverhoeff@hotmail.com",
               nationality: "Nederlandse",
               knowsAbout: [
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Tailwind CSS",
+                "Supabase",
                 "PHP",
-                "JavaScript",
-                "Node.js",
-                "MySQL",
-                "Go High Level",
-                "SaaS development",
-                "REST API's",
+                "Symfony",
+                "GoHighLevel",
+                "SaaS Development",
+                "OpenAI API",
               ],
-              sameAs: ["https://nl.linkedin.com/in/bram-verhoeff"],
+              sameAs: [
+                "https://nl.linkedin.com/in/bram-verhoeff",
+                "https://github.com/bram-verhoeff",
+                "https://agevodev.nl",
+                "https://studyelite.nl",
+              ],
             }),
           }}
         />
