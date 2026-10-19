@@ -1,364 +1,219 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import {
-  Mail,
-  MapPin,
-  Clock,
-  Send,
-  CheckCircle2,
-  AlertCircle,
-  Loader2,
-  Building,
-  Sparkles,
-  ArrowUpRight,
-} from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Magnetic } from "@/components/motion/Magnetic";
+import { FadeUp, SectionLabel, SectionTitle } from "@/components/motion/Reveal";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
-import { soundEngine } from "@/lib/sound";
-import confetti from "canvas-confetti";
+import { EASE_EXPO } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
-const TIMELINE_OPTIONS = [
-  "Zo snel mogelijk (< 4 weken)",
-  "Over 1 tot 3 maanden",
-  "Flexibel / Oriënterend",
-];
+function Pills({
+  name,
+  options,
+  value,
+  onChange,
+}: {
+  name: string;
+  options: string[];
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  return (
+    <div className="flex flex-wrap gap-1.5" role="radiogroup">
+      {options.map((opt) => {
+        const active = value === opt;
+        return (
+          <button
+            key={opt}
+            type="button"
+            role="radio"
+            aria-checked={active}
+            onClick={() => onChange(opt)}
+            className={cn(
+              "relative rounded-md border px-3 py-1.5 text-[13px] transition-colors duration-200",
+              active ? "border-accent text-accent-fg" : "border-white/10 text-muted hover:border-white/20 hover:text-fg",
+            )}
+          >
+            {active && (
+              <motion.span
+                layoutId={`pill-${name}`}
+                className="absolute inset-0 rounded-[5px] bg-accent"
+                transition={{ type: "spring", stiffness: 420, damping: 34 }}
+              />
+            )}
+            <span className="relative">{opt}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function Field({
+  id,
+  label,
+  textarea,
+  type = "text",
+  autoComplete,
+}: {
+  id: string;
+  label: string;
+  textarea?: boolean;
+  type?: string;
+  autoComplete?: string;
+}) {
+  const base =
+    "w-full resize-none rounded-lg border border-white/10 bg-canvas px-3.5 py-2.5 text-[14px] text-fg placeholder:text-subtle outline-none transition-[border-color,box-shadow] duration-200 focus:border-accent/60 focus:shadow-[0_0_0_3px_rgb(var(--accent-rgb)/0.15)] focus-visible:outline-none";
+  return (
+    <div className="space-y-1.5">
+      <label htmlFor={id} className="block text-[13px] text-muted">
+        {label}
+      </label>
+      {textarea ? (
+        <textarea id={id} name={id} rows={5} required className={base} placeholder="Vertel over je project, wensen en planning…" />
+      ) : (
+        <input id={id} name={id} type={type} autoComplete={autoComplete} required className={base} />
+      )}
+    </div>
+  );
+}
 
 export function ContactSection() {
-  const { contact, contactInfo } = PORTFOLIO_DATA;
+  const { contact, personal, socials } = PORTFOLIO_DATA;
+  const [type, setType] = useState(contact.projectTypes[0]);
+  const [timeline, setTimeline] = useState(contact.timelines[0]);
+  const [status, setStatus] = useState<{ kind: "ok" | "error"; text: string } | null>(null);
 
-  const [form, setForm] = useState({
-    fname: "",
-    lname: "",
-    femail: "",
-    ftype: contact.projectTypes[0],
-    timeline: TIMELINE_OPTIONS[0],
-    fmsg: "",
-  });
-
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [toastMessage, setToastMessage] = useState<string>("");
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    soundEngine.playClick();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
 
-    if (!form.fname || !form.femail || !form.fmsg) {
-      setToastMessage("Vul je naam, e-mailadres en een kort bericht in.");
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 4000);
+    if (!name || !email || !message) {
+      setStatus({ kind: "error", text: "Vul je naam, e-mailadres en een kort bericht in." });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus({ kind: "error", text: "Dat e-mailadres lijkt niet te kloppen." });
       return;
     }
 
-    if (!form.femail.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-      setToastMessage("Voer een geldig e-mailadres in.");
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 4000);
-      return;
-    }
-
-    setStatus("loading");
-
-    try {
-      // Probeer eerst een eventuele endpoint, met automatische mailto-fallback voor 100% garantie op Vercel
-      const subject = encodeURIComponent(
-        `[${form.ftype}] Aanvraag via bramverhoeff.nl — ${form.fname} ${form.lname}`.trim()
-      );
-      const body = encodeURIComponent(
-        `Naam: ${form.fname} ${form.lname}\nE-mail: ${form.femail}\nType traject: ${form.ftype}\nGewenste tijdlijn: ${form.timeline}\n\nBericht:\n${form.fmsg}`
-      );
-
-      window.location.href = `mailto:bramverhoeff@hotmail.com?subject=${subject}&body=${body}`;
-
-      setStatus("success");
-      setToastMessage(
-        "Je aanvraag staat klaar in je mail-app! Ik reageer doorgaans binnen 24 uur."
-      );
-
-      try {
-        confetti({
-          particleCount: 90,
-          spread: 75,
-          origin: { y: 0.65 },
-          colors: ["#00b4ff", "#0077b6", "#10b981", "#ffffff"],
-        });
-      } catch {
-        // Fallback als canvas niet beschikbaar is
-      }
-
-      setTimeout(() => setStatus("idle"), 6000);
-    } catch {
-      setStatus("error");
-      setToastMessage(
-        "Er ging iets mis. Mail direct naar bramverhoeff@hotmail.com."
-      );
-      setTimeout(() => setStatus("idle"), 5000);
-    }
+    const subject = encodeURIComponent(`[${type}] Aanvraag via bramverhoeff.nl — ${name}`);
+    const body = encodeURIComponent(
+      `Naam: ${name}\nE-mail: ${email}\nType: ${type}\nTijdlijn: ${timeline}\n\nBericht:\n${message}`,
+    );
+    window.location.href = `mailto:${personal.email}?subject=${subject}&body=${body}`;
+    setStatus({ kind: "ok", text: "Je bericht staat klaar in je mail-app. Ik reageer meestal binnen 24 uur." });
   };
 
   return (
-    <section
-      id="contact"
-      className="py-24 bg-[#0a0d10] text-[#f2ece2] relative z-10 overflow-hidden"
-    >
-      {/* Pulsing Gradient Aura */}
-      <div
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] rounded-full bg-[radial-gradient(circle,rgba(0,180,255,0.16),transparent_70%)] blur-[50px] animate-aura -z-10"
-        aria-hidden="true"
-      />
+    <section id="contact" className="mx-auto max-w-6xl px-5 pb-28 sm:px-8 sm:pb-36">
+      <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
+        <div>
+          <SectionLabel index="05">Contact</SectionLabel>
+          <SectionTitle first="Laten we iets" second="sterkers bouwen." />
 
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.35fr] gap-12 lg:gap-16 items-start">
-          {/* Left Column: Info + Agevo B2B Callout */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <SectionHeader
-              label={contact.label}
-              title={contact.title}
-              description={contact.description}
-              dark
-            />
+          <FadeUp delay={0.1} className="mt-6 space-y-8">
+            <p className="max-w-md text-[15px] leading-relaxed text-muted">{contact.description}</p>
 
-            {/* Direct Agevo Studio Banner */}
             <a
-              href="https://agevodev.nl"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => soundEngine.playClick()}
-              className="block p-5 rounded-2xl bg-gradient-to-r from-[#00b4ff]/15 via-[#0077b6]/10 to-transparent border border-[#00b4ff]/40 hover:border-[#00b4ff] mb-6 transition-all group"
+              href={`mailto:${personal.email}`}
+              data-cursor="Mail"
+              className="group inline-flex items-center gap-2 text-[17px] font-medium"
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#00b4ff] text-black flex items-center justify-center font-bold">
-                    <Sparkles className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-mono uppercase tracking-wider text-[#7dd3fc] font-bold">
-                      Zakelijk Project of Offerte?
-                    </div>
-                    <div className="text-sm sm:text-base font-bold text-white">
-                      Bekijk mijn studio Agevo Development →
-                    </div>
-                  </div>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-[#00b4ff] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </div>
+              <span className="border-b border-white/20 pb-0.5 transition-colors duration-200 group-hover:border-accent group-hover:text-accent">
+                {personal.email}
+              </span>
+              <span className="text-muted transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true">
+                ↗
+              </span>
             </a>
 
-            <div className="space-y-3.5">
-              {contactInfo.map((item, idx) => {
-                const IconComponent =
-                  idx === 0 ? Mail : idx === 1 ? Building : idx === 2 ? MapPin : Clock;
-
-                return (
-                  <div
-                    key={item.label}
-                    className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center gap-4 hover:border-[#00b4ff] hover:translate-x-1 transition-all duration-200"
-                  >
-                    <div className="w-11 h-11 rounded-xl bg-[#00b4ff]/15 text-[#00b4ff] flex items-center justify-center shrink-0">
-                      <IconComponent className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-white/50">{item.label}</div>
-                      {item.url ? (
-                        <a
-                          href={item.url}
-                          target={item.url.startsWith("http") ? "_blank" : undefined}
-                          rel={item.url.startsWith("http") ? "noopener noreferrer" : undefined}
-                          className="text-sm font-semibold text-white hover:text-[#00b4ff] transition-colors"
-                        >
-                          {item.value}
-                        </a>
-                      ) : (
-                        <div className="text-sm font-semibold text-white">{item.value}</div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </motion.div>
-
-          {/* Right Column: Interactive Project Estimator & Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-          >
-            <form
-              onSubmit={handleSubmit}
-              className="p-7 sm:p-9 rounded-3xl bg-white/[0.04] border border-white/12 shadow-[0_20px_50px_rgba(0,0,0,0.45)] space-y-6"
-            >
-              {/* Step 1: Interactive Project Type Pills */}
-              <div className="space-y-2.5">
-                <label className="block text-xs font-mono uppercase tracking-wider text-[#7dd3fc] font-bold">
-                  1. Waar gaat het over?
-                </label>
-                <div className="flex flex-wrap gap-2">
-                  {contact.projectTypes.map((type) => {
-                    const active = form.ftype === type;
-                    return (
-                      <button
-                        key={type}
-                        type="button"
-                        onClick={() => {
-                          soundEngine.playClick();
-                          setForm({ ...form, ftype: type });
-                        }}
-                        className={`px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${active
-                            ? "bg-[#00b4ff] text-black border-[#00b4ff] font-bold shadow-[0_0_15px_rgba(0,180,255,0.4)]"
-                            : "bg-white/[0.04] text-white/75 border-white/10 hover:border-white/30 hover:text-white"
-                          }`}
-                      >
-                        {type}
-                      </button>
-                    );
-                  })}
-                </div>
+            <dl className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-white/[0.06] pt-6 text-[14px]">
+              <div>
+                <dt className="text-[13px] text-subtle">Studio</dt>
+                <dd className="mt-1">
+                  {personal.company} · KVK {personal.kvk}
+                </dd>
               </div>
-
-              {/* Step 2: Timeline Pills */}
-              <div className="space-y-2.5">
-                <label className="block text-xs font-mono uppercase tracking-wider text-[#7dd3fc] font-bold">
-                  2. Gewenste Tijdlijn
-                </label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                  {TIMELINE_OPTIONS.map((tl) => {
-                    const active = form.timeline === tl;
-                    return (
-                      <button
-                        key={tl}
-                        type="button"
-                        onClick={() => {
-                          soundEngine.playClick();
-                          setForm({ ...form, timeline: tl });
-                        }}
-                        className={`px-3 py-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer text-center ${active
-                            ? "bg-[#00b4ff]/20 text-[#38bdf8] border-[#00b4ff]"
-                            : "bg-white/[0.03] text-white/65 border-white/10 hover:border-white/25"
-                          }`}
-                      >
-                        {tl}
-                      </button>
-                    );
-                  })}
-                </div>
+              <div>
+                <dt className="text-[13px] text-subtle">Locatie</dt>
+                <dd className="mt-1">{personal.location}</dd>
               </div>
-
-              {/* Step 3: Contact Details */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                <div className="space-y-1.5">
-                  <label htmlFor="fname" className="block text-xs font-semibold text-white/70">
-                    Voornaam *
-                  </label>
-                  <input
-                    type="text"
-                    id="fname"
-                    name="fname"
-                    value={form.fname}
-                    onChange={handleChange}
-                    placeholder="Jan"
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#00b4ff] focus:ring-2 focus:ring-[#00b4ff]/25 transition-all"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <label htmlFor="lname" className="block text-xs font-semibold text-white/70">
-                    Achternaam / Bedrijf
-                  </label>
-                  <input
-                    type="text"
-                    id="lname"
-                    name="lname"
-                    value={form.lname}
-                    onChange={handleChange}
-                    placeholder="de Vries B.V."
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#00b4ff] focus:ring-2 focus:ring-[#00b4ff]/25 transition-all"
-                  />
-                </div>
+              <div>
+                <dt className="text-[13px] text-subtle">Reactietijd</dt>
+                <dd className="mt-1">{personal.responseTime}</dd>
               </div>
-
-              <div className="space-y-1.5">
-                <label htmlFor="femail" className="block text-xs font-semibold text-white/70">
-                  E-mailadres *
-                </label>
-                <input
-                  type="email"
-                  id="femail"
-                  name="femail"
-                  value={form.femail}
-                  onChange={handleChange}
-                  placeholder="jan@bedrijf.nl"
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#00b4ff] focus:ring-2 focus:ring-[#00b4ff]/25 transition-all"
-                  required
-                />
+              <div>
+                <dt className="text-[13px] text-subtle">Online</dt>
+                <dd className="mt-1 flex flex-wrap gap-x-4">
+                  {socials.slice(0, 2).map((s) => (
+                    <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent">
+                      {s.name} ↗
+                    </a>
+                  ))}
+                </dd>
               </div>
-
-              <div className="space-y-1.5">
-                <label htmlFor="fmsg" className="block text-xs font-semibold text-white/70">
-                  Projectomschrijving of vraag *
-                </label>
-                <textarea
-                  id="fmsg"
-                  name="fmsg"
-                  value={form.fmsg}
-                  onChange={handleChange}
-                  placeholder="Vertel kort wat je wilt bouwen of automatiseren..."
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#00b4ff] focus:ring-2 focus:ring-[#00b4ff]/25 transition-all resize-none"
-                  required
-                />
-              </div>
-
-              {status !== "idle" && status !== "loading" && (
-                <div
-                  className={`p-3.5 rounded-xl text-sm flex items-center gap-2.5 ${status === "success"
-                      ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
-                      : "bg-rose-500/15 text-rose-400 border border-rose-500/30"
-                    }`}
-                >
-                  {status === "success" ? (
-                    <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  ) : (
-                    <AlertCircle className="w-4 h-4 shrink-0" />
-                  )}
-                  <span>{toastMessage}</span>
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="relative w-full py-3.5 px-6 rounded-full font-bold text-sm tracking-wide text-black bg-[#00b4ff] hover:bg-[#38bdf8] shadow-[0_10px_30px_rgba(0,180,255,0.4)] disabled:opacity-50 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
-              >
-                {status === "loading" ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Voorbereiden...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4" />
-                    <span>Start aanvraag ({form.ftype})</span>
-                  </>
-                )}
-              </button>
-            </form>
-          </motion.div>
+            </dl>
+          </FadeUp>
         </div>
+
+        <FadeUp delay={0.15}>
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            className="space-y-6 rounded-2xl border border-white/[0.08] bg-surface p-5 sm:p-7"
+          >
+            <fieldset>
+              <legend className="mb-2.5 text-[13px] text-muted">Waar gaat het over?</legend>
+              <Pills name="type" options={contact.projectTypes} value={type} onChange={setType} />
+            </fieldset>
+
+            <fieldset>
+              <legend className="mb-2.5 text-[13px] text-muted">Gewenste tijdlijn</legend>
+              <Pills name="timeline" options={contact.timelines} value={timeline} onChange={setTimeline} />
+            </fieldset>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Field id="name" label="Naam" autoComplete="name" />
+              <Field id="email" label="E-mailadres" type="email" autoComplete="email" />
+            </div>
+            <Field id="message" label="Bericht" textarea />
+
+            <div className="flex flex-wrap items-center gap-5">
+              <Magnetic strength={0.2}>
+                <button
+                  type="submit"
+                  className="group inline-flex h-11 items-center gap-2 rounded-lg bg-accent px-5 text-[14px] font-medium text-accent-fg transition-[filter] duration-200 hover:brightness-110"
+                >
+                  Verstuur bericht
+                  <span className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true">
+                    →
+                  </span>
+                </button>
+              </Magnetic>
+
+              <AnimatePresence mode="wait">
+                {status && (
+                  <motion.p
+                    key={status.text}
+                    role="status"
+                    className={cn("max-w-xs text-[13px]", status.kind === "ok" ? "text-muted" : "text-red-400")}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 8 }}
+                    transition={{ duration: 0.4, ease: EASE_EXPO }}
+                  >
+                    {status.text}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </div>
+          </form>
+        </FadeUp>
       </div>
     </section>
   );

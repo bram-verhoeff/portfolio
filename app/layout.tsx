@@ -1,21 +1,17 @@
-import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SpotlightGlow } from "@/components/ui/SpotlightGlow";
-import { ParticleBackground } from "@/components/ui/ParticleBackground";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { IntroProvider } from "@/components/providers/IntroProvider";
+import { Cursor } from "@/components/motion/Cursor";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
+export const viewport: Viewport = {
+  themeColor: "#0A0A0B",
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bramverhoeff.nl"),
@@ -67,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="nl" className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang="nl" className={`${geist.variable} ${geistMono.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -120,11 +116,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans bg-[#05080e] text-[#f8fafc] antialiased selection:bg-[#00b4ff] selection:text-black overflow-x-hidden">
+      <body className="bg-canvas font-sans text-fg antialiased">
         <SmoothScroll>
-          <SpotlightGlow />
-          <ParticleBackground />
-          {children}
+          <IntroProvider>
+            {children}
+            <Cursor />
+          </IntroProvider>
         </SmoothScroll>
       </body>
     </html>

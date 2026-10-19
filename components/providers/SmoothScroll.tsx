@@ -1,43 +1,51 @@
 "use client";
 
-import { useEffect, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import Lenis from "lenis";
 
-interface SmoothScrollProps {
-  children: ReactNode;
+const LenisContext = createContext<Lenis | null>(null);
+
+export const useLenis = () => useContext(LenisContext);
+
+/** Scrolls to a section id, smoothly through Lenis when it is running. */
+export function scrollToId(lenis: Lenis | null, id: string) {
+  const target = id === "top" ? 0 : document.getElementById(id);
+  if (target === null) return;
+  if (lenis) {
+    lenis.scrollTo(target, { duration: 1.6 });
+  } else if (target === 0) {
+    window.scrollTo({ top: 0 });
+  } else {
+    target.scrollIntoView();
+  }
 }
 
-export function SmoothScroll({ children }: SmoothScrollProps) {
+export function SmoothScroll({ children }: { children: ReactNode }) {
+  const [lenis, setLenis] = useState<Lenis | null>(null);
+
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReducedMotion) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const lenis = new Lenis({
-      duration: 1.2,
+    const instance = new Lenis({
+      duration: 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 1.05,
-      touchMultiplier: 1.5,
+      anchors: true,
     });
+    setLenis(instance);
 
-    let animationFrameId: number;
-
-    function raf(time: number) {
-      lenis.raf(time);
-      animationFrameId = requestAnimationFrame(raf);
-    }
-
-    animationFrameId = requestAnimationFrame(raf);
+    let frame: number;
+    const raf = (time: number) => {
+      instance.raf(time);
+      frame = requestAnimationFrame(raf);
+    };
+    frame = requestAnimationFrame(raf);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
-      lenis.destroy();
+      cancelAnimationFrame(frame);
+      instance.destroy();
+      setLenis(null);
     };
   }, []);
 
-  return <>{children}</>;
+  return <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>;
 }

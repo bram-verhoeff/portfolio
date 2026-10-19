@@ -1,192 +1,128 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { StatCards } from "./StatCards";
-import { PORTFOLIO_DATA } from "@/data/portfolio";
-import { ArrowUpRight } from "lucide-react";
+import { useLayoutEffect, useRef, useState } from "react";
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import { FadeUp, SectionLabel, SectionTitle } from "@/components/motion/Reveal";
+import { PORTFOLIO_DATA, type TimelineItem } from "@/data/portfolio";
+import { cn } from "@/lib/utils";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 
-export function TimelineSection() {
-  const { about, timeline } = PORTFOLIO_DATA;
-  const timelineRef = useRef<HTMLDivElement | null>(null);
-  const [fillHeight, setFillHeight] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(-1);
+function Entry({ item, i, horizontal }: { item: TimelineItem; i: number; horizontal: boolean }) {
+  const current = i === 0;
+  return (
+    <article
+      className={cn(
+        "relative flex shrink-0 flex-col justify-between overflow-hidden rounded-2xl border bg-surface p-6 sm:p-7",
+        horizontal ? "w-[min(78vw,400px)]" : "h-full w-full",
+        current ? "border-accent/40" : "border-white/[0.08]",
+      )}
+    >
+      {current && (
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent"
+          aria-hidden="true"
+        />
+      )}
+      <div>
+        <div className="flex items-center justify-between text-[12px]">
+          <span className={cn("rounded-full border px-2.5 py-0.5", current ? "border-accent/40 text-accent" : "border-white/10 text-muted")}>
+            {current ? "Nu" : item.role}
+          </span>
+          <span className="font-mono text-subtle">0{i + 1}</span>
+        </div>
+        <div className="mt-6 font-mono text-[13px] text-muted">{item.period}</div>
+        <h3 className="mt-2 text-[22px] font-semibold leading-snug tracking-[-0.02em]">{item.title}</h3>
+        {current && <div className="mt-1 text-[14px] text-muted">{item.role}</div>}
+      </div>
+      <div className="mt-8">
+        <p className="text-[14px] leading-relaxed text-muted">{item.description}</p>
+        <ul className="mt-4 flex flex-wrap gap-1.5">
+          {item.highlights.map((h) => (
+            <li key={h} className="rounded-md bg-white/[0.05] px-2 py-1 font-mono text-[11px] text-muted">
+              {h}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  );
+}
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!timelineRef.current) return;
-      const rect = timelineRef.current.getBoundingClientRect();
-      const winH = window.innerHeight;
-      const startDist = winH * 0.72;
-      const currentDist = startDist - rect.top;
-      const totalDist = rect.height;
-      const fraction = Math.min(Math.max(currentDist / totalDist, 0), 1);
-      setFillHeight(fraction * 100);
+/** Pinned on large screens: vertical scroll drives a horizontal track. */
+function HorizontalTimeline() {
+  const { timeline } = PORTFOLIO_DATA;
+  const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [distance, setDistance] = useState(0);
 
-      const items = timelineRef.current.querySelectorAll(".timeline-node");
-      items.forEach((item, idx) => {
-        const iRect = item.getBoundingClientRect();
-        if (iRect.top < winH * 0.68) {
-          setActiveIndex(idx);
-        }
-      });
+  useLayoutEffect(() => {
+    const measure = () => {
+      if (trackRef.current) setDistance(Math.max(0, trackRef.current.scrollWidth - window.innerWidth));
     };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    measure();
+    const ro = new ResizeObserver(measure);
+    if (trackRef.current) ro.observe(trackRef.current);
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, []);
 
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end end"] });
+  const smooth = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
+  const x = useTransform(smooth, [0, 1], [0, -distance]);
+
   return (
-    <section id="about" className="py-24 bg-[#080b11] relative z-10 border-y border-white/10">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start">
-          {/* Left Column: Sticky Identity Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-[370px] mx-auto lg:mx-0 lg:sticky lg:top-28"
-          >
-            <div className="relative aspect-[4/5] rounded-3xl bg-gradient-to-b from-[#101726] to-[#07090e] border border-white/12 shadow-[0_30px_70px_rgba(0,0,0,0.6),0_0_35px_rgba(0,180,255,0.2)] flex flex-col items-center justify-between p-8 overflow-hidden group">
-              <div
-                className="absolute inset-0 opacity-30 pointer-events-none"
-                style={{
-                  backgroundImage:
-                    "radial-gradient(rgba(0, 180, 255, 0.3) 1px, transparent 1px)",
-                  backgroundSize: "20px 20px",
-                }}
-                aria-hidden="true"
-              />
+    <section ref={sectionRef} id="journey" className="relative" style={{ height: `calc(100vh + ${distance}px)` }}>
+      <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+        <div className="mx-auto mb-10 w-full max-w-6xl px-8">
+          <SectionLabel index="03">De reis</SectionLabel>
+          <SectionTitle first="Van eerste regel code" second="tot eigen studio." />
+        </div>
 
-              <div className="w-full flex items-center justify-between text-xs font-mono text-white/50 relative z-10">
-                <span className="flex items-center gap-1.5 text-emerald-400 font-bold">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                  ONLINE // DEN HAAG
-                </span>
-                <span>KVK 42160840</span>
-              </div>
+        {/* Track starts aligned with the content column, then runs off-screen. */}
+        <motion.div
+          ref={trackRef}
+          style={{ x }}
+          className="flex w-max gap-4 pl-[max(2rem,calc((100vw-72rem)/2+2rem))] pr-[10vw]"
+        >
+          {timeline.map((item, i) => (
+            <Entry key={item.period} item={item} i={i} horizontal />
+          ))}
+        </motion.div>
 
-              {/* Glowing Monogram */}
-              <div className="relative flex flex-col items-center justify-center my-auto">
-                <div className="absolute w-36 h-36 bg-[#00b4ff]/25 rounded-full blur-2xl group-hover:scale-130 transition-transform duration-500" />
-                <span className="font-display italic text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-[#7dd3fc] to-[#00b4ff] drop-shadow-[0_0_35px_rgba(0,180,255,0.6)] transition-transform duration-500 group-hover:scale-105 relative z-10">
-                  BV
-                </span>
-                <span className="text-sm font-mono uppercase tracking-widest text-white mt-3 font-bold">
-                  Bram Verhoeff
-                </span>
-                <span className="text-xs font-mono text-[#7dd3fc] mt-1">
-                  Full-Stack Architect & Founder
-                </span>
-              </div>
-
-              {/* Direct Studio Link */}
-              <div className="w-full pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/60 font-mono relative z-10">
-                <span>STUDIO</span>
-                <a
-                  href="https://agevodev.nl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white font-bold hover:text-[#00b4ff] inline-flex items-center gap-1 transition-colors"
-                >
-                  <span>agevodev.nl</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#00b4ff]" />
-                </a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column: Bio & Scroll-Driven Timeline */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <SectionHeader
-              label={about.label}
-              title={about.title}
-              className="mb-6"
-              dark
-            />
-
-            <div className="space-y-4 text-white/75 text-base md:text-lg leading-relaxed mb-10 font-sans">
-              <p>{about.bioParagraph1}</p>
-              <p>{about.bioParagraph2}</p>
-            </div>
-
-            {/* Scroll-Driven Timeline */}
-            <div
-              ref={timelineRef}
-              className="relative pl-9 my-10"
-              aria-label="Tijdlijn van opleidingen, stage en onderneming"
-            >
-              {/* Timeline Track Line */}
-              <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-white/10 rounded-full">
-                <div
-                  className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#0077b6] via-[#00b4ff] to-[#38bdf8] rounded-full shadow-[0_0_12px_rgba(0,180,255,0.8)] transition-all duration-150 ease-out"
-                  style={{ height: `${fillHeight}%` }}
-                />
-              </div>
-
-              {/* Timeline Items */}
-              <div className="space-y-9">
-                {timeline.map((item, index) => {
-                  const isNodeActive = index <= activeIndex;
-                  return (
-                    <div
-                      key={item.period}
-                      className="timeline-node relative transition-opacity duration-300"
-                    >
-                      {/* Node Bullet */}
-                      <span
-                        className={`absolute -left-[2.15rem] top-1.5 w-3.5 h-3.5 rounded-full border-2 transition-all duration-300 ${isNodeActive
-                            ? "bg-[#00b4ff] border-white shadow-[0_0_0_4px_rgba(0,180,255,0.35),0_0_15px_rgba(0,180,255,0.8)]"
-                            : "bg-[#0a0d10] border-white/20"
-                          }`}
-                      />
-
-                      <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#00b4ff]">
-                          {item.period}
-                        </span>
-                        <span className="text-white/30">•</span>
-                        <span className="text-xs font-mono text-white/70 bg-white/[0.05] px-2.5 py-0.5 rounded-full border border-white/10">
-                          {item.role}
-                        </span>
-                      </div>
-
-                      <h3 className="font-display text-xl font-semibold text-white mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-white/65 leading-relaxed font-sans mb-3">
-                        {item.description}
-                      </p>
-
-                      <div className="flex flex-wrap gap-1.5">
-                        {item.highlights.map((hl) => (
-                          <span
-                            key={hl}
-                            className="text-[11px] font-mono font-semibold text-[#7dd3fc] bg-[#00b4ff]/10 border border-[#00b4ff]/25 px-2.5 py-0.5 rounded-md"
-                          >
-                            {hl}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Stat Cards */}
-            <StatCards stats={about.stats} />
-          </motion.div>
+        <div className="mx-auto mt-10 w-full max-w-6xl px-8">
+          <div className="h-px bg-white/[0.08]">
+            <motion.div className="h-full origin-left bg-accent" style={{ scaleX: smooth }} />
+          </div>
         </div>
       </div>
     </section>
   );
+}
+
+function VerticalTimeline() {
+  const { timeline } = PORTFOLIO_DATA;
+  return (
+    <section id="journey" className="mx-auto max-w-6xl px-5 py-28 sm:px-8">
+      <div className="mb-12">
+        <SectionLabel index="03">De reis</SectionLabel>
+        <SectionTitle first="Van eerste regel code" second="tot eigen studio." />
+      </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        {timeline.map((item, i) => (
+          <FadeUp key={item.period} delay={(i % 2) * 0.08} className="h-full">
+            <Entry item={item} i={i} horizontal={false} />
+          </FadeUp>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export function TimelineSection() {
+  const wide = useMediaQuery("(min-width: 1024px)");
+  const reduce = useReducedMotion();
+  return wide && !reduce ? <HorizontalTimeline /> : <VerticalTimeline />;
 }

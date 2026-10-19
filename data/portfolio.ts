@@ -1,27 +1,16 @@
 export interface Project {
   id: string;
-  number: string;
-  badge: string;
-  emoji: string;
+  index: string;
+  kind: string;
   title: string;
   subtitle: string;
   description: string;
   tags: string[];
-  architecture: {
-    layer: string;
-    tech: string;
-    detail: string;
-  }[];
-  metrics: {
-    label: string;
-    value: string;
-  }[];
-  statChipIcon: string;
-  statChipText: string;
+  architecture: { layer: string; tech: string; detail: string }[];
+  metrics: { label: string; value: string }[];
   url: string;
   linkText: string;
-  span?: string;
-  isFlagship?: boolean;
+  tone: "ink" | "accent";
 }
 
 export interface TimelineItem {
@@ -33,7 +22,6 @@ export interface TimelineItem {
 }
 
 export interface SkillItem {
-  icon: string;
   title: string;
   badge: string;
   description: string;
@@ -42,157 +30,96 @@ export interface SkillItem {
 }
 
 export interface StatItem {
-  icon: string;
-  value: string | number;
-  target?: number;
+  value: number | null;
+  display: string;
+  prefix?: string;
+  suffix?: string;
   label: string;
 }
 
 export interface SocialLink {
   name: string;
   url: string;
-  icon: string;
-  label: string;
 }
 
 export const PORTFOLIO_DATA = {
   personal: {
     name: "Bram Verhoeff",
-    shortName: "Bram",
-    role: "Full-Stack Software Developer & Founder",
-    age: 19,
-    status: "Beschikbaar voor selecte projecten via Agevo",
-    eyebrowMatrix: "BRAM VERHOEFF // FULL-STACK ARCHITECT // FOUNDER AGEVO DEV // STUDYELITE",
-    heroHeadlinePart1: "Engineering High-Impact",
-    heroHeadlineHighlight: "Software & AI Platforms.",
-    typewriterPhrases: [
-      "Full-Stack Software Architect & Founder ⚡",
-      "Next.js, TypeScript & Supabase Engineering ⚙️",
-      "AI-Integraties & GoHighLevel Automations 🌐",
-      "Van Concept naar Schaalbaar SaaS-Product 🚀",
-    ],
-    heroStorytellingLead:
-      "Ik bouw geen standaard websites, maar schaalbare webapplicaties, AI-gedreven SaaS-producten en slimme bedrijfsautomatiseringen. Als oprichter van Agevo Development (KVK 42160840), bedenker van StudyElite en HBO-ICT student aan De Haagse Hogeschool combineer ik diepe technische architectuur met direct zakelijk resultaat.",
+    firstName: "Bram",
+    lastName: "Verhoeff",
+    role: "Full-Stack Developer & Founder",
+    status: "Beschikbaar voor selecte projecten",
+    lead: "Ik bouw geen standaard websites, maar schaalbare webapplicaties, AI-gedreven SaaS-producten en slimme bedrijfsautomatiseringen.",
+    rotatingWords: ["webapplicaties", "SaaS-producten", "AI-workflows", "automatiseringen"],
     company: "Agevo Development",
     kvk: "42160840",
+    email: "bramverhoeff@hotmail.com",
     cvFile: "/CV Bram Verhoeff.pdf",
-    location: "Den Haag, Nederland 🇳🇱",
+    location: "Den Haag, NL",
     responseTime: "Binnen 24 uur",
   },
 
   socials: [
-    {
-      name: "LinkedIn",
-      url: "https://nl.linkedin.com/in/bram-verhoeff",
-      icon: "fa-brands fa-linkedin-in",
-      label: "LinkedIn profiel",
-    },
-    {
-      name: "GitHub",
-      url: "https://github.com/bram-verhoeff",
-      icon: "fa-brands fa-github",
-      label: "GitHub profiel",
-    },
-    {
-      name: "Email",
-      url: "mailto:bramverhoeff@hotmail.com",
-      icon: "fa-solid fa-envelope",
-      label: "Stuur een e-mail",
-    },
-    {
-      name: "Website",
-      url: "https://agevodev.nl",
-      icon: "fa-solid fa-globe",
-      label: "Agevo Development Studio",
-    },
+    { name: "LinkedIn", url: "https://nl.linkedin.com/in/bram-verhoeff" },
+    { name: "GitHub", url: "https://github.com/bram-verhoeff" },
+    { name: "Agevo", url: "https://agevodev.nl" },
+    { name: "StudyElite", url: "https://studyelite.nl" },
   ] as SocialLink[],
-
-  contactInfo: [
-    {
-      icon: "fa-solid fa-envelope",
-      label: "Direct E-mail",
-      value: "bramverhoeff@hotmail.com",
-      url: "mailto:bramverhoeff@hotmail.com",
-    },
-    {
-      icon: "fa-solid fa-building",
-      label: "Development Studio (B2B)",
-      value: "agevodev.nl · KVK 42160840",
-      url: "https://agevodev.nl",
-    },
-    {
-      icon: "fa-solid fa-map-pin",
-      label: "Standplaats",
-      value: "Den Haag, Nederland 🇳🇱",
-      url: undefined,
-    },
-    {
-      icon: "fa-solid fa-clock",
-      label: "Gemiddelde Reactietijd",
-      value: "Binnen 24 uur op werkdagen",
-      url: undefined,
-    },
-  ],
 
   projects: [
     {
       id: "studyelite",
-      number: "01 / 02 · FLAGSHIP AI SAAS",
-      badge: "Live AI SaaS",
-      emoji: "🎓",
+      index: "01",
+      kind: "Flagship AI SaaS",
       title: "StudyElite",
-      subtitle: "AI-Gestuurd Studieplatform & Neural Planner",
+      subtitle: "AI-gestuurd studieplatform & neural planner",
       description:
-        "Volwaardig B2C SaaS-platform dat chaotische studiewijzers en syllabi automatisch omzet in hapklare dagtaken. Voorzien van een interactief dashboard, slimme agenda-synchronisatie en gepersonaliseerde AI-studiebegeleiding.",
+        "Volwaardig B2C SaaS-platform dat chaotische studiewijzers en syllabi automatisch omzet in hapklare dagtaken. Met een interactief dashboard, slimme agenda-synchronisatie en gepersonaliseerde AI-studiebegeleiding.",
       tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "OpenAI API", "Freemium SaaS"],
       architecture: [
         {
           layer: "Frontend & UI",
           tech: "Next.js App Router + Tailwind",
-          detail: "High-performance dark UI met realtime taak-updates en mobiele responsiviteit.",
+          detail: "High-performance UI met realtime taak-updates en mobiele responsiviteit.",
         },
         {
           layer: "AI Engine",
           tech: "LLM Task Decomposition",
-          detail: " Splitst complexe toetsstof en PDF-syllabi automatisch op in concrete micro-taken.",
+          detail: "Splitst complexe toetsstof en PDF-syllabi automatisch op in concrete micro-taken.",
         },
         {
           layer: "Backend & Auth",
           tech: "Supabase PostgreSQL + RLS",
-          detail: "Beveiligde gebruikersdata, dynamische categorie-filters en abonnement-beheer.",
+          detail: "Beveiligde gebruikersdata, dynamische filters en abonnementsbeheer.",
         },
       ],
       metrics: [
-        { label: "AI Latency", value: "~140ms" },
+        { label: "AI latency", value: "~140ms" },
         { label: "Uptime", value: "99.9%" },
         { label: "Model", value: "Freemium + Pro" },
       ],
-      statChipIcon: "fa-solid fa-robot",
-      statChipText: "Smart AI Guidance Engine",
       url: "https://studyelite.nl/",
-      linkText: "Open studyelite.nl",
-      span: "col-span-12 lg:col-span-6",
-      isFlagship: true,
+      linkText: "studyelite.nl",
+      tone: "ink",
     },
     {
       id: "agevo",
-      number: "02 / 02 · SOFTWARE STUDIO",
-      badge: "KVK 42160840",
-      emoji: "⚡",
+      index: "02",
+      kind: "Software Studio",
       title: "Agevo Development",
-      subtitle: "High-Impact Web, SaaS & AI Automation Agency",
+      subtitle: "Web, SaaS & AI-automation studio",
       description:
-        "Mijn officiële softwarestudio in Den Haag. Via Agevo help ik ambitieuze MKB-bedrijven en startups met maatwerk webapplicaties, schaalbare SaaS-producten en winstgevende AI- & workflow-automatiseringen.",
-      tags: ["B2B Agency", "Maatwerk SaaS", "AI Automations", "Next.js", "Vercel Edge"],
+        "Mijn officiële softwarestudio in Den Haag. Via Agevo help ik ambitieuze MKB-bedrijven en startups met maatwerk webapplicaties, schaalbare SaaS-producten en winstgevende AI- en workflow-automatiseringen.",
+      tags: ["B2B Studio", "Maatwerk SaaS", "AI Automations", "Next.js", "Vercel Edge"],
       architecture: [
         {
           layer: "Propositie",
-          tech: "End-to-End Product Delivery",
+          tech: "End-to-end product delivery",
           detail: "Van Figma-prototype en database-design tot productie op Vercel.",
         },
         {
           layer: "Automatisering",
-          tech: "Custom API's & Workflows",
+          tech: "Custom API's & workflows",
           detail: "Koppelt CRM-systemen, AI-callbots en lead-funnels naadloos aan elkaar.",
         },
         {
@@ -202,180 +129,142 @@ export const PORTFOLIO_DATA = {
         },
       ],
       metrics: [
-        { label: "KVK Nummer", value: "42160840" },
+        { label: "KVK", value: "42160840" },
         { label: "Regio", value: "Den Haag" },
         { label: "Focus", value: "SaaS & ROI" },
       ],
-      statChipIcon: "fa-solid fa-building",
-      statChipText: "Officiële Studio · KVK 42160840",
       url: "https://agevodev.nl/",
-      linkText: "Bezoek agevodev.nl",
-      span: "col-span-12 lg:col-span-6",
-      isFlagship: false,
+      linkText: "agevodev.nl",
+      tone: "accent",
     },
   ] as Project[],
 
   techMarquee: [
-    { name: "Next.js 15", icon: "fa-solid fa-bolt", color: "#ffffff" },
-    { name: "React 19", icon: "fa-brands fa-react", color: "#38bdf8" },
-    { name: "TypeScript", icon: "fa-solid fa-code", color: "#3178c6" },
-    { name: "Tailwind CSS", icon: "fa-solid fa-wind", color: "#06b6d4" },
-    { name: "Supabase", icon: "fa-solid fa-database", color: "#3ecf8e" },
-    { name: "PHP & Symfony", icon: "fa-brands fa-php", color: "#777bb4" },
-    { name: "Node.js", icon: "fa-brands fa-node-js", color: "#339933" },
-    { name: "OpenAI API", icon: "fa-solid fa-robot", color: "#10b981" },
-    { name: "GoHighLevel", icon: "fa-solid fa-bolt", color: "#ff6b35" },
-    { name: "Java", icon: "fa-brands fa-java", color: "#f89820" },
-    { name: "PostgreSQL & MySQL", icon: "fa-solid fa-database", color: "#4479a1" },
-    { name: "Figma UI/UX", icon: "fa-brands fa-figma", color: "#f24e1e" },
-    { name: "Vercel & DNS", icon: "fa-solid fa-server", color: "#00b4ff" },
-    { name: "Git & GitHub", icon: "fa-brands fa-git-alt", color: "#f05032" },
-    { name: "REST APIs & Webhooks", icon: "fa-solid fa-code-branch", color: "#818cf8" },
+    "Next.js 15",
+    "React 19",
+    "TypeScript",
+    "Tailwind CSS",
+    "Supabase",
+    "PHP & Symfony",
+    "Node.js",
+    "OpenAI API",
+    "GoHighLevel",
+    "Java",
+    "PostgreSQL",
+    "Figma",
+    "Vercel",
+    "REST & Webhooks",
   ],
 
   about: {
-    label: "Het Verhaal & De Reis",
-    title: "Gebouwd op code,\ngedreven door resultaat.",
-    bioParagraph1:
-      "Ik ben Bram Verhoeff, Full-Stack Software Developer en ondernemer uit Den Haag. Wat begon met het uit elkaar halen en begrijpen van digitale systemen, groeide tijdens mijn afgeronde MBO 4 Software Development opleiding en mijn huidige HBO-ICT studie aan De Haagse Hogeschool uit tot het bouwen van complete productie-platformen.",
-    bioParagraph2:
-      "Met mijn eigen softwarestudio Agevo Development (KVK 42160840) en het AI-studieplatform StudyElite laat ik zien dat ik verder kijk dan alleen nette code: software moet schaalbaar zijn, processen versnellen en direct waarde opleveren voor de eindgebruiker.",
+    title: "Gebouwd op code, gedreven door resultaat.",
+    manifesto:
+      "Wat begon met het uit elkaar halen van digitale systemen, groeide via MBO 4 Software Development en mijn HBO-ICT studie aan De Haagse Hogeschool uit tot het bouwen van complete productieplatformen. Met Agevo Development en StudyElite laat ik zien dat ik verder kijk dan nette code: software moet schalen, processen versnellen en direct waarde opleveren.",
     stats: [
-      {
-        icon: "fa-solid fa-rocket",
-        value: "4",
-        target: 4,
-        label: "Eigen Ventures & Platforms",
-      },
-      {
-        icon: "fa-solid fa-clock",
-        value: "1000+",
-        target: 1000,
-        label: "Uur praktijkervaring in AI & GHL",
-      },
-      {
-        icon: "fa-solid fa-building",
-        value: "42160840",
-        label: "KVK — Agevo Development",
-      },
-      {
-        icon: "fa-solid fa-bolt",
-        value: "< 24u",
-        label: "Persoonlijke reactietijd",
-      },
+      { value: 4, display: "4", label: "Eigen ventures & platforms" },
+      { value: 1000, display: "1000+", suffix: "+", label: "Uur praktijk in AI & GHL" },
+      { value: 24, display: "<24u", prefix: "<", suffix: "u", label: "Persoonlijke reactietijd" },
+      { value: null, display: "42160840", label: "KVK Agevo Development" },
     ] as StatItem[],
   },
 
   timeline: [
     {
-      period: "2026 — Heden",
-      role: "Founder & BSc Student",
-      title: "HBO-ICT (De Haagse Hogeschool) & Oprichting Agevo",
+      period: "2026 — nu",
+      role: "Founder & BSc student",
+      title: "HBO-ICT & oprichting Agevo",
       description:
-        "Verbreding op universitair/HBO-niveau in software-architectuur, gecombineerd met de officiële KVK-registratie van mijn studio Agevo Development en de lancering van StudyElite.nl.",
-      highlights: ["Agevo Development (KVK)", "StudyElite.nl Livegang", "HBO-ICT"],
+        "Verbreding op HBO-niveau in software-architectuur aan De Haagse Hogeschool, gecombineerd met de KVK-registratie van Agevo Development en de lancering van StudyElite.nl.",
+      highlights: ["Agevo Development", "StudyElite live", "HBO-ICT"],
     },
     {
       period: "2025 — 2026",
-      role: "Software & Automation Intern (1.000 uur)",
-      title: "Full-Stack, AI Call Bots & GoHighLevel Specialist",
+      role: "Software & automation intern",
+      title: "AI-callbots & GoHighLevel",
       description:
-        "Intensieve praktijkstage van 1.000 uur waarin ik verantwoordelijk was voor geavanceerde GoHighLevel-automatiseringen, het configureren van AI-callbots, API-koppelingen en het ontwerpen van converterende UI's in Figma.",
-      highlights: ["GoHighLevel Workflows", "AI Voice & Chat Bots", "Figma UI Design"],
+        "Praktijkstage van 1.000 uur: verantwoordelijk voor geavanceerde GoHighLevel-automatiseringen, AI-callbots, API-koppelingen en converterende UI's in Figma.",
+      highlights: ["GHL workflows", "AI voice & chat", "Figma UI"],
     },
     {
       period: "2023 — 2026",
-      role: "Diploma Behaald (MBO Niveau 4)",
+      role: "Diploma MBO niveau 4",
       title: "Software Developer — ROC Mondriaan",
       description:
-        "Succesvol afgeronde opleiding Software Development in Den Haag. Sterke basis gelegd in Object-Oriented Programming (PHP, Symfony, Java), relationele databases (SQL) en moderne JavaScript/TypeScript frameworks.",
-      highlights: ["MBO 4 Diploma", "Symfony & PHP", "Full-Stack Fundament"],
+        "Afgeronde opleiding Software Development in Den Haag. Sterke basis in OOP (PHP, Symfony, Java), relationele databases en moderne JavaScript/TypeScript frameworks.",
+      highlights: ["MBO 4 diploma", "Symfony & PHP", "Full-stack fundament"],
     },
     {
       period: "2019 — 2023",
-      role: "Voortgezet Onderwijs",
+      role: "Voortgezet onderwijs",
       title: "Segbroek College — Den Haag",
       description:
-        "Middelbare schooltijd in Den Haag waar de eerste stappen in webdevelopment, hardware-tweaking en ondernemerschap zijn gezet.",
-      highlights: ["Den Haag", "Eerste Webprojecten"],
+        "De eerste stappen in webdevelopment, hardware-tweaking en ondernemerschap.",
+      highlights: ["Den Haag", "Eerste webprojecten"],
     },
   ] as TimelineItem[],
 
   skills: [
     {
-      icon: "⚡",
-      title: "Modern Frontend & UI Engineering",
-      badge: "Core Stack",
+      title: "Frontend & UI engineering",
+      badge: "Core stack",
       description:
-        "Het bouwen van razendsnelle, interactieve interfaces met Server/Client component-discipline, vloeiende Framer Motion animaties en pixel-perfecte Tailwind styling.",
+        "Razendsnelle, interactieve interfaces met Server/Client-component discipline, vloeiende Framer Motion animaties en pixel-perfecte Tailwind styling.",
       technologies: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion"],
-      productionProof: "Draait live op StudyElite.nl, Agevodev.nl & dit portfolio.",
+      productionProof: "Live op StudyElite.nl, agevodev.nl en dit portfolio.",
     },
     {
-      icon: "⚙️",
-      title: "Backend Architectuur & API's",
-      badge: "Server-Side",
+      title: "Backend architectuur & API's",
+      badge: "Server-side",
       description:
-        "Ontwerpen van robuuste server-side logica, beveiligde authenticatie-flows, RESTful endpoints en krachtige MVC-architecturen.",
+        "Robuuste server-side logica, beveiligde authenticatie-flows, RESTful endpoints en krachtige MVC-architecturen.",
       technologies: ["Node.js", "PHP 8", "Symfony", "Java", "REST APIs", "Webhooks"],
       productionProof: "Bewezen in maatwerk backends en gekoppelde SaaS-services.",
     },
     {
-      icon: "🤖",
-      title: "AI-Integraties & GHL Automations",
+      title: "AI-integraties & automations",
       badge: "Specialisme",
       description:
-        "Slimme LLM-pijplijnen voor taak-analyse, geautomatiseerde GoHighLevel CRM-workflows, AI-callbots en conversie-funnels die handmatig werk elimineren.",
-      technologies: ["OpenAI API", "GoHighLevel", "AI Call Bots", "Prompt Engineering", "Workflows"],
-      productionProof: "1000+ uur praktijkervaring + kernmotor achter StudyElite.",
+        "LLM-pijplijnen voor taakanalyse, geautomatiseerde GoHighLevel CRM-workflows, AI-callbots en conversie-funnels die handmatig werk elimineren.",
+      technologies: ["OpenAI API", "GoHighLevel", "AI call bots", "Prompt engineering", "Workflows"],
+      productionProof: "1000+ uur praktijkervaring en de kernmotor achter StudyElite.",
     },
     {
-      icon: "🗄️",
-      title: "Database Design & Cloud Ops",
-      badge: "Data & Infra",
+      title: "Database design & cloud ops",
+      badge: "Data & infra",
       description:
-        "Gestructureerd databeheer, realtime synchronisatie, Row-Level Security (RLS) en zero-downtime deployments met custom DNS-configuraties.",
+        "Gestructureerd databeheer, realtime synchronisatie, Row-Level Security en zero-downtime deployments met custom DNS-configuraties.",
       technologies: ["Supabase", "PostgreSQL", "MySQL", "Vercel", "DirectAdmin", "Git"],
-      productionProof: "Realtime agenda- & gebruikersopslag voor StudyElite.",
+      productionProof: "Realtime agenda- en gebruikersopslag voor StudyElite.",
     },
     {
-      icon: "🎨",
-      title: "High-Conversion UI/UX Design",
-      badge: "Product Design",
+      title: "UI/UX & product design",
+      badge: "Design",
       description:
-        "Vertalen van complexe gebruikersreizen naar intuïtieve dark-mode dashboards, Bento-grids en klikbare prototypes voordat de eerste regel code wordt geschreven.",
-      technologies: ["Figma", "Design Systems", "Wireframing", "CRO", "Responsive UX"],
-      productionProof: "Van leeg canvas naar de luxe blauw/goud UI van StudyElite.",
+        "Complexe gebruikersreizen vertalen naar intuïtieve dashboards en klikbare prototypes, voordat de eerste regel code wordt geschreven.",
+      technologies: ["Figma", "Design systems", "Wireframing", "CRO", "Responsive UX"],
+      productionProof: "Van leeg canvas naar de volledige UI van StudyElite.",
     },
     {
-      icon: "🚀",
-      title: "SaaS & Tech Ondernemerschap",
-      badge: "Founder Mindset",
+      title: "SaaS & ondernemerschap",
+      badge: "Founder mindset",
       description:
-        "Ik denk niet als een uitvoerende programmeur, maar als een product-eigenaar: focus op snelle MVP-lanceringen, freemium-conversie, SEO en zakelijk rendement.",
-      technologies: ["Product Strategy", "SaaS Pricing", "Technical SEO", "KVK Ondernemer"],
+        "Denken als product-eigenaar, niet als uitvoerder: snelle MVP-lanceringen, freemium-conversie, SEO en zakelijk rendement.",
+      technologies: ["Product strategy", "SaaS pricing", "Technical SEO", "KVK ondernemer"],
       productionProof: "Oprichter van Agevo Development (KVK 42160840).",
     },
   ] as SkillItem[],
 
   contact: {
-    label: "Samenwerken",
-    title: "Klaar om iets sterkers\nte bouwen?",
+    title: "Laten we iets sterkers bouwen.",
     description:
-      "Of je nu een compleet SaaS-platform wilt laten ontwikkelen via Agevo, je bedrijfsprocessen wilt automatiseren met AI, of wilt sparren over een technische uitdaging — kies je route hieronder.",
+      "Een compleet SaaS-platform via Agevo, processen automatiseren met AI, of sparren over een technische uitdaging — vertel me waar je aan denkt.",
     projectTypes: [
-      "Maatwerk Webapplicatie / SaaS",
-      "AI-Integratie & GoHighLevel Automation",
-      "High-End Bedrijfswebsite (via Agevo)",
-      "Stage / Werkgever / Recruitment",
-      "Anders / Kennismaken",
+      "Webapplicatie / SaaS",
+      "AI & automation",
+      "Bedrijfswebsite",
+      "Stage / recruitment",
+      "Kennismaken",
     ],
-  },
-
-  footer: {
-    brand: "Bram.",
-    role: "Full-Stack Developer & Founder · Agevo Development (KVK 42160840)",
-    copyright:
-      "© 2026 Bram Verhoeff — Engineered by Agevo Development (KVK: 42160840) — Den Haag, NL.",
+    timelines: ["< 4 weken", "1 – 3 maanden", "Flexibel"],
   },
 };

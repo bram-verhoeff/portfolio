@@ -1,195 +1,175 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, Volume2, VolumeX } from "lucide-react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from "framer-motion";
+import { useIntroDone } from "@/components/providers/IntroProvider";
+import { scrollToId, useLenis } from "@/components/providers/SmoothScroll";
+import { PORTFOLIO_DATA } from "@/data/portfolio";
+import { EASE_EXPO } from "@/lib/motion";
 import { cn } from "@/lib/utils";
-import { soundEngine } from "@/lib/sound";
 
-const NAV_ITEMS = [
-  { label: "Projecten", href: "#projects" },
-  { label: "Over mij", href: "#about" },
-  { label: "Skills", href: "#skills" },
+export const NAV_LINKS = [
+  { id: "work", label: "Werk" },
+  { id: "about", label: "Over" },
+  { id: "journey", label: "Reis" },
+  { id: "skills", label: "Expertise" },
+  { id: "contact", label: "Contact" },
 ];
 
 export function Navbar() {
+  const introDone = useIntroDone();
+  const lenis = useLenis();
+  const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  const [open, setOpen] = useState(false);
+  const { scrollY, scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
+
+  useMotionValueEvent(scrollY, "change", (y) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    setHidden(y > prev && y > 240);
+    setScrolled(y > 16);
+  });
 
   useEffect(() => {
-    setIsMuted(soundEngine.isMuted());
+    if (!lenis) return;
+    if (open) lenis.stop();
+    else lenis.start();
+  }, [open, lenis]);
 
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
-      const sections = ["home", "projects", "about", "skills", "contact"];
-      let current = "home";
-
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 250 && rect.bottom >= 250) {
-            current = sectionId;
-            break;
-          }
-        }
-      }
-
-      setActiveSection(current);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleSoundToggle = () => {
-    const muted = soundEngine.toggleMute();
-    setIsMuted(muted);
-    if (!muted) soundEngine.playClick();
+  const go = (id: string) => {
+    setOpen(false);
+    // Let the menu start closing before Lenis takes over the scroll.
+    setTimeout(() => scrollToId(lenis, id), open ? 300 : 0);
   };
 
   return (
     <>
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[min(94%,1160px)] z-50">
-        <nav
-          className={cn(
-            "h-16 px-5 md:px-8 rounded-full flex items-center justify-between transition-all duration-300",
-            "bg-[#070a10]/80 backdrop-blur-2xl border border-white/12 shadow-[0_15px_35px_rgba(0,0,0,0.6),0_0_25px_rgba(0,180,255,0.12)]",
-            scrolled &&
-              "bg-[#05070c]/95 border-[#00b4ff]/35 shadow-[0_20px_45px_rgba(0,0,0,0.8),0_0_35px_rgba(0,180,255,0.25)] -translate-y-1"
-          )}
-        >
-          {/* Brand Logo */}
+      <motion.div
+        className="fixed inset-x-0 top-0 z-[70] h-px origin-left bg-accent"
+        style={{ scaleX: progress }}
+        aria-hidden="true"
+      />
+
+      <motion.header
+        className={cn(
+          "fixed inset-x-0 top-0 z-[65] border-b pt-[env(safe-area-inset-top)] transition-[background-color,border-color,backdrop-filter] duration-500",
+          scrolled || open ? "border-white/[0.06] bg-canvas/75 backdrop-blur-xl" : "border-transparent",
+        )}
+        initial={{ y: "-100%" }}
+        animate={{ y: introDone && (!hidden || open) ? "0%" : "-100%" }}
+        transition={{ duration: 0.7, ease: EASE_EXPO }}
+      >
+        <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-5 sm:px-8" aria-label="Hoofdnavigatie">
           <a
-            href="#home"
-            onClick={() => soundEngine.playClick()}
-            className="font-display text-2xl font-bold italic tracking-tight text-white group inline-flex items-baseline gap-1"
+            href="#top"
+            onClick={(e) => {
+              e.preventDefault();
+              go("top");
+            }}
+            className="flex items-center gap-2.5 text-[14px] font-medium tracking-tight"
           >
-            Bram
-            <span className="text-[#00b4ff] drop-shadow-[0_0_10px_#00b4ff] group-hover:scale-125 transition-transform">
-              .
-            </span>
+            <span className="grid h-7 w-7 place-items-center rounded-md bg-fg font-mono text-[11px] font-semibold text-canvas">BV</span>
+            Bram Verhoeff
           </a>
 
-          {/* Desktop Capsule Menu */}
-          <ul className="hidden md:flex items-center gap-1 list-none bg-white/[0.04] p-1 rounded-full border border-white/10">
-            {NAV_ITEMS.map((item) => {
-              const isActive = activeSection === item.href.slice(1);
-              return (
-                <li key={item.href} className="relative">
-                  <a
-                    href={item.href}
-                    onClick={() => soundEngine.playClick()}
-                    onMouseEnter={() => soundEngine.playHover()}
-                    className={cn(
-                      "relative block px-4 py-1.5 rounded-full text-xs font-semibold transition-colors duration-200 z-10",
-                      isActive
-                        ? "text-black font-bold"
-                        : "text-white/70 hover:text-white hover:bg-white/[0.06]"
-                    )}
-                  >
-                    {item.label}
-                  </a>
-                  {isActive && (
-                    <motion.div
-                      layoutId="activePill"
-                      className="absolute inset-0 bg-[#00b4ff] rounded-full shadow-[0_0_15px_rgba(0,180,255,0.5)] pointer-events-none"
-                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                    />
-                  )}
-                </li>
-              );
-            })}
+          <ul className="hidden items-center gap-1 text-[13px] text-muted md:flex">
+            {NAV_LINKS.slice(0, -1).map((link) => (
+              <li key={link.id}>
+                <a
+                  href={`#${link.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    go(link.id);
+                  }}
+                  className="rounded-md px-3 py-1.5 transition-colors duration-200 hover:bg-white/[0.05] hover:text-fg"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
 
-          {/* Right Action: Sound Toggle + Contact CTA */}
-          <div className="flex items-center gap-3">
-            {/* Audio Synth Toggle with animated visualizer bars */}
-            <button
-              type="button"
-              onClick={handleSoundToggle}
-              className={`p-2 rounded-full border transition-all duration-200 cursor-pointer flex items-center justify-center ${
-                !isMuted
-                  ? "bg-[#00b4ff]/15 border-[#00b4ff]/40 text-[#00b4ff] shadow-[0_0_12px_rgba(0,180,255,0.25)]"
-                  : "bg-white/5 border-white/10 text-white/40 hover:text-white"
-              }`}
-              title={isMuted ? "Audio gedempt (klik om geluid aan te zetten)" : "Synthesizer audio actief"}
-              aria-label="Toggle geluid"
-            >
-              {!isMuted ? (
-                <div className="flex items-center gap-0.5 h-3.5 px-0.5">
-                  <span className="w-0.5 h-3 bg-[#00b4ff] animate-pulse" />
-                  <span className="w-0.5 h-2 bg-[#00b4ff] animate-pulse [animation-delay:0.15s]" />
-                  <span className="w-0.5 h-3.5 bg-[#00b4ff] animate-pulse [animation-delay:0.3s]" />
-                </div>
-              ) : (
-                <VolumeX className="w-4 h-4" />
-              )}
-            </button>
-
-            {/* Contact Button */}
+          <div className="flex items-center gap-2">
             <a
               href="#contact"
-              onClick={() => soundEngine.playClick()}
-              className="relative hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full font-bold text-xs tracking-wider uppercase text-white bg-gradient-to-r from-[#0077b6] to-[#00b4ff] overflow-hidden border border-[#00b4ff]/40 shadow-[0_0_20px_rgba(0,180,255,0.35)] hover:shadow-[0_0_30px_rgba(0,180,255,0.6)] transition-all duration-200 group cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                go("contact");
+              }}
+              className="hidden h-8 items-center rounded-md bg-fg px-3.5 text-[13px] font-medium text-canvas transition-colors duration-200 hover:bg-accent md:inline-flex"
             >
-              <span className="relative z-10">Contact</span>
-              <ArrowRight className="w-3.5 h-3.5 relative z-10 transition-transform group-hover:translate-x-0.5" />
+              Contact
             </a>
-
-            {/* Mobile Toggle */}
             <button
               type="button"
-              onClick={() => {
-                soundEngine.playClick();
-                setMobileOpen(!mobileOpen);
-              }}
-              className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
-              aria-label="Menu openen of sluiten"
+              onClick={() => setOpen((o) => !o)}
+              className="relative grid h-9 w-9 place-items-center rounded-md border border-white/10 md:hidden"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              aria-label={open ? "Menu sluiten" : "Menu openen"}
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <span className="relative block h-2.5 w-4">
+                <motion.span
+                  className="absolute left-0 top-0 h-px w-full bg-fg"
+                  animate={open ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
+                />
+                <motion.span
+                  className="absolute bottom-0 left-0 h-px w-full bg-fg"
+                  animate={open ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
+                />
+              </span>
             </button>
           </div>
         </nav>
-      </header>
+      </motion.header>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
-        {mobileOpen && (
+        {open && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-24 left-1/2 -translate-x-1/2 w-[min(94%,1160px)] bg-[#070a10]/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl p-4 flex flex-col gap-1 z-40 md:hidden"
+            id="mobile-menu"
+            className="fixed inset-0 z-[64] flex flex-col justify-between bg-canvas px-5 pb-[max(env(safe-area-inset-bottom),2rem)] pt-24 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => {
-                  soundEngine.playClick();
-                  setMobileOpen(false);
-                }}
-                className="px-4 py-3 rounded-xl font-semibold text-white/80 hover:text-white hover:bg-white/[0.06] transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={() => {
-                soundEngine.playClick();
-                setMobileOpen(false);
-              }}
-              className="px-4 py-3 rounded-xl font-semibold text-black bg-[#00b4ff] shadow-[0_0_15px_#00b4ff] transition-colors text-center mt-2 font-bold"
-            >
-              Contact opnemen
-            </a>
+            <ul className="divide-y divide-white/[0.06] border-y border-white/[0.06]">
+              {NAV_LINKS.map((link, i) => (
+                <motion.li
+                  key={link.id}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: EASE_EXPO, delay: 0.05 + i * 0.04 }}
+                >
+                  <a
+                    href={`#${link.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      go(link.id);
+                    }}
+                    className="flex items-center justify-between py-4 text-2xl font-medium tracking-tight"
+                  >
+                    {link.label}
+                    <span className="font-mono text-xs text-subtle">0{i + 1}</span>
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-muted">
+              {PORTFOLIO_DATA.socials.map((s) => (
+                <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer">
+                  {s.name} ↗
+                </a>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

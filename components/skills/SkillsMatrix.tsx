@@ -1,95 +1,132 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { TiltCard } from "@/components/ui/TiltCard";
-import { BorderBeam } from "@/components/ui/BorderBeam";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { FadeUp, SectionLabel, SectionTitle } from "@/components/motion/Reveal";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
-import { soundEngine } from "@/lib/sound";
-import { Sparkles, Cpu } from "lucide-react";
+import { EASE_EXPO } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
 export function SkillsMatrix() {
   const { skills } = PORTFOLIO_DATA;
-
-  // Authentic proficiency ratings for Bram's actual skills
-  const proficiencyMap: Record<string, number> = {
-    "Frontend Development": 96,
-    "Backend Development": 94,
-    "Database Development": 90,
-    "UI/UX Design": 88,
-    "Go High Level Automations": 98,
-    Ondernemerschap: 95,
-  };
+  const [open, setOpen] = useState<number | null>(0);
+  const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section id="skills" className="py-24 px-6 max-w-7xl mx-auto relative z-10">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-12"
-      >
-        <SectionHeader
-          label="Skills"
-          title="Wat ik kan"
-          description="Van frontend tot backend, van design tot deployment — ik heb de tools in huis om high-impact software te engineeren."
-          dark
-        />
-      </motion.div>
+    <section id="skills" className="mx-auto max-w-6xl px-5 py-28 sm:px-8 sm:py-36">
+      <div className="mb-12 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+        <div>
+          <SectionLabel index="04">Expertise</SectionLabel>
+          <SectionTitle first="Wat ik meebreng." second="Zes disciplines, één doel." />
+        </div>
+        <FadeUp delay={0.2} className="max-w-xs text-[15px] leading-relaxed text-muted">
+          Software die schaalt en direct waarde oplevert. Elke vaardigheid draait in productie.
+        </FadeUp>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      <ul
+        className="overflow-hidden rounded-2xl border border-white/[0.08] bg-surface"
+        onPointerLeave={() => setHovered(null)}
       >
-        {skills.map((skill) => {
-          const level = proficiencyMap[skill.title] || 90;
-
+        {skills.map((skill, i) => {
+          const isOpen = open === i;
           return (
-            <TiltCard
+            <motion.li
               key={skill.title}
-              className="p-7 bg-gradient-to-b from-[#0e131d] to-[#080b11] border border-white/10 shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_25px_rgba(0,180,255,0.08)] flex flex-col justify-between hover:border-[#00b4ff]/60 hover:shadow-[0_20px_45px_rgba(0,180,255,0.22)] transition-all duration-300 relative overflow-hidden"
-              maxTilt={5}
+              className="relative border-b border-white/[0.06] last:border-b-0"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-5% 0px" }}
+              transition={{ duration: 0.8, ease: EASE_EXPO, delay: i * 0.04 }}
+              onPointerEnter={() => setHovered(i)}
             >
-              <BorderBeam size={150} />
-
-              <div onMouseEnter={() => soundEngine.playHover()}>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl sm:text-4xl shrink-0 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
-                    {skill.icon}
-                  </span>
-                  <span className="text-xs font-mono font-bold text-[#7dd3fc] bg-white/[0.05] px-2.5 py-1 rounded-full border border-white/10">
-                    {level}% Mastery
-                  </span>
-                </div>
-
-                <h3 className="font-semibold text-lg sm:text-xl text-white mb-2 tracking-tight">
+              {hovered === i && (
+                <motion.div
+                  layoutId="skill-hover"
+                  className="absolute inset-0 bg-white/[0.025]"
+                  transition={{ type: "spring", stiffness: 380, damping: 34 }}
+                  aria-hidden="true"
+                />
+              )}
+              <button
+                type="button"
+                onClick={() => setOpen(isOpen ? null : i)}
+                aria-expanded={isOpen}
+                aria-controls={`skill-panel-${i}`}
+                className="relative grid w-full grid-cols-[2rem_1fr_auto] items-center gap-4 px-5 py-5 text-left sm:grid-cols-[3rem_1fr_auto_auto] sm:px-7"
+              >
+                <span className="font-mono text-[12px] text-subtle">0{i + 1}</span>
+                <span
+                  className={cn(
+                    "text-[clamp(1.05rem,1.8vw,1.35rem)] font-medium tracking-[-0.015em] transition-colors duration-300",
+                    isOpen ? "text-fg" : "text-fg/80",
+                  )}
+                >
                   {skill.title}
-                </h3>
-                <p className="text-white/65 text-xs sm:text-sm leading-relaxed mb-6 font-sans">
-                  {skill.description}
-                </p>
-              </div>
+                </span>
+                <span className="hidden rounded-full border border-white/10 px-2.5 py-0.5 text-[12px] text-muted sm:inline">
+                  {skill.badge}
+                </span>
+                <span
+                  className={cn(
+                    "grid h-7 w-7 place-items-center rounded-md border transition-colors duration-300",
+                    isOpen ? "border-accent bg-accent text-accent-fg" : "border-white/10 text-muted",
+                  )}
+                  aria-hidden="true"
+                >
+                  <motion.svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    animate={{ rotate: isOpen ? 45 : 0 }}
+                    transition={{ duration: 0.4, ease: EASE_EXPO }}
+                  >
+                    <path d="M6 0v12M0 6h12" stroke="currentColor" strokeWidth="1.5" />
+                  </motion.svg>
+                </span>
+              </button>
 
-              {/* Glowing Proficiency Bar */}
-              <div>
-                <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+              <AnimatePresence initial={false}>
+                {isOpen && (
                   <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="h-full bg-gradient-to-r from-[#0077b6] to-[#00b4ff] rounded-full shadow-[0_0_10px_#00b4ff]"
-                  />
-                </div>
-              </div>
-            </TiltCard>
+                    id={`skill-panel-${i}`}
+                    className="relative overflow-hidden"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.6, ease: EASE_EXPO }}
+                  >
+                    <div className="grid gap-6 px-5 pb-7 sm:grid-cols-[3rem_1fr_1fr] sm:gap-8 sm:px-7">
+                      <span className="hidden sm:block" />
+                      <p className="max-w-lg text-[15px] leading-relaxed text-muted">{skill.description}</p>
+                      <div>
+                        <ul className="flex flex-wrap gap-1.5">
+                          {skill.technologies.map((tech, t) => (
+                            <motion.li
+                              key={tech}
+                              className="rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[12px] text-fg"
+                              initial={{ opacity: 0, y: 6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.45, ease: EASE_EXPO, delay: 0.08 + t * 0.035 }}
+                            >
+                              {tech}
+                            </motion.li>
+                          ))}
+                        </ul>
+                        <p className="mt-4 flex gap-2 text-[13px] leading-relaxed text-muted">
+                          <span className="text-accent">↳</span>
+                          {skill.productionProof}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.li>
           );
         })}
-      </motion.div>
+      </ul>
     </section>
   );
 }
